@@ -75,7 +75,7 @@ bool CGUIWindowSettingsScreenCalibration::OnAction(const CAction &action)
     {
       CGUIDialogYesNo* pDialog = (CGUIDialogYesNo*)g_windowManager.GetWindow(WINDOW_DIALOG_YES_NO);
       pDialog->SetHeading(20325);
-      CStdString strText = StringUtils::Format(g_localizeStrings.Get(20326).c_str(), g_graphicsContext.GetResInfo(m_Res[m_iCurRes]).strMode.c_str());
+      std::string strText = StringUtils::Format(g_localizeStrings.Get(20326).c_str(), g_graphicsContext.GetResInfo(m_Res[m_iCurRes]).strMode.c_str());
       pDialog->SetLine(0, strText);
       pDialog->SetLine(1, 20327);
       pDialog->SetChoice(0, 222);
@@ -219,7 +219,7 @@ unsigned int CGUIWindowSettingsScreenCalibration::FindCurrentResolution()
 
 void CGUIWindowSettingsScreenCalibration::NextControl()
 { // set the old control invisible and not focused, and choose the next control
-  CGUIControl *pControl = (CGUIControl *)GetControl(m_iControl);
+  CGUIControl *pControl = GetControl(m_iControl);
   if (pControl)
   {
     pControl->SetVisible(false);
@@ -249,7 +249,7 @@ void CGUIWindowSettingsScreenCalibration::ResetControls()
   // disable the UI calibration for our controls
   // and set their limits
   // also, set them to invisible if they don't have focus
-  CGUIMoverControl *pControl = (CGUIMoverControl*)GetControl(CONTROL_TOP_LEFT);
+  CGUIMoverControl *pControl = dynamic_cast<CGUIMoverControl*>(GetControl(CONTROL_TOP_LEFT));
   RESOLUTION_INFO info = g_graphicsContext.GetResInfo(m_Res[m_iCurRes]);
   if (pControl)
   {
@@ -262,7 +262,7 @@ void CGUIWindowSettingsScreenCalibration::ResetControls()
     pControl->SetLocation(info.Overscan.left,
                           info.Overscan.top, false);
   }
-  pControl = (CGUIMoverControl*)GetControl(CONTROL_BOTTOM_RIGHT);
+  pControl = dynamic_cast<CGUIMoverControl*>(GetControl(CONTROL_BOTTOM_RIGHT));
   if (pControl)
   {
     pControl->SetLimits(info.iWidth*3 / 4,
@@ -275,7 +275,7 @@ void CGUIWindowSettingsScreenCalibration::ResetControls()
                           info.Overscan.bottom, false);
   }
   // Subtitles and OSD controls can only move up and down
-  pControl = (CGUIMoverControl*)GetControl(CONTROL_SUBTITLES);
+  pControl = dynamic_cast<CGUIMoverControl*>(GetControl(CONTROL_SUBTITLES));
   if (pControl)
   {
     pControl->SetLimits(0, info.iHeight*3 / 4,
@@ -285,7 +285,7 @@ void CGUIWindowSettingsScreenCalibration::ResetControls()
     pControl->SetLocation(0, info.iSubtitles, false);
   }
   // lastly the pixel ratio control...
-  CGUIResizeControl *pResize = (CGUIResizeControl*)GetControl(CONTROL_PIXEL_RATIO);
+  CGUIResizeControl *pResize = dynamic_cast<CGUIResizeControl*>(GetControl(CONTROL_PIXEL_RATIO));
   if (pResize)
   {
     pResize->SetLimits(info.iWidth*0.25f, info.iHeight*0.5f,
@@ -301,12 +301,12 @@ void CGUIWindowSettingsScreenCalibration::ResetControls()
 
 void CGUIWindowSettingsScreenCalibration::UpdateFromControl(int iControl)
 {
-  CStdString strStatus;
+  std::string strStatus;
   RESOLUTION_INFO info = g_graphicsContext.GetResInfo(m_Res[m_iCurRes]);
 
   if (iControl == CONTROL_PIXEL_RATIO)
   {
-    CGUIResizeControl *pControl = (CGUIResizeControl*)GetControl(CONTROL_PIXEL_RATIO);
+    CGUIControl *pControl = GetControl(CONTROL_PIXEL_RATIO);
     if (pControl)
     {
       float fWidth = (float)pControl->GetWidth();
@@ -321,7 +321,7 @@ void CGUIWindowSettingsScreenCalibration::UpdateFromControl(int iControl)
   }
   else
   {
-    CGUIMoverControl *pControl = (CGUIMoverControl*)GetControl(iControl);
+    const CGUIMoverControl *pControl = dynamic_cast<const CGUIMoverControl*>(GetControl(iControl));
     if (pControl)
     {
       switch (iControl)
@@ -360,7 +360,7 @@ void CGUIWindowSettingsScreenCalibration::UpdateFromControl(int iControl)
   g_graphicsContext.SetResInfo(m_Res[m_iCurRes], info);
 
   // set the label control correctly
-  CStdString strText;
+  std::string strText;
   if (g_Windowing.IsFullScreen())
     strText = StringUtils::Format("%ix%i@%.2f - %s | %s",
                                   info.iScreenWidth,
@@ -412,7 +412,7 @@ void CGUIWindowSettingsScreenCalibration::DoProcess(unsigned int currentTime, CD
   for (int i = CONTROL_TOP_LEFT; i <= CONTROL_PIXEL_RATIO; i++)
   {
     SET_CONTROL_VISIBLE(i);
-    CGUIControl *control = (CGUIControl *)GetControl(i);
+    CGUIControl *control = GetControl(i);
     if (control)
       control->DoProcess(currentTime, dirtyregions);
   }

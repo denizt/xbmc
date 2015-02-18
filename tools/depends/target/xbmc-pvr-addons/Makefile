@@ -2,8 +2,8 @@ include ../../Makefile.include
 #DEPS= ../../Makefile.include Makefile
 
 LIBNAME=xbmc-pvr-addons
-VERSION=d4cb4d5c0e7fc1a4b9a3b911c3053df178c36944
-GIT_DIR=$(TARBALLS_LOCATION)/$(LIBNAME).git
+VERSION=2fb0fc22668b1efdec05e66161d6c419844ee9cd
+GIT_DIR=$(PREFIX)/gitrepos/$(LIBNAME).git
 BASE_URL=git://github.com/opdenkamp/$(LIBNAME).git
 DYLIB=$(PLATFORM)/addons/pvr.demo/.libs/libpvrdemo-addon.so
 XBMC_ADDONSDIR=../../../../addons
@@ -16,12 +16,15 @@ export GIT_WORK_TREE=$(PLATFORM)
 export MYSQL_CONFIG=$(PREFIX)/bin/mysql_config
 
 # configuration settings
-CONFIGURE=./configure --prefix=$(PREFIX) --enable-addons-with-dependencies
+VERSION.TXT := $(XBMCROOT)/version.txt
+APP_NAME=$(shell awk '/APP_NAME/ {print tolower($$2)}' $(VERSION.TXT))
+CONFIGURE=./configure --prefix=$(PREFIX) --libdir=$(PREFIX)/lib/$(APP_NAME)/addons --datadir=$(PREFIX)/share/$(APP_NAME)/addons --enable-addons-with-dependencies
 
 all: .installed-$(PLATFORM)
 
 $(GIT_DIR)/HEAD:
-	cd $(TARBALLS_LOCATION); git clone --bare $(BASE_URL)
+	mkdir -p $(PREFIX)/gitrepos/
+	cd $(PREFIX)/gitrepos/; git clone --bare $(BASE_URL)
 
 $(GIT_DIR)/current/$(VERSION): $(GIT_DIR)/HEAD $(DEPS)
 	git rev-list -1 $(VERSION) >/dev/null || git fetch origin "+refs/heads/*:refs/remotes/origin/*"

@@ -16,7 +16,7 @@
 				<visible>!Container.Content(LiveTV)</visible>
 				<left>-183</left>
 				<top>0</top>
-				<width>1526</width>
+				<width>1343</width>
 				<height>390</height>
 				<onleft>501</onleft>
 				<onright>501</onright>
@@ -718,9 +718,9 @@
 				<control type="textbox">
 					<description>Description Value The Movie</description>
 					<left>0</left>
-					<top>30</top>
+					<top>32</top>
 					<width>850</width>
-					<height>100</height>
+					<height>98</height>
 					<font>font13</font>
 					<align>justify</align>
 					<textcolor>white</textcolor>
@@ -793,7 +793,7 @@
 						<label>$INFO[ListItem.Label]</label>
 					</control>
 					<control type="label">
-						<left>510</left>
+						<left>10</left>
 						<top>0</top>
 						<width>500</width>
 						<height>40</height>
@@ -811,34 +811,17 @@
 						<top>8</top>
 						<width>40</width>
 						<height>26</height>
-						<texture>$INFO[ListItem.VideoResolution,flagging/lists/,.png]</texture>
-						<visible>Window.IsVisible(Videos) + [Container.Content(Movies) | Container.Content(Episodes) | Container.Content(MusicVideos)]</visible>
-						<visible>!ListItem.IsStereoscopic</visible>
-					</control>
-					<control type="image">
-						<left>515</left>
-						<top>8</top>
-						<width>40</width>
-						<height>26</height>
-						<texture>flagging/lists/3D.png</texture>
-						<visible>Window.IsVisible(Videos) + [Container.Content(Movies) | Container.Content(Episodes) | Container.Content(MusicVideos)]</visible>
-						<visible>ListItem.IsStereoscopic</visible>
+						<texture>$VAR[ResolutionOverlayVar]</texture>
+						<aspectratio>keep</aspectratio>
+						<visible>Container.Content(Movies) | Container.Content(Episodes) | Container.Content(MusicVideos)</visible>
 					</control>
 					<control type="image">
 						<left>555</left>
 						<top>14</top>
 						<width>20</width>
 						<height>16</height>
-						<texture>$INFO[ListItem.Overlay]</texture>
-						<visible>!ListItem.IsResumable</visible>
-					</control>
-					<control type="image">
-						<left>555</left>
-						<top>14</top>
-						<width>16</width>
-						<height>16</height>
-						<texture>OverlayWatching.png</texture>
-						<visible>ListItem.IsResumable</visible>
+						<texture>$VAR[OverlayVar]</texture>
+						<aspectratio align="left">keep</aspectratio>
 					</control>
 				</itemlayout>
 				<focusedlayout height="40" width="580">
@@ -881,7 +864,7 @@
 						<label>$INFO[ListItem.Label]</label>
 					</control>
 					<control type="label">
-						<left>510</left>
+						<left>10</left>
 						<top>0</top>
 						<width>500</width>
 						<height>40</height>
@@ -899,34 +882,17 @@
 						<top>8</top>
 						<width>40</width>
 						<height>26</height>
-						<texture>$INFO[ListItem.VideoResolution,flagging/lists/,.png]</texture>
-						<visible>Window.IsVisible(Videos) + [Container.Content(Movies) | Container.Content(Episodes) | Container.Content(MusicVideos)]</visible>
-						<visible>!ListItem.IsStereoscopic</visible>
-					</control>
-					<control type="image">
-						<left>515</left>
-						<top>8</top>
-						<width>40</width>
-						<height>26</height>
-						<texture>flagging/lists/3D.png</texture>
-						<visible>Window.IsVisible(Videos) + [Container.Content(Movies) | Container.Content(Episodes) | Container.Content(MusicVideos)]</visible>
-						<visible>ListItem.IsStereoscopic</visible>
+						<texture>$VAR[ResolutionOverlayVar]</texture>
+						<aspectratio>keep</aspectratio>
+						<visible>Container.Content(Movies) | Container.Content(Episodes) | Container.Content(MusicVideos)</visible>
 					</control>
 					<control type="image">
 						<left>555</left>
 						<top>14</top>
 						<width>20</width>
 						<height>16</height>
-						<texture>$INFO[ListItem.Overlay]</texture>
-						<visible>!ListItem.IsResumable</visible>
-					</control>
-					<control type="image">
-						<left>555</left>
-						<top>14</top>
-						<width>16</width>
-						<height>16</height>
-						<texture>OverlayWatching.png</texture>
-						<visible>ListItem.IsResumable</visible>
+						<texture>$VAR[OverlayVar]</texture>
+						<aspectratio align="left">keep</aspectratio>
 					</control>
 				</focusedlayout>
 			</control>
@@ -963,7 +929,7 @@
 				</control>
 				<control type="label">
 					<description>Episodes txt</description>
-					<right>150</right>
+					<left>10</left>
 					<top>120</top>
 					<width>140</width>
 					<height>25</height>
@@ -987,7 +953,7 @@
 				</control>
 				<control type="label">
 					<description>Aired txt</description>
-					<right>150</right>
+					<left>10</left>
 					<top>145</top>
 					<width>140</width>
 					<height>25</height>
@@ -1011,7 +977,7 @@
 				</control>
 				<control type="label">
 					<description>Genre txt</description>
-					<right>150</right>
+					<left>10</left>
 					<top>170</top>
 					<width>140</width>
 					<height>25</height>
@@ -1044,9 +1010,9 @@
 				<control type="textbox">
 					<description>Description Value for TVShows</description>
 					<left>10</left>
-					<top>210</top>
+					<top>212</top>
 					<width>510</width>
-					<height>190</height>
+					<height>188</height>
 					<font>font13</font>
 					<align>justify</align>
 					<textcolor>white</textcolor>
@@ -1108,9 +1074,9 @@
 				<control type="textbox">
 					<description>Description Value for TVShows</description>
 					<left>10</left>
-					<top>280</top>
+					<top>282</top>
 					<width>510</width>
-					<height>120</height>
+					<height>118</height>
 					<font>font13</font>
 					<align>justify</align>
 					<textcolor>white</textcolor>
@@ -1136,9 +1102,9 @@
 				<control type="textbox">
 					<description>Description Value for Seasons</description>
 					<left>270</left>
-					<top>0</top>
+					<top>2</top>
 					<width>250</width>
-					<height>355</height>
+					<height>353</height>
 					<font>font13</font>
 					<align>justify</align>
 					<textcolor>white</textcolor>
@@ -1193,9 +1159,9 @@
 				<control type="textbox">
 					<description>Description Value for Movie</description>
 					<left>270</left>
-					<top>0</top>
+					<top>2</top>
 					<width>250</width>
-					<height>355</height>
+					<height>353</height>
 					<font>font13</font>
 					<align>justify</align>
 					<textcolor>white</textcolor>
@@ -1243,7 +1209,7 @@
 						<label>$INFO[ListItem.Label]</label>
 					</control>
 					<control type="label">
-						<left>510</left>
+						<left>10</left>
 						<top>0</top>
 						<width>500</width>
 						<height>40</height>
@@ -1261,34 +1227,17 @@
 						<top>8</top>
 						<width>40</width>
 						<height>26</height>
-						<texture>$INFO[ListItem.VideoResolution,flagging/lists/,.png]</texture>
-						<visible>Window.IsVisible(Videos) + [Container.Content(Movies) | Container.Content(Episodes) | Container.Content(MusicVideos)]</visible>
-						<visible>!ListItem.IsStereoscopic</visible>
-					</control>
-					<control type="image">
-						<left>515</left>
-						<top>8</top>
-						<width>40</width>
-						<height>26</height>
-						<texture>flagging/lists/3D.png</texture>
-						<visible>Window.IsVisible(Videos) + [Container.Content(Movies) | Container.Content(Episodes) | Container.Content(MusicVideos)]</visible>
-						<visible>ListItem.IsStereoscopic</visible>
+						<texture>$VAR[ResolutionOverlayVar]</texture>
+						<aspectratio>keep</aspectratio>
+						<visible>Container.Content(Movies) | Container.Content(Episodes) | Container.Content(MusicVideos)</visible>
 					</control>
 					<control type="image">
 						<left>555</left>
 						<top>14</top>
 						<width>20</width>
 						<height>16</height>
-						<texture>$INFO[ListItem.Overlay]</texture>
-						<visible>!ListItem.IsResumable</visible>
-					</control>
-					<control type="image">
-						<left>555</left>
-						<top>14</top>
-						<width>16</width>
-						<height>16</height>
-						<texture>OverlayWatching.png</texture>
-						<visible>ListItem.IsResumable</visible>
+						<texture>$VAR[OverlayVar]</texture>
+						<aspectratio align="left">keep</aspectratio>
 					</control>
 				</itemlayout>
 				<focusedlayout height="40" width="580">
@@ -1331,7 +1280,7 @@
 						<label>$INFO[ListItem.Label]</label>
 					</control>
 					<control type="label">
-						<left>510</left>
+						<left>10</left>
 						<top>0</top>
 						<width>500</width>
 						<height>40</height>
@@ -1349,34 +1298,17 @@
 						<top>8</top>
 						<width>40</width>
 						<height>26</height>
-						<texture>$INFO[ListItem.VideoResolution,flagging/lists/,.png]</texture>
-						<visible>Window.IsVisible(Videos) + [Container.Content(Movies) | Container.Content(Episodes) | Container.Content(MusicVideos)]</visible>
-						<visible>!ListItem.IsStereoscopic</visible>
-					</control>
-					<control type="image">
-						<left>515</left>
-						<top>8</top>
-						<width>40</width>
-						<height>26</height>
-						<texture>flagging/lists/3D.png</texture>
-						<visible>Window.IsVisible(Videos) + [Container.Content(Movies) | Container.Content(Episodes) | Container.Content(MusicVideos)]</visible>
-						<visible>ListItem.IsStereoscopic</visible>
+						<texture>$VAR[ResolutionOverlayVar]</texture>
+						<aspectratio>keep</aspectratio>
+						<visible>Container.Content(Movies) | Container.Content(Episodes) | Container.Content(MusicVideos)</visible>
 					</control>
 					<control type="image">
 						<left>555</left>
 						<top>14</top>
 						<width>20</width>
 						<height>16</height>
-						<texture>$INFO[ListItem.Overlay]</texture>
-						<visible>!ListItem.IsResumable</visible>
-					</control>
-					<control type="image">
-						<left>555</left>
-						<top>14</top>
-						<width>16</width>
-						<height>16</height>
-						<texture>OverlayWatching.png</texture>
-						<visible>ListItem.IsResumable</visible>
+						<texture>$VAR[OverlayVar]</texture>
+						<aspectratio align="left">keep</aspectratio>
 					</control>
 				</focusedlayout>
 			</control>
@@ -1448,7 +1380,7 @@
 				</control>
 				<control type="label">
 					<description>Year txt</description>
-					<right>150</right>
+					<left>10</left>
 					<top>335</top>
 					<width>140</width>
 					<height>25</height>
@@ -1472,7 +1404,7 @@
 				</control>
 				<control type="label">
 					<description>Genre txt</description>
-					<right>150</right>
+					<left>10</left>
 					<top>360</top>
 					<width>140</width>
 					<height>25</height>
@@ -1505,9 +1437,9 @@
 				<control type="textbox">
 					<description>Description Value for Video</description>
 					<left>10</left>
-					<top>395</top>
+					<top>397</top>
 					<width>490</width>
-					<height>170</height>
+					<height>168</height>
 					<font>font13</font>
 					<align>justify</align>
 					<textcolor>white</textcolor>
@@ -1554,7 +1486,7 @@
 				</control>
 				<control type="label">
 					<description>Aired txt</description>
-					<right>150</right>
+					<left>10</left>
 					<top>335</top>
 					<width>140</width>
 					<height>25</height>
@@ -1578,7 +1510,7 @@
 				</control>
 				<control type="label">
 					<description>Episode txt</description>
-					<right>150</right>
+					<left>10</left>
 					<top>360</top>
 					<width>140</width>
 					<height>25</height>
@@ -1611,9 +1543,9 @@
 				<control type="textbox">
 					<description>Description Value for Video</description>
 					<left>10</left>
-					<top>395</top>
+					<top>397</top>
 					<width>490</width>
-					<height>170</height>
+					<height>168</height>
 					<font>font13</font>
 					<align>justify</align>
 					<textcolor>white</textcolor>
@@ -1666,6 +1598,7 @@
 						<width>20</width>
 						<height>16</height>
 						<texture>$INFO[ListItem.Overlay]</texture>
+						<aspectratio>keep</aspectratio>
 						<visible>!ListItem.IsResumable</visible>
 					</control>
 					<control type="image">
@@ -1714,6 +1647,7 @@
 						<width>20</width>
 						<height>16</height>
 						<texture>$INFO[ListItem.Overlay]</texture>
+						<aspectratio>keep</aspectratio>
 						<visible>!ListItem.IsResumable</visible>
 					</control>
 					<control type="image">
@@ -1770,9 +1704,9 @@
 				<control type="textbox">
 					<description>Description Value for Video</description>
 					<left>10</left>
-					<top>430</top>
+					<top>432</top>
 					<width>540</width>
-					<height>100</height>
+					<height>98</height>
 					<font>font13</font>
 					<align>justify</align>
 					<textcolor>white</textcolor>
@@ -1834,9 +1768,9 @@
 				<control type="textbox">
 					<description>Description Value for Video</description>
 					<left>10</left>
-					<top>430</top>
+					<top>432</top>
 					<width>540</width>
-					<height>145</height>
+					<height>143</height>
 					<font>font13</font>
 					<align>justify</align>
 					<textcolor>white</textcolor>
@@ -1883,9 +1817,9 @@
 				<control type="textbox">
 					<description>Description Value for Video</description>
 					<left>10</left>
-					<top>430</top>
+					<top>432</top>
 					<width>540</width>
-					<height>145</height>
+					<height>143</height>
 					<font>font13</font>
 					<align>justify</align>
 					<textcolor>white</textcolor>
@@ -1932,9 +1866,9 @@
 				<control type="textbox">
 					<description>Description Value for Video</description>
 					<left>10</left>
-					<top>430</top>
+					<top>432</top>
 					<width>400</width>
-					<height>100</height>
+					<height>98</height>
 					<font>font13</font>
 					<align>justify</align>
 					<textcolor>white</textcolor>

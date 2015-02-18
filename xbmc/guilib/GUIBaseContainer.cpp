@@ -32,6 +32,7 @@
 #include "utils/MathUtils.h"
 #include "utils/XBMCTinyXML.h"
 #include "listproviders/IListProvider.h"
+#include "settings/Settings.h"
 
 using namespace std;
 
@@ -58,6 +59,10 @@ CGUIBaseContainer::CGUIBaseContainer(int parentID, int controlID, float posX, fl
   m_scrollItemsPerFrame = 0.0f;
   m_type = VIEW_TYPE_NONE;
   m_listProvider = NULL;
+  m_autoScrollMoveTime = 0;
+  m_autoScrollDelayTime = 0;
+  m_autoScrollIsReversed = false;
+  m_lastRenderTime = 0;
 }
 
 CGUIBaseContainer::~CGUIBaseContainer(void)
@@ -69,13 +74,22 @@ void CGUIBaseContainer::DoProcess(unsigned int currentTime, CDirtyRegionList &di
 {
   CGUIControl::DoProcess(currentTime, dirtyregions);
 
-  if (m_pageChangeTimer.GetElapsedMilliseconds() > 200)
+  if (m_pageChangeTimer.IsRunning() && m_pageChangeTimer.GetElapsedMilliseconds() > 200)
     m_pageChangeTimer.Stop();
   m_wasReset = false;
+
+  // if not visible, we reset the autoscroll timer
+  if (!IsVisible() && m_autoScrollMoveTime)
+  {
+    ResetAutoScrolling();
+  }
 }
 
 void CGUIBaseContainer::Process(unsigned int currentTime, CDirtyRegionList &dirtyregions)
 {
+  // update our auto-scrolling as necessary
+  UpdateAutoScrolling(currentTime);
+
   ValidateOffset();
 
   if (m_bInvalidated)
@@ -130,6 +144,8 @@ void CGUIBaseContainer::Process(unsigned int currentTime, CDirtyRegionList &dirt
   // when we are scrolling up, offset will become lower (integer division, see offset calc)
   // to have same behaviour when scrolling down, we need to set page control to offset+1
   UpdatePageControl(offset + (m_scroller.IsScrollingDown() ? 1 : 0));
+
+  m_lastRenderTime = currentTime;
 
   CGUIControl::Process(currentTime, dirtyregions);
 }
@@ -451,7 +467,8 @@ bool CGUIBaseContainer::OnMessage(CGUIMessage& message)
 
 void CGUIBaseContainer::OnUp()
 {
-  bool wrapAround = m_actionUp.GetNavigation() == GetID() || !m_actionUp.HasActionsMeetingCondition();
+  CGUIAction action = GetNavigateAction(ACTION_MOVE_UP);
+  bool wrapAround = action.GetNavigation() == GetID() || !action.HasActionsMeetingCondition();
   if (m_orientation == VERTICAL && MoveUp(wrapAround))
     return;
   // with horizontal lists it doesn't make much sense to have multiselect labels
@@ -460,7 +477,8 @@ void CGUIBaseContainer::OnUp()
 
 void CGUIBaseContainer::OnDown()
 {
-  bool wrapAround = m_actionDown.GetNavigation() == GetID() || !m_actionDown.HasActionsMeetingCondition();
+  CGUIAction action = GetNavigateAction(ACTION_MOVE_DOWN);
+  bool wrapAround = action.GetNavigation() == GetID() || !action.HasActionsMeetingCondition();
   if (m_orientation == VERTICAL && MoveDown(wrapAround))
     return;
   // with horizontal lists it doesn't make much sense to have multiselect labels
@@ -469,7 +487,8 @@ void CGUIBaseContainer::OnDown()
 
 void CGUIBaseContainer::OnLeft()
 {
-  bool wrapAround = m_actionLeft.GetNavigation() == GetID() || !m_actionLeft.HasActionsMeetingCondition();
+  CGUIAction action = GetNavigateAction(ACTION_MOVE_LEFT);
+  bool wrapAround = action.GetNavigation() == GetID() || !action.HasActionsMeetingCondition();
   if (m_orientation == HORIZONTAL && MoveUp(wrapAround))
     return;
   else if (m_orientation == VERTICAL)
@@ -483,7 +502,8 @@ void CGUIBaseContainer::OnLeft()
 
 void CGUIBaseContainer::OnRight()
 {
-  bool wrapAround = m_actionRight.GetNavigation() == GetID() || !m_actionRight.HasActionsMeetingCondition();
+  CGUIAction action = GetNavigateAction(ACTION_MOVE_RIGHT);
+  bool wrapAround = action.GetNavigation() == GetID() || !action.HasActionsMeetingCondition();
   if (m_orientation == HORIZONTAL && MoveDown(wrapAround))
     return;
   else if (m_orientation == VERTICAL)
@@ -542,7 +562,10 @@ void CGUIBaseContainer::OnJumpLetter(char letter, bool skip /*=false*/)
   do
   {
     CGUIListItemPtr item = m_items[i];
-    if (0 == strnicmp(SortUtils::RemoveArticles(item->GetLabel()).c_str(), m_match.c_str(), m_match.size()))
+    std::string label = item->GetLabel();
+    if (CSettings::Get().GetBool("filelists.ignorethewhensorting"))
+      label = SortUtils::RemoveArticles(label);
+    if (0 == strnicmp(label.c_str(), m_match.c_str(), m_match.size()))
     {
       SelectItem(i);
       return;
@@ -565,7 +588,7 @@ void CGUIBaseContainer::OnJumpSMS(int letter)
   if (letter < 2 || letter > 9 || !m_letterOffsets.size())
     return;
 
-  const CStdString letters = letterMap[letter - 2];
+  const std::string letters = letterMap[letter - 2];
   // find where we currently are
   int offset = CorrectOffset(GetOffset(), GetCursor());
   unsigned int currentLetter = 0;
@@ -573,7 +596,7 @@ void CGUIBaseContainer::OnJumpSMS(int letter)
     currentLetter++;
 
   // now switch to the next letter
-  CStdString current = m_letterOffsets[currentLetter].second;
+  std::string current = m_letterOffsets[currentLetter].second;
   size_t startPos = (letters.find(current) + 1) % letters.size();
   // now jump to letters[startPos], or another one in the same range if possible
   size_t pos = startPos;
@@ -607,6 +630,7 @@ bool CGUIBaseContainer::MoveDown(bool wrapAround)
 // scrolls the said amount
 void CGUIBaseContainer::Scroll(int amount)
 {
+  ResetAutoScrolling();
   ScrollToOffset(GetOffset() + amount);
 }
 
@@ -733,9 +757,9 @@ bool CGUIBaseContainer::OnClick(int actionID)
   return SendWindowMessage(msg);
 }
 
-CStdString CGUIBaseContainer::GetDescription() const
+std::string CGUIBaseContainer::GetDescription() const
 {
-  CStdString strLabel;
+  std::string strLabel;
   int item = GetSelectedItem();
   if (item >= 0 && item < (int)m_items.size())
   {
@@ -784,9 +808,11 @@ void CGUIBaseContainer::AllocResources()
 {
   CGUIControl::AllocResources();
   CalculateLayout();
-  UpdateListProvider(true);
   if (m_listProvider)
+  {
+    UpdateListProvider(true);
     SelectItem(m_listProvider->GetDefaultItem());
+  }
 }
 
 void CGUIBaseContainer::FreeResources(bool immediately)
@@ -794,8 +820,10 @@ void CGUIBaseContainer::FreeResources(bool immediately)
   CGUIControl::FreeResources(immediately);
   if (m_listProvider)
   {
-    Reset();
-    m_listProvider->Reset();
+    if (immediately)
+      Reset();
+
+    m_listProvider->Reset(immediately);
   }
   m_scroller.Stop();
 }
@@ -851,11 +879,11 @@ void CGUIBaseContainer::UpdateVisibility(const CGUIListItem *item)
   UpdateListProvider();
 }
 
-void CGUIBaseContainer::UpdateListProvider(bool refreshItems)
+void CGUIBaseContainer::UpdateListProvider(bool forceRefresh /* = false */)
 {
   if (m_listProvider)
   {
-    if (m_listProvider->Update(refreshItems))
+    if (m_listProvider->Update(forceRefresh))
     {
       // save the current item
       int currentItem = GetSelectedItem();
@@ -911,13 +939,13 @@ void CGUIBaseContainer::UpdateScrollByLetter()
   m_letterOffsets.clear();
 
   // for scrolling by letter we have an offset table into our vector.
-  CStdString currentMatch;
+  std::string currentMatch;
   for (unsigned int i = 0; i < m_items.size(); i++)
   {
     CGUIListItemPtr item = m_items[i];
     // The letter offset jumping is only for ASCII characters at present, and
     // our checks are all done in uppercase
-    CStdString nextLetter;
+    std::string nextLetter;
     std::wstring character = item->GetSortLabel().substr(0, 1);
     StringUtils::ToUpper(character);
     g_charsetConverter.wToUTF8(character, nextLetter);
@@ -974,6 +1002,42 @@ void CGUIBaseContainer::ScrollToOffset(int offset)
   SetOffset(offset);
 }
 
+void CGUIBaseContainer::SetAutoScrolling(const TiXmlNode *node)
+{
+  if (!node) return;
+  const TiXmlElement *scroll = node->FirstChildElement("autoscroll");
+  if (scroll)
+  {
+    scroll->Attribute("time", &m_autoScrollMoveTime);
+    if (scroll->Attribute("reverse"))
+      m_autoScrollIsReversed = true;
+    if (scroll->FirstChild())
+      m_autoScrollCondition = g_infoManager.Register(scroll->FirstChild()->ValueStr(), GetParentID());
+  }
+}
+
+void CGUIBaseContainer::ResetAutoScrolling()
+{
+  m_autoScrollDelayTime = 0;
+}
+
+void CGUIBaseContainer::UpdateAutoScrolling(unsigned int currentTime)
+{
+  if (m_autoScrollCondition && m_autoScrollCondition->Get())
+  {
+    if (m_lastRenderTime)
+      m_autoScrollDelayTime += currentTime - m_lastRenderTime;
+    if (m_autoScrollDelayTime > (unsigned int)m_autoScrollMoveTime && !m_scroller.IsScrolling())
+    { // delay is finished - start moving
+      m_autoScrollDelayTime = 0;
+      // Move up or down whether reversed moving is true or false
+      m_autoScrollIsReversed ? MoveUp(true) : MoveDown(true);
+    }
+  }
+  else
+    ResetAutoScrolling();
+}
+
 void CGUIBaseContainer::SetContainerMoving(int direction)
 {
   if (direction)
@@ -984,7 +1048,7 @@ void CGUIBaseContainer::UpdateScrollOffset(unsigned int currentTime)
 {
   if (m_scroller.Update(currentTime))
     MarkDirtyRegion();
-  else if (m_lastScrollStartTimer.GetElapsedMilliseconds() >= SCROLLING_GAP)
+  else if (m_lastScrollStartTimer.IsRunning() && m_lastScrollStartTimer.GetElapsedMilliseconds() >= SCROLLING_GAP)
   {
     m_scrollTimer.Stop();
     m_lastScrollStartTimer.Stop();
@@ -1001,6 +1065,7 @@ void CGUIBaseContainer::Reset()
   m_wasReset = true;
   m_items.clear();
   m_lastItem.reset();
+  ResetAutoScrolling();
 }
 
 void CGUIBaseContainer::LoadLayout(TiXmlElement *layout)
@@ -1101,7 +1166,9 @@ bool CGUIBaseContainer::GetCondition(int condition, int data) const
       return layout ? (layout->GetFocusedItem() == (unsigned int)data) : false;
     }
   case CONTAINER_SCROLLING:
-    return (m_scrollTimer.GetElapsedMilliseconds() > std::max(m_scroller.GetDuration(), SCROLLING_THRESHOLD) || m_pageChangeTimer.IsRunning());
+    return ((m_scrollTimer.IsRunning() && m_scrollTimer.GetElapsedMilliseconds() > std::max(m_scroller.GetDuration(), SCROLLING_THRESHOLD)) || m_pageChangeTimer.IsRunning());
+  case CONTAINER_ISUPDATING:
+    return (m_listProvider) ? m_listProvider->IsUpdating() : false;
   default:
     return false;
   }
@@ -1144,9 +1211,9 @@ bool CGUIBaseContainer::HasPreviousPage() const
   return false;
 }
 
-CStdString CGUIBaseContainer::GetLabel(int info) const
+std::string CGUIBaseContainer::GetLabel(int info) const
 {
-  CStdString label;
+  std::string label;
   switch (info)
   {
   case CONTAINER_NUM_PAGES:
@@ -1158,10 +1225,18 @@ CStdString CGUIBaseContainer::GetLabel(int info) const
   case CONTAINER_POSITION:
     label = StringUtils::Format("%i", GetCursor());
     break;
+  case CONTAINER_CURRENT_ITEM:
+    {
+      if (m_items.size() && m_items[0]->IsFileItem() && (std::static_pointer_cast<CFileItem>(m_items[0]))->IsParentFolder())
+        label = StringUtils::Format("%i", GetSelectedItem());
+      else
+        label = StringUtils::Format("%i", GetSelectedItem() + 1);
+    }
+    break;
   case CONTAINER_NUM_ITEMS:
     {
       unsigned int numItems = GetNumItems();
-      if (numItems && m_items[0]->IsFileItem() && (boost::static_pointer_cast<CFileItem>(m_items[0]))->IsParentFolder())
+      if (numItems && m_items[0]->IsFileItem() && (std::static_pointer_cast<CFileItem>(m_items[0]))->IsParentFolder())
         label = StringUtils::Format("%u", numItems-1);
       else
         label = StringUtils::Format("%u", numItems);

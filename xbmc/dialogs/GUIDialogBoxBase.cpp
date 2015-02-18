@@ -31,7 +31,7 @@ using namespace std;
 #define CONTROL_TEXTBOX     9
 #define CONTROL_CHOICES_START 10
 
-CGUIDialogBoxBase::CGUIDialogBoxBase(int id, const CStdString &xmlFile)
+CGUIDialogBoxBase::CGUIDialogBoxBase(int id, const std::string &xmlFile)
     : CGUIDialog(id, xmlFile)
 {
   m_bConfirmed = false;
@@ -78,22 +78,19 @@ void CGUIDialogBoxBase::SetLine(unsigned int iLine, const CVariant& line)
 {
   std::string label = GetLocalized(line);
   CSingleLock lock(m_section);
-  vector<string> lines = StringUtils::Split(m_text, "\n");
+  vector<string> lines = StringUtils::Split(m_text, '\n');
   if (iLine >= lines.size())
     lines.resize(iLine+1);
   lines[iLine] = label;
   std::string text = StringUtils::Join(lines, "\n");
-  if (text != m_text)
-  {
-    m_text = StringUtils::Join(lines, "\n");
-    SetInvalid();
-  }
+  SetText(text);
 }
 
 void CGUIDialogBoxBase::SetText(const CVariant& text)
 {
   std::string label = GetLocalized(text);
   CSingleLock lock(m_section);
+  StringUtils::Trim(label, "\n");
   if (label != m_text)
   {
     m_text = label;
@@ -183,7 +180,7 @@ void CGUIDialogBoxBase::OnDeinitWindow(int nextWindowID)
   CGUIDialog::OnDeinitWindow(nextWindowID);
 }
 
-CStdString CGUIDialogBoxBase::GetLocalized(const CVariant &var) const
+std::string CGUIDialogBoxBase::GetLocalized(const CVariant &var) const
 {
   if (var.isString())
     return var.asString();
@@ -192,7 +189,7 @@ CStdString CGUIDialogBoxBase::GetLocalized(const CVariant &var) const
   return "";
 }
 
-CStdString CGUIDialogBoxBase::GetDefaultLabel(int controlId) const
+std::string CGUIDialogBoxBase::GetDefaultLabel(int controlId) const
 {
   int labelId = GetDefaultLabelID(controlId);
   return labelId != -1 ? g_localizeStrings.Get(labelId) : "";

@@ -24,9 +24,10 @@
 #include "XBDateTime.h"
 #include "settings/AdvancedSettings.h"
 #include "utils/CharsetConverter.h"
-#include "utils/StdString.h"
 #include "utils/StringUtils.h"
 #include "utils/Variant.h"
+
+#include <algorithm>
 
 using namespace std;
 
@@ -68,12 +69,12 @@ string ByFile(SortAttribute attributes, const SortItem &values)
 {
   CURL url(values.at(FieldPath).asString());
   
-  return StringUtils::Format("%s %d", url.GetFileNameWithoutPath().c_str(), values.at(FieldStartOffset).asInteger());
+  return StringUtils::Format("%s %" PRId64, url.GetFileNameWithoutPath().c_str(), values.at(FieldStartOffset).asInteger());
 }
 
 string ByPath(SortAttribute attributes, const SortItem &values)
 {
-  return StringUtils::Format("%s %d", values.at(FieldPath).asString().c_str(), values.at(FieldStartOffset).asInteger());
+  return StringUtils::Format("%s %" PRId64, values.at(FieldPath).asString().c_str(), values.at(FieldStartOffset).asInteger());
 }
 
 string ByLastPlayed(SortAttribute attributes, const SortItem &values)
@@ -98,7 +99,7 @@ string ByDateAdded(SortAttribute attributes, const SortItem &values)
 
 string BySize(SortAttribute attributes, const SortItem &values)
 {
-  return StringUtils::Format("%"PRId64, values.at(FieldSize).asInteger());
+  return StringUtils::Format("%" PRId64, values.at(FieldSize).asInteger());
 }
 
 string ByDriveType(SortAttribute attributes, const SortItem &values)
@@ -120,7 +121,7 @@ string ByAlbum(SortAttribute attributes, const SortItem &values)
   if (attributes & SortAttributeIgnoreArticle)
     album = SortUtils::RemoveArticles(album);
 
-  CStdString label = StringUtils::Format("%s %s", album.c_str(), ArrayToString(attributes, values.at(FieldArtist)).c_str());
+  std::string label = StringUtils::Format("%s %s", album.c_str(), ArrayToString(attributes, values.at(FieldArtist)).c_str());
 
   const CVariant &track = values.at(FieldTrackNumber);
   if (!track.isNull())
@@ -136,7 +137,7 @@ string ByAlbumType(SortAttribute attributes, const SortItem &values)
 
 string ByArtist(SortAttribute attributes, const SortItem &values)
 {
-  CStdString label = ArrayToString(attributes, values.at(FieldArtist));
+  std::string label = ArrayToString(attributes, values.at(FieldArtist));
 
   const CVariant &year = values.at(FieldYear);
   if (g_advancedSettings.m_bMusicLibraryAlbumsSortByArtistThenYear &&
@@ -161,7 +162,7 @@ string ByTrackNumber(SortAttribute attributes, const SortItem &values)
 
 string ByTime(SortAttribute attributes, const SortItem &values)
 {
-  CStdString label;
+  std::string label;
   const CVariant &time = values.at(FieldTime);
   if (time.isInteger())
     label = StringUtils::Format("%i", (int)time.asInteger());
@@ -193,12 +194,22 @@ string ByCountry(SortAttribute attributes, const SortItem &values)
 
 string ByYear(SortAttribute attributes, const SortItem &values)
 {
-  CStdString label;
+  std::string label;
   const CVariant &airDate = values.at(FieldAirDate);
-  if (!airDate.isNull())
+  if (!airDate.isNull() && !airDate.asString().empty())
     label = airDate.asString() + " ";
 
-  label += StringUtils::Format("%i %s", (int)values.at(FieldYear).asInteger(), ByLabel(attributes, values).c_str());
+  label += StringUtils::Format("%i", (int)values.at(FieldYear).asInteger());
+
+  const CVariant &album = values.at(FieldAlbum);
+  if (!album.isNull())
+    label += " " + SortUtils::RemoveArticles(album.asString());
+
+  const CVariant &track = values.at(FieldTrackNumber);
+  if (!track.isNull())
+    label += StringUtils::Format(" %i", (int)track.asInteger());
+
+  label += " " + ByLabel(attributes, values);
  
   return label;
 }
@@ -260,12 +271,12 @@ string ByEpisodeNumber(SortAttribute attributes, const SortItem &values)
     num = ((uint64_t)values.at(FieldSeason).asInteger() << 32) + (values.at(FieldEpisodeNumber).asInteger() << 16);
 
   std::string title;
-  if (values.find(FieldMediaType) != values.end() && values.at(FieldMediaType).asInteger() == MediaTypeMovie)
+  if (values.find(FieldMediaType) != values.end() && values.at(FieldMediaType).asString() == MediaTypeMovie)
     title = BySortTitle(attributes, values);
   if (title.empty())
     title = ByLabel(attributes, values);
 
-  return StringUtils::Format("%"PRIu64" %s", num, title.c_str());
+  return StringUtils::Format("%" PRIu64" %s", num, title.c_str());
 }
 
 string BySeason(SortAttribute attributes, const SortItem &values)
@@ -315,7 +326,7 @@ string ByVideoCodec(SortAttribute attributes, const SortItem &values)
 
 string ByVideoAspectRatio(SortAttribute attributes, const SortItem &values)
 {
-  return StringUtils::Format("%f %s", values.at(FieldVideoAspectRatio).asString().c_str(), ByLabel(attributes, values).c_str());
+  return StringUtils::Format("%.03f %s", values.at(FieldVideoAspectRatio).asFloat(), ByLabel(attributes, values).c_str());
 }
 
 string ByAudioChannels(SortAttribute attributes, const SortItem &values)
@@ -340,12 +351,12 @@ string BySubtitleLanguage(SortAttribute attributes, const SortItem &values)
 
 string ByBitrate(SortAttribute attributes, const SortItem &values)
 {
-  return StringUtils::Format("%"PRId64, values.at(FieldBitrate).asInteger());
+  return StringUtils::Format("%" PRId64, values.at(FieldBitrate).asInteger());
 }
 
 string ByListeners(SortAttribute attributes, const SortItem &values)
 {
-  return StringUtils::Format("%i", values.at(FieldListeners).asInteger());;
+  return StringUtils::Format("%" PRId64, values.at(FieldListeners).asInteger());;
 }
 
 string ByRandom(SortAttribute attributes, const SortItem &values)
@@ -356,6 +367,11 @@ string ByRandom(SortAttribute attributes, const SortItem &values)
 string ByChannel(SortAttribute attributes, const SortItem &values)
 {
   return values.at(FieldChannelName).asString();
+}
+
+string ByChannelNumber(SortAttribute attributes, const SortItem &values)
+{
+  return StringUtils::Format("%i", (int)values.at(FieldChannelNumber).asInteger());
 }
 
 string ByDateTaken(SortAttribute attributes, const SortItem &values)
@@ -538,6 +554,7 @@ map<SortBy, SortUtils::SortPreparator> fillPreparators()
   preparators[SortByBitrate]                  = ByBitrate;
   preparators[SortByRandom]                   = ByRandom;
   preparators[SortByChannel]                  = ByChannel;
+  preparators[SortByChannelNumber]            = ByChannelNumber;
   preparators[SortByDateTaken]                = ByDateTaken;
 
   return preparators;
@@ -572,6 +589,8 @@ map<SortBy, Fields> fillSortingFields()
   sortingFields[SortByCountry].insert(FieldCountry);
   sortingFields[SortByYear].insert(FieldYear);
   sortingFields[SortByYear].insert(FieldAirDate);
+  sortingFields[SortByYear].insert(FieldAlbum);
+  sortingFields[SortByYear].insert(FieldTrackNumber);
   sortingFields[SortByRating].insert(FieldRating);
   sortingFields[SortByVotes].insert(FieldVotes);
   sortingFields[SortByTop250].insert(FieldTop250);
@@ -608,6 +627,7 @@ map<SortBy, Fields> fillSortingFields()
   sortingFields[SortByListeners].insert(FieldListeners);
   sortingFields[SortByBitrate].insert(FieldBitrate);
   sortingFields[SortByChannel].insert(FieldChannelName);
+  sortingFields[SortByChannelNumber].insert(FieldChannelNumber);
   sortingFields[SortByDateTaken].insert(FieldDateTaken);
   sortingFields.insert(pair<SortBy, Fields>(SortByRandom, Fields()));
 
@@ -628,16 +648,16 @@ void SortUtils::Sort(SortBy sortBy, SortOrder sortOrder, SortAttribute attribute
       Fields sortingFields = GetFieldsForSorting(sortBy);
 
       // Prepare the string used for sorting and store it under FieldSort
-      for (DatabaseResults::iterator item = items.begin(); item != items.end(); item++)
+      for (DatabaseResults::iterator item = items.begin(); item != items.end(); ++item)
       {
         // add all fields to the item that are required for sorting if they are currently missing
-        for (Fields::const_iterator field = sortingFields.begin(); field != sortingFields.end(); field++)
+        for (Fields::const_iterator field = sortingFields.begin(); field != sortingFields.end(); ++field)
         {
           if (item->find(*field) == item->end())
             item->insert(pair<Field, CVariant>(*field, CVariant::ConstNullVariant));
         }
 
-        CStdStringW sortLabel;
+        std::wstring sortLabel;
         g_charsetConverter.utf8ToW(preparator(attributes, *item), sortLabel, false);
         item->insert(pair<Field, CVariant>(FieldSort, CVariant(sortLabel)));
       }
@@ -667,16 +687,16 @@ void SortUtils::Sort(SortBy sortBy, SortOrder sortOrder, SortAttribute attribute
       Fields sortingFields = GetFieldsForSorting(sortBy);
 
       // Prepare the string used for sorting and store it under FieldSort
-      for (SortItems::iterator item = items.begin(); item != items.end(); item++)
+      for (SortItems::iterator item = items.begin(); item != items.end(); ++item)
       {
         // add all fields to the item that are required for sorting if they are currently missing
-        for (Fields::const_iterator field = sortingFields.begin(); field != sortingFields.end(); field++)
+        for (Fields::const_iterator field = sortingFields.begin(); field != sortingFields.end(); ++field)
         {
           if ((*item)->find(*field) == (*item)->end())
             (*item)->insert(pair<Field, CVariant>(*field, CVariant::ConstNullVariant));
         }
 
-        CStdStringW sortLabel;
+        std::wstring sortLabel;
         g_charsetConverter.utf8ToW(preparator(attributes, **item), sortLabel, false);
         (*item)->insert(pair<Field, CVariant>(FieldSort, CVariant(sortLabel)));
       }
@@ -705,7 +725,7 @@ void SortUtils::Sort(const SortDescription &sortDescription, SortItems& items)
   Sort(sortDescription.sortBy, sortDescription.sortOrder, sortDescription.sortAttributes, items, sortDescription.limitEnd, sortDescription.limitStart);
 }
 
-bool SortUtils::SortFromDataset(const SortDescription &sortDescription, MediaType mediaType, const std::auto_ptr<dbiplus::Dataset> &dataset, DatabaseResults &results)
+bool SortUtils::SortFromDataset(const SortDescription &sortDescription, const MediaType &mediaType, const std::unique_ptr<dbiplus::Dataset> &dataset, DatabaseResults &results)
 {
   FieldList fields;
   if (!DatabaseUtils::GetSelectFields(SortUtils::GetFieldsForSorting(sortDescription.sortBy), mediaType, fields))
@@ -819,6 +839,7 @@ const sort_map table[] = {
   { SortByPlaycount,                SORT_METHOD_PLAYCOUNT,                    SortAttributeIgnoreFolders, 567 },
   { SortByListeners,                SORT_METHOD_LISTENERS,                    SortAttributeNone,          20455 },
   { SortByChannel,                  SORT_METHOD_CHANNEL,                      SortAttributeNone,          19029 },
+  { SortByChannel,                  SORT_METHOD_CHANNEL_NUMBER,               SortAttributeNone,          549 },
   { SortByDateTaken,                SORT_METHOD_DATE_TAKEN,                   SortAttributeIgnoreFolders, 577 },
   { SortByNone,                     SORT_METHOD_NONE,                         SortAttributeNone,          16018 },
   // the following have no corresponding SORT_METHOD_*

@@ -109,9 +109,9 @@
 						<texture border="5">MenuItemNF.png</texture>
 					</control>
 					<control type="label">
-						<left>250</left>
+						<left>10</left>
 						<top>15</top>
-						<width>380</width>
+						<width>240</width>
 						<height>25</height>
 						<font>font24_title</font>
 						<textcolor>grey3</textcolor>
@@ -120,9 +120,9 @@
 						<label>$INFO[ListItem.Label]</label>
 					</control>
 					<control type="label">
-						<left>250</left>
+						<left>10</left>
 						<top>42</top>
-						<width>870</width>
+						<width>240</width>
 						<height>25</height>
 						<font>font13</font>
 						<textcolor>grey2</textcolor>
@@ -141,9 +141,9 @@
 						<animation effect="fade" start="100" end="30" time="100" condition="!Control.HasFocus(9000)">Conditional</animation>
 					</control>
 					<control type="label">
-						<left>250</left>
+						<left>10</left>
 						<top>15</top>
-						<width>380</width>
+						<width>240</width>
 						<height>25</height>
 						<font>font24_title</font>
 						<textcolor>white</textcolor>
@@ -152,9 +152,9 @@
 						<label>$INFO[ListItem.Label]</label>
 					</control>
 					<control type="label">
-						<left>250</left>
+						<left>10</left>
 						<top>42</top>
-						<width>870</width>
+						<width>240</width>
 						<height>25</height>
 						<font>font13</font>
 						<textcolor>grey2</textcolor>
@@ -196,20 +196,19 @@
 			<control type="image">
 				<left>268</left>
 				<top>10</top>
-				<width>804</width>
-				<height>100</height>
-				<aspectratio>stretch</aspectratio>
-				<texture>GlassTitleBar.png</texture>
+				<width>790</width>
+				<height>52</height>
+				<texture>dialogheader.png</texture>
 			</control>
 			<control type="label">
 				<description>header label</description>
 				<left>300</left>
 				<top>20</top>
-				<width>740</width>
+				<width>726</width>
 				<height>30</height>
 				<font>font16</font>
 				<label>$LOCALIZE[20077] - $INFO[Container(9000).ListItem.Label]</label>
-				<align>left</align>
+				<align>center</align>
 				<aligny>center</aligny>
 				<textcolor>white</textcolor>
 				<shadowcolor>black</shadowcolor>

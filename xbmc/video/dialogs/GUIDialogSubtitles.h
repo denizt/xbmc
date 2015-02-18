@@ -2,7 +2,7 @@
 
 /*
  *      Copyright (C) 2005-2013 Team XBMC
- *      http://www.xbmc.org
+ *      http://xbmc.org
  *
  *  This Program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -24,6 +24,12 @@
 #include "guilib/GUIDialog.h"
 #include "threads/CriticalSection.h"
 #include "utils/JobManager.h"
+
+enum SUBTITLE_STORAGEMODE
+{
+  SUBTITLE_STORAGEMODE_MOVIEPATH = 0,
+  SUBTITLE_STORAGEMODE_CUSTOMPATH
+};
 
 class CFileItem;
 class CFileItemList;
@@ -49,7 +55,7 @@ protected:
   enum STATUS { NO_SERVICES = 0, SEARCHING, SEARCH_COMPLETE, DOWNLOADING };
   void UpdateStatus(STATUS status);
 
-  void Search();
+  void Search(const std::string &search="");
   void OnSearchComplete(const CFileItemList *items);
 
   void Download(const CFileItem &subtitle);
@@ -57,11 +63,13 @@ protected:
 
   void SetSubtitles(const std::string &subtitle);
 
-  CCriticalSection m_section;
+  CCriticalSection m_critsection;
   CFileItemList* m_subtitles;
   CFileItemList* m_serviceItems;
   std::string    m_currentService;
   std::string    m_status;
+  std::string     m_strManualSearch;
   bool           m_pausedOnRun;
   bool           m_updateSubsList; ///< true if we need to update our subs list
+  std::string     m_LastAutoDownloaded; ///< Last video file path which automatically downloaded subtitle
 };

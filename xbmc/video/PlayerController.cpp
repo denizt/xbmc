@@ -19,7 +19,7 @@
  */
 
 #include "PlayerController.h"
-#include "utils/StdString.h"
+#include "dialogs/GUIDialogSlider.h"
 #include "settings/AdvancedSettings.h"
 #include "settings/DisplaySettings.h"
 #include "settings/MediaSettings.h"
@@ -62,13 +62,13 @@ bool CPlayerController::OnAction(const CAction &action)
         if (g_application.m_pPlayer->GetSubtitleCount() == 0)
           return true;
 
-        CMediaSettings::Get().GetCurrentVideoSettings().m_SubtitleOn = !CMediaSettings::Get().GetCurrentVideoSettings().m_SubtitleOn;
-        g_application.m_pPlayer->SetSubtitleVisible(CMediaSettings::Get().GetCurrentVideoSettings().m_SubtitleOn);
-        CStdString sub, lang;
-        if (CMediaSettings::Get().GetCurrentVideoSettings().m_SubtitleOn)
+        bool subsOn = !g_application.m_pPlayer->GetSubtitleVisible();
+        g_application.m_pPlayer->SetSubtitleVisible(subsOn);
+        std::string sub, lang;
+        if (subsOn)
         {
           SPlayerSubtitleStreamInfo info;
-          g_application.m_pPlayer->GetSubtitleStreamInfo(CMediaSettings::Get().GetCurrentVideoSettings().m_SubtitleStream, info);
+          g_application.m_pPlayer->GetSubtitleStreamInfo(g_application.m_pPlayer->GetSubtitle(), info);
           if (!g_LangCodeExpander.Lookup(lang, info.language))
             lang = g_localizeStrings.Get(13205); // Unknown
 
@@ -85,35 +85,37 @@ bool CPlayerController::OnAction(const CAction &action)
       }
 
       case ACTION_NEXT_SUBTITLE:
+      case ACTION_CYCLE_SUBTITLE:
       {
         if (g_application.m_pPlayer->GetSubtitleCount() == 0)
           return true;
 
-        if(CMediaSettings::Get().GetCurrentVideoSettings().m_SubtitleStream < 0)
-          CMediaSettings::Get().GetCurrentVideoSettings().m_SubtitleStream = g_application.m_pPlayer->GetSubtitle();
+        int currentSub = g_application.m_pPlayer->GetSubtitle();
+        bool currentSubVisible = true;
 
-        if (CMediaSettings::Get().GetCurrentVideoSettings().m_SubtitleOn)
+        if (g_application.m_pPlayer->GetSubtitleVisible())
         {
-          CMediaSettings::Get().GetCurrentVideoSettings().m_SubtitleStream++;
-          if (CMediaSettings::Get().GetCurrentVideoSettings().m_SubtitleStream >= g_application.m_pPlayer->GetSubtitleCount())
+          if (++currentSub >= g_application.m_pPlayer->GetSubtitleCount())
           {
-            CMediaSettings::Get().GetCurrentVideoSettings().m_SubtitleStream = 0;
-            CMediaSettings::Get().GetCurrentVideoSettings().m_SubtitleOn = false;
-            g_application.m_pPlayer->SetSubtitleVisible(false);
+            currentSub = 0;
+            if (action.GetID() == ACTION_NEXT_SUBTITLE)
+            {
+              g_application.m_pPlayer->SetSubtitleVisible(false);
+              currentSubVisible = false;
+            }
           }
-          g_application.m_pPlayer->SetSubtitle(CMediaSettings::Get().GetCurrentVideoSettings().m_SubtitleStream);
+          g_application.m_pPlayer->SetSubtitle(currentSub);
         }
-        else
+        else if (action.GetID() == ACTION_NEXT_SUBTITLE)
         {
-          CMediaSettings::Get().GetCurrentVideoSettings().m_SubtitleOn = true;
           g_application.m_pPlayer->SetSubtitleVisible(true);
         }
 
-        CStdString sub, lang;
-        if (CMediaSettings::Get().GetCurrentVideoSettings().m_SubtitleOn)
+        std::string sub, lang;
+        if (currentSubVisible)
         {
           SPlayerSubtitleStreamInfo info;
-          g_application.m_pPlayer->GetSubtitleStreamInfo(CMediaSettings::Get().GetCurrentVideoSettings().m_SubtitleStream, info);
+          g_application.m_pPlayer->GetSubtitleStreamInfo(currentSub, info);
           if (!g_LangCodeExpander.Lookup(lang, info.language))
             lang = g_localizeStrings.Get(13205); // Unknown
 
@@ -201,17 +203,15 @@ bool CPlayerController::OnAction(const CAction &action)
         if (g_application.m_pPlayer->GetAudioStreamCount() == 1)
           return true;
 
-        if(CMediaSettings::Get().GetCurrentVideoSettings().m_AudioStream < 0)
-          CMediaSettings::Get().GetCurrentVideoSettings().m_AudioStream = g_application.m_pPlayer->GetAudioStream();
+        int currentAudio = g_application.m_pPlayer->GetAudioStream();
 
-        CMediaSettings::Get().GetCurrentVideoSettings().m_AudioStream++;
-        if (CMediaSettings::Get().GetCurrentVideoSettings().m_AudioStream >= g_application.m_pPlayer->GetAudioStreamCount())
-          CMediaSettings::Get().GetCurrentVideoSettings().m_AudioStream = 0;
-        g_application.m_pPlayer->SetAudioStream(CMediaSettings::Get().GetCurrentVideoSettings().m_AudioStream);    // Set the audio stream to the one selected
-        CStdString aud;
-        CStdString lan;
+        if (++currentAudio >= g_application.m_pPlayer->GetAudioStreamCount())
+          currentAudio = 0;
+        g_application.m_pPlayer->SetAudioStream(currentAudio);    // Set the audio stream to the one selected
+        std::string aud;
+        std::string lan;
         SPlayerAudioStreamInfo info;
-        g_application.m_pPlayer->GetAudioStreamInfo(CMediaSettings::Get().GetCurrentVideoSettings().m_AudioStream, info);
+        g_application.m_pPlayer->GetAudioStreamInfo(currentAudio, info);
         if (!g_LangCodeExpander.Lookup(lan, info.language))
           lan = g_localizeStrings.Get(13205); // Unknown
         if (info.name.empty())
@@ -418,11 +418,11 @@ void CPlayerController::OnSliderChange(void *data, CGUISliderControl *slider)
       m_sliderAction == ACTION_VSHIFT_UP || m_sliderAction == ACTION_VSHIFT_DOWN ||
       m_sliderAction == ACTION_SUBTITLE_VSHIFT_UP || m_sliderAction == ACTION_SUBTITLE_VSHIFT_DOWN)
   {
-    CStdString strValue = StringUtils::Format("%1.2f",slider->GetFloatValue());
+    std::string strValue = StringUtils::Format("%1.2f",slider->GetFloatValue());
     slider->SetTextValue(strValue);
   }
   else if (m_sliderAction == ACTION_VOLAMP_UP || m_sliderAction == ACTION_VOLAMP_DOWN)
-    slider->SetTextValue(CGUIDialogAudioSubtitleSettings::FormatDecibel(slider->GetFloatValue(), 1.0f));
+    slider->SetTextValue(CGUIDialogAudioSubtitleSettings::FormatDecibel(slider->GetFloatValue()));
   else
     slider->SetTextValue(CGUIDialogAudioSubtitleSettings::FormatDelay(slider->GetFloatValue(), 0.025f));
 

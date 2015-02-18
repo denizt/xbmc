@@ -32,11 +32,11 @@ CTextureInfo::CTextureInfo()
   useLarge = false;
 }
 
-CTextureInfo::CTextureInfo(const CStdString &file)
+CTextureInfo::CTextureInfo(const std::string &file):
+  filename(file)
 {
   orientation = 0;
   useLarge = false;
-  filename = file;
 }
 
 CTextureInfo& CTextureInfo::operator=(const CTextureInfo &right)
@@ -462,10 +462,10 @@ void CGUITextureBase::FreeResources(bool immediately /* = false */)
   if (m_isAllocated == LARGE || m_isAllocated == LARGE_FAILED)
     g_largeTextureManager.ReleaseImage(m_info.filename, immediately || (m_isAllocated == LARGE_FAILED));
   else if (m_isAllocated == NORMAL && m_texture.size())
-    g_TextureManager.ReleaseTexture(m_info.filename);
+    g_TextureManager.ReleaseTexture(m_info.filename, immediately);
 
   if (m_diffuse.size())
-    g_TextureManager.ReleaseTexture(m_info.diffuse);
+    g_TextureManager.ReleaseTexture(m_info.diffuse, immediately);
   m_diffuse.Reset();
 
   m_texture.Reset();
@@ -646,9 +646,9 @@ bool CGUITextureBase::SetAspectRatio(const CAspectRatio &aspect)
     return false;
 }
 
-bool CGUITextureBase::SetFileName(const CStdString& filename)
+bool CGUITextureBase::SetFileName(const std::string& filename)
 {
-  if (m_info.filename.Equals(filename)) return false;
+  if (m_info.filename == filename) return false;
   // Don't completely free resources here - we may be just changing
   // filenames mid-animation
   FreeResources();

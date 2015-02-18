@@ -145,7 +145,7 @@
 						<info>ListItem.Label</info>
 					</control>
 					<control type="label">
-						<left>530</left>
+						<left>330</left>
 						<top>5</top>
 						<width>200</width>
 						<height>24</height>
@@ -195,7 +195,7 @@
 						<info>ListItem.Label</info>
 					</control>
 					<control type="label">
-						<left>530</left>
+						<left>330</left>
 						<top>5</top>
 						<width>200</width>
 						<height>24</height>
@@ -246,7 +246,7 @@
 			</control>
 			<control type="label">
 				<description>header label</description>
-				<right>580</right>
+				<left>110</left>
 				<top>30</top>
 				<width>470</width>
 				<height>30</height>
@@ -259,7 +259,7 @@
 			</control>
 			<control type="label" id="102">
 				<description>current directory text label</description>
-				<right>580</right>
+				<left>110</left>
 				<top>70</top>
 				<width>470</width>
 				<height>30</height>
@@ -319,7 +319,7 @@
 						<info>ListItem.Label</info>
 					</control>
 					<control type="label">
-						<left>530</left>
+						<left>330</left>
 						<top>5</top>
 						<width>200</width>
 						<height>24</height>
@@ -369,7 +369,7 @@
 						<info>ListItem.Label</info>
 					</control>
 					<control type="label">
-						<left>530</left>
+						<left>330</left>
 						<top>5</top>
 						<width>200</width>
 						<height>24</height>
@@ -397,7 +397,7 @@
 		</control>
 		<control type="label">
 			<description>number of files/pages in left list text label</description>
-			<right>40r</right>
+			<right>40</right>
 			<top>53r</top>
 			<width>570</width>
 			<font>font12</font>

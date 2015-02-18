@@ -23,7 +23,6 @@
 #include "TagLoaderTagLib.h"
 #include "MusicInfoTagLoaderCDDA.h"
 #include "MusicInfoTagLoaderShn.h"
-#include "MusicInfoTagLoaderWav.h"
 #ifdef HAS_MOD_PLAYER
 #include "cores/ModPlayer.h"
 #endif
@@ -49,7 +48,7 @@ CMusicInfoTagLoaderFactory::CMusicInfoTagLoaderFactory()
 CMusicInfoTagLoaderFactory::~CMusicInfoTagLoaderFactory()
 {}
 
-IMusicInfoTagLoader* CMusicInfoTagLoaderFactory::CreateLoader(const CStdString& strFileName)
+IMusicInfoTagLoader* CMusicInfoTagLoaderFactory::CreateLoader(const std::string& strFileName)
 {
   // dont try to read the tags for streams & shoutcast
   CFileItem item(strFileName, false);
@@ -59,7 +58,7 @@ IMusicInfoTagLoader* CMusicInfoTagLoaderFactory::CreateLoader(const CStdString& 
   if (item.IsMusicDb())
     return new CMusicInfoTagLoaderDatabase();
 
-  CStdString strExtension = URIUtils::GetExtension(strFileName);
+  std::string strExtension = URIUtils::GetExtension(strFileName);
   StringUtils::ToLower(strExtension);
   StringUtils::TrimLeft(strExtension, ".");
 
@@ -74,6 +73,8 @@ IMusicInfoTagLoader* CMusicInfoTagLoaderFactory::CreateLoader(const CStdString& 
       strExtension == "m4a" || strExtension == "mp4" ||
       strExtension == "mpc" || strExtension == "mpp" || strExtension == "mp+" ||
       strExtension == "ogg" || strExtension == "oga" || strExtension == "oggstream" ||
+      strExtension == "aif" || strExtension == "aiff" ||
+      strExtension == "wav" ||
 #ifdef HAS_MOD_PLAYER
       ModPlayer::IsSupportedFormat(strExtension) ||
       strExtension == "mod" || strExtension == "nsf" || strExtension == "nsfstream" ||
@@ -94,11 +95,6 @@ IMusicInfoTagLoader* CMusicInfoTagLoaderFactory::CreateLoader(const CStdString& 
   else if (strExtension == "shn")
   {
     CMusicInfoTagLoaderSHN *pTagLoader = new CMusicInfoTagLoaderSHN();
-    return (IMusicInfoTagLoader*)pTagLoader;
-  }
-  else if (strExtension == "wav")
-  {
-    CMusicInfoTagLoaderWAV *pTagLoader = new CMusicInfoTagLoaderWAV();
     return (IMusicInfoTagLoader*)pTagLoader;
   }
   else if (strExtension == "spc")

@@ -135,9 +135,9 @@
 						<scrolltime>200</scrolltime>
 						<itemlayout height="30">
 							<control type="label">
-								<left>140</left>
+								<left>0</left>
 								<top>0</top>
-								<width>160</width>
+								<width>140</width>
 								<height>30</height>
 								<font>font13</font>
 								<align>right</align>
@@ -170,9 +170,9 @@
 								<include>VisibleFadeEffect</include>
 							</control>
 							<control type="label">
-								<left>140</left>
+								<left>0</left>
 								<top>0</top>
-								<width>160</width>
+								<width>140</width>
 								<height>30</height>
 								<font>font13</font>
 								<align>right</align>
@@ -288,7 +288,7 @@
 						<scrolltime>200</scrolltime>
 						<itemlayout height="30">
 							<control type="label">
-								<left>165</left>
+								<left>5</left>
 								<top>0</top>
 								<width>160</width>
 								<height>30</height>
@@ -323,7 +323,7 @@
 								<include>VisibleFadeEffect</include>
 							</control>
 							<control type="label">
-								<left>165</left>
+								<left>5</left>
 								<top>0</top>
 								<width>160</width>
 								<height>30</height>
@@ -414,7 +414,7 @@
 					</control>
 				</control>
 				<control type="label">
-					<right>130r</right>
+					<right>130</right>
 					<top>480</top>
 					<width>400</width>
 					<height>30</height>
@@ -428,7 +428,7 @@
 					<visible>Control.IsVisible(4)</visible>
 				</control>
 				<control type="label">
-					<right>130r</right>
+					<right>130</right>
 					<top>480</top>
 					<width>400</width>
 					<height>30</height>
@@ -442,7 +442,7 @@
 					<visible>Control.IsVisible(50) + Container.Content(Albums)</visible>
 				</control>
 				<control type="label">
-					<right>130r</right>
+					<right>130</right>
 					<top>480</top>
 					<width>400</width>
 					<height>30</height>
@@ -471,9 +471,9 @@
 				<control type="textbox" id="4">
 					<description>Description</description>
 					<left>210</left>
-					<top>515</top>
+					<top>517</top>
 					<width>1030</width>
-					<height>124</height>
+					<height>122</height>
 					<font>font13</font>
 					<align>justify</align>
 					<textcolor>white</textcolor>
@@ -524,7 +524,7 @@
 							<label>([COLOR=selected][B]$INFO[ListItem.TrackNumber][/B][/COLOR]) - $INFO[ListItem.Label]</label>
 						</control>
 						<control type="label">
-							<left>420</left>
+							<left>220</left>
 							<top>0</top>
 							<width>200</width>
 							<height>40</height>
@@ -564,7 +564,7 @@
 							<label>([COLOR=selected][B]$INFO[ListItem.TrackNumber][/B][/COLOR]) - $INFO[ListItem.Label]</label>
 						</control>
 						<control type="label">
-							<left>420</left>
+							<left>220</left>
 							<top>0</top>
 							<width>200</width>
 							<height>40</height>

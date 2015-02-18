@@ -23,6 +23,7 @@
 #include "XBMCApp.h"
 #include "guilib/Key.h"
 #include "windowing/WinEvents.h"
+#include "android/jni/KeyCharacterMap.h"
 
 
 typedef struct {
@@ -120,8 +121,8 @@ static KeyMap keyMap[] = {
   { AKEYCODE_MEDIA_STOP      , XBMCK_MEDIA_STOP },
   { AKEYCODE_MEDIA_NEXT      , XBMCK_MEDIA_NEXT_TRACK },
   { AKEYCODE_MEDIA_PREVIOUS  , XBMCK_MEDIA_PREV_TRACK },
-  { AKEYCODE_MEDIA_REWIND    , XBMCK_REWIND },
-  { AKEYCODE_MEDIA_FAST_FORWARD , XBMCK_FASTFORWARD },
+  { AKEYCODE_MEDIA_REWIND    , XBMCK_MEDIA_REWIND },
+  { AKEYCODE_MEDIA_FAST_FORWARD , XBMCK_MEDIA_FASTFORWARD },
   { AKEYCODE_MUTE            , XBMCK_VOLUME_MUTE },
   { AKEYCODE_PAGE_UP         , XBMCK_PAGEUP },
   { AKEYCODE_PAGE_DOWN       , XBMCK_PAGEDOWN },
@@ -149,9 +150,18 @@ static KeyMap keyMap[] = {
   { AKEYCODE_CAPS_LOCK       , XBMCK_CAPSLOCK },
   { AKEYCODE_SCROLL_LOCK     , XBMCK_SCROLLOCK },
   { AKEYCODE_INSERT          , XBMCK_INSERT },
-  { AKEYCODE_FORWARD         , XBMCK_FASTFORWARD },
+  { AKEYCODE_FORWARD         , XBMCK_MEDIA_FASTFORWARD },
   { AKEYCODE_MEDIA_PLAY      , XBMCK_MEDIA_PLAY_PAUSE },
+  { AKEYCODE_MEDIA_PAUSE     , XBMCK_MEDIA_PLAY_PAUSE },
+  { AKEYCODE_MEDIA_RECORD    , XBMCK_RECORD },
   { AKEYCODE_MEDIA_EJECT     , XBMCK_EJECT },
+  { AKEYCODE_GUIDE           , XBMCK_GUIDE },
+  { AKEYCODE_SETTINGS        , XBMCK_SETTINGS },
+  { AKEYCODE_INFO            , XBMCK_INFO },
+  { AKEYCODE_PROG_RED        , XBMCK_RED },
+  { AKEYCODE_PROG_GREEN      , XBMCK_GREEN },
+  { AKEYCODE_PROG_YELLOW     , XBMCK_YELLOW },
+  { AKEYCODE_PROG_BLUE       , XBMCK_BLUE },
 };
 
 bool CAndroidKey::onKeyboardEvent(AInputEvent *event)
@@ -164,6 +174,10 @@ bool CAndroidKey::onKeyboardEvent(AInputEvent *event)
   int32_t action  = AKeyEvent_getAction(event);
   int32_t repeat  = AKeyEvent_getRepeatCount(event);
   int32_t keycode = AKeyEvent_getKeyCode(event);
+
+  int32_t deviceId = AInputEvent_getDeviceId(event);
+  CJNIKeyCharacterMap map = CJNIKeyCharacterMap::load(deviceId);
+  uint16_t unicode = map.get(keycode, state);
 
   // Check if we got some special key
   uint16_t sym = XBMCK_UNKNOWN;
@@ -189,6 +203,10 @@ bool CAndroidKey::onKeyboardEvent(AInputEvent *event)
     modifiers |= XBMCKMOD_LSHIFT;
   if (state & AMETA_SHIFT_RIGHT_ON)
     modifiers |= XBMCKMOD_RSHIFT;
+  if (state & AMETA_CTRL_LEFT_ON)
+    modifiers |= XBMCKMOD_LCTRL;
+  if (state & AMETA_CTRL_RIGHT_ON)
+    modifiers |= XBMCKMOD_RCTRL;
   /* TODO:
   if (state & AMETA_SYM_ON)
     modifiers |= 0x000?;*/
@@ -203,7 +221,7 @@ bool CAndroidKey::onKeyboardEvent(AInputEvent *event)
         (state & AMETA_SHIFT_ON) ? "yes" : "no",
         (state & AMETA_SYM_ON) ? "yes" : "no");
 #endif
-      XBMC_Key((uint8_t)keycode, sym, modifiers, false);
+      XBMC_Key((uint8_t)keycode, sym, modifiers, unicode, false);
       return true;
 
     case AKEY_EVENT_ACTION_UP:
@@ -214,7 +232,7 @@ bool CAndroidKey::onKeyboardEvent(AInputEvent *event)
         (state & AMETA_SHIFT_ON) ? "yes" : "no",
         (state & AMETA_SYM_ON) ? "yes" : "no");
 #endif
-      XBMC_Key((uint8_t)keycode, sym, modifiers, true);
+      XBMC_Key((uint8_t)keycode, sym, modifiers, unicode, true);
       return true;
 
     case AKEY_EVENT_ACTION_MULTIPLE:
@@ -241,7 +259,7 @@ bool CAndroidKey::onKeyboardEvent(AInputEvent *event)
   return false;
 }
 
-void CAndroidKey::XBMC_Key(uint8_t code, uint16_t key, uint16_t modifiers, bool up)
+void CAndroidKey::XBMC_Key(uint8_t code, uint16_t key, uint16_t modifiers, uint16_t unicode, bool up)
 {
   XBMC_Event newEvent;
   memset(&newEvent, 0, sizeof(newEvent));
@@ -251,7 +269,7 @@ void CAndroidKey::XBMC_Key(uint8_t code, uint16_t key, uint16_t modifiers, bool 
   newEvent.key.type = type;
   newEvent.key.keysym.scancode = code;
   newEvent.key.keysym.sym = (XBMCKey)key;
-  newEvent.key.keysym.unicode = key;
+  newEvent.key.keysym.unicode = unicode;
   newEvent.key.keysym.mod = (XBMCMod)modifiers;
 
   //CXBMCApp::android_printf("XBMC_Key(%u, %u, 0x%04X, %d)", code, key, modifiers, up);

@@ -26,9 +26,9 @@
 #include "dialogs/GUIDialogKaiToast.h"
 #include "filesystem/File.h"
 #include "filesystem/PluginDirectory.h"
-#include "pvr/PVRManager.h"
 #include "settings/Settings.h"
 #include "utils/log.h"
+#include "utils/JobManager.h"
 #include "utils/StringUtils.h"
 #include "utils/URIUtils.h"
 #include "utils/XBMCTinyXML.h"
@@ -71,11 +71,11 @@ CRepository::CRepository(const cp_extension_t *ext)
           DirInfo dir;
           dir.version    = min_version;
           dir.checksum   = CAddonMgr::Get().GetExtValue(&ext->configuration->children[i], "checksum");
-          dir.compressed = CAddonMgr::Get().GetExtValue(&ext->configuration->children[i], "info@compressed").Equals("true");
+          dir.compressed = CAddonMgr::Get().GetExtValue(&ext->configuration->children[i], "info@compressed") == "true";
           dir.info       = CAddonMgr::Get().GetExtValue(&ext->configuration->children[i], "info");
           dir.datadir    = CAddonMgr::Get().GetExtValue(&ext->configuration->children[i], "datadir");
-          dir.zipped     = CAddonMgr::Get().GetExtValue(&ext->configuration->children[i], "datadir@zip").Equals("true");
-          dir.hashes     = CAddonMgr::Get().GetExtValue(&ext->configuration->children[i], "hashes").Equals("true");
+          dir.zipped     = CAddonMgr::Get().GetExtValue(&ext->configuration->children[i], "datadir@zip") == "true";
+          dir.hashes     = CAddonMgr::Get().GetExtValue(&ext->configuration->children[i], "hashes") == "true";
           m_dirs.push_back(dir);
         }
       }
@@ -85,35 +85,23 @@ CRepository::CRepository(const cp_extension_t *ext)
     {
       DirInfo info;
       info.checksum   = CAddonMgr::Get().GetExtValue(ext->configuration, "checksum");
-      info.compressed = CAddonMgr::Get().GetExtValue(ext->configuration, "info@compressed").Equals("true");
+      info.compressed = CAddonMgr::Get().GetExtValue(ext->configuration, "info@compressed") == "true";
       info.info       = CAddonMgr::Get().GetExtValue(ext->configuration, "info");
       info.datadir    = CAddonMgr::Get().GetExtValue(ext->configuration, "datadir");
-      info.zipped     = CAddonMgr::Get().GetExtValue(ext->configuration, "datadir@zip").Equals("true");
-      info.hashes     = CAddonMgr::Get().GetExtValue(ext->configuration, "hashes").Equals("true");
+      info.zipped     = CAddonMgr::Get().GetExtValue(ext->configuration, "datadir@zip") == "true";
+      info.hashes     = CAddonMgr::Get().GetExtValue(ext->configuration, "hashes") == "true";
       m_dirs.push_back(info);
     }
   }
 }
 
 CRepository::CRepository(const CRepository &rhs)
-  : CAddon(rhs)
+  : CAddon(rhs), m_dirs(rhs.m_dirs)
 {
-  m_dirs = rhs.m_dirs;
 }
 
 CRepository::~CRepository()
 {
-}
-
-string CRepository::Checksum() const
-{
-  string result;
-  for (DirList::const_iterator it  = m_dirs.begin(); it != m_dirs.end(); ++it)
-  {
-    if (!it->checksum.empty())
-      result += FetchChecksum(it->checksum);
-  }
-  return result;
 }
 
 string CRepository::FetchChecksum(const string& url)
@@ -145,7 +133,7 @@ string CRepository::GetAddonHash(const AddonPtr& addon) const
   string checksum;
   DirList::const_iterator it;
   for (it = m_dirs.begin();it != m_dirs.end(); ++it)
-    if (it->datadir == addon->Path())
+    if (URIUtils::IsInPath(addon->Path(), it->datadir))
       break;
   if (it != m_dirs.end() && it->hashes)
   {
@@ -163,11 +151,8 @@ string CRepository::GetAddonHash(const AddonPtr& addon) const
        x = y; \
   }
 
-VECADDONS CRepository::Parse(const DirInfo& dir)
+bool CRepository::Parse(const DirInfo& dir, VECADDONS &result)
 {
-  VECADDONS result;
-  CXBMCTinyXML doc;
-
   string file = dir.info;
   if (dir.compressed)
   {
@@ -179,18 +164,19 @@ VECADDONS CRepository::Parse(const DirInfo& dir)
     file = url.Get();
   }
 
-  if (doc.LoadFile(file) && doc.RootElement())
+  CXBMCTinyXML doc;
+  if (doc.LoadFile(file) && doc.RootElement() &&
+      CAddonMgr::Get().AddonsFromRepoXML(doc.RootElement(), result))
   {
-    CAddonMgr::Get().AddonsFromRepoXML(doc.RootElement(), result);
     for (IVECADDONS i = result.begin(); i != result.end(); ++i)
     {
       AddonPtr addon = *i;
       if (dir.zipped)
       {
-        string file = StringUtils::Format("%s/%s-%s.zip", addon->ID().c_str(), addon->ID().c_str(), addon->Version().c_str());
+        string file = StringUtils::Format("%s/%s-%s.zip", addon->ID().c_str(), addon->ID().c_str(), addon->Version().asString().c_str());
         addon->Props().path = URIUtils::AddFileToFolder(dir.datadir,file);
         SET_IF_NOT_EMPTY(addon->Props().icon,URIUtils::AddFileToFolder(dir.datadir,addon->ID()+"/icon.png"))
-        file = StringUtils::Format("%s/changelog-%s.txt", addon->ID().c_str(), addon->Version().c_str());
+        file = StringUtils::Format("%s/changelog-%s.txt", addon->ID().c_str(), addon->Version().asString().c_str());
         SET_IF_NOT_EMPTY(addon->Props().changelog,URIUtils::AddFileToFolder(dir.datadir,file))
         SET_IF_NOT_EMPTY(addon->Props().fanart,URIUtils::AddFileToFolder(dir.datadir,addon->ID()+"/fanart.jpg"))
       }
@@ -202,9 +188,24 @@ VECADDONS CRepository::Parse(const DirInfo& dir)
         SET_IF_NOT_EMPTY(addon->Props().fanart,URIUtils::AddFileToFolder(dir.datadir,addon->ID()+"/fanart.jpg"))
       }
     }
+    return true;
   }
+  return false;
+}
 
-  return result;
+void CRepository::OnPostInstall(bool restart, bool update)
+{
+  VECADDONS addons;
+  AddonPtr repo(new CRepository(*this));
+  addons.push_back(repo);
+  CJobManager::GetInstance().AddJob(new CRepositoryUpdateJob(addons), &CAddonInstaller::Get());
+}
+
+void CRepository::OnPostUnInstall()
+{
+  CAddonDatabase database;
+  database.Open();
+  database.DeleteRepository(ID());
 }
 
 CRepositoryUpdateJob::CRepositoryUpdateJob(const VECADDONS &repos)
@@ -212,138 +213,183 @@ CRepositoryUpdateJob::CRepositoryUpdateJob(const VECADDONS &repos)
 {
 }
 
+void MergeAddons(map<string, AddonPtr> &addons, const VECADDONS &new_addons)
+{
+  for (VECADDONS::const_iterator it = new_addons.begin(); it != new_addons.end(); ++it)
+  {
+    map<string, AddonPtr>::iterator existing = addons.find((*it)->ID());
+    if (existing != addons.end())
+    { // already got it - replace if we have a newer version
+      if (existing->second->Version() < (*it)->Version())
+        existing->second = *it;
+    }
+    else
+      addons.insert(make_pair((*it)->ID(), *it));
+  }
+}
+
 bool CRepositoryUpdateJob::DoWork()
 {
-  VECADDONS addons;
+  map<string, AddonPtr> addons;
   for (VECADDONS::const_iterator i = m_repos.begin(); i != m_repos.end(); ++i)
   {
-    RepositoryPtr repo = boost::dynamic_pointer_cast<CRepository>(*i);
-    VECADDONS newAddons = GrabAddons(repo);
-    addons.insert(addons.end(), newAddons.begin(), newAddons.end());
+    if (ShouldCancel(0, 0))
+      return false;
+    const RepositoryPtr repo = std::dynamic_pointer_cast<CRepository>(*i);
+    VECADDONS newAddons;
+    if (GrabAddons(repo, newAddons))
+      MergeAddons(addons, newAddons);
   }
   if (addons.empty())
-    return false;
+    return true; //Nothing to do
 
   // check for updates
   CAddonDatabase database;
   database.Open();
-  
+  database.BeginMultipleExecute();
+
   CTextureDatabase textureDB;
   textureDB.Open();
-  for (unsigned int i=0;i<addons.size();++i)
+  textureDB.BeginMultipleExecute();
+  VECADDONS notifications;
+  for (map<string, AddonPtr>::const_iterator i = addons.begin(); i != addons.end(); ++i)
   {
     // manager told us to feck off
     if (ShouldCancel(0,0))
       break;
 
-    bool deps_met = CAddonInstaller::Get().CheckDependencies(addons[i]);
-    if (!deps_met && addons[i]->Props().broken.empty())
-      addons[i]->Props().broken = "DEPSNOTMET";
+    AddonPtr newAddon = i->second;
+    bool deps_met = CAddonInstaller::Get().CheckDependencies(newAddon, &database);
+    if (!deps_met && newAddon->Props().broken.empty())
+      newAddon->Props().broken = "DEPSNOTMET";
 
     // invalidate the art associated with this item
-    if (!addons[i]->Props().fanart.empty())
-      textureDB.InvalidateCachedTexture(addons[i]->Props().fanart);
-    if (!addons[i]->Props().icon.empty())
-      textureDB.InvalidateCachedTexture(addons[i]->Props().icon);
+    if (!newAddon->Props().fanart.empty())
+      textureDB.InvalidateCachedTexture(newAddon->Props().fanart);
+    if (!newAddon->Props().icon.empty())
+      textureDB.InvalidateCachedTexture(newAddon->Props().icon);
 
     AddonPtr addon;
-    CAddonMgr::Get().GetAddon(addons[i]->ID(),addon);
-    if (addon && addons[i]->Version() > addon->Version() &&
-        !database.IsAddonBlacklisted(addons[i]->ID(),addons[i]->Version().c_str()) &&
+    CAddonMgr::Get().GetAddon(newAddon->ID(),addon);
+    if (addon && newAddon->Version() > addon->Version() &&
+        !database.IsAddonBlacklisted(newAddon->ID(),newAddon->Version().asString()) &&
         deps_met)
     {
-      if (CSettings::Get().GetBool("general.addonautoupdate") || addon->Type() >= ADDON_VIZ_LIBRARY)
+      if (CSettings::Get().GetInt("general.addonupdates") == AUTO_UPDATES_ON)
       {
         string referer;
-        if (URIUtils::IsInternetStream(addons[i]->Path()))
-          referer = StringUtils::Format("Referer=%s-%s.zip",addon->ID().c_str(),addon->Version().c_str());
+        if (URIUtils::IsInternetStream(newAddon->Path()))
+          referer = StringUtils::Format("Referer=%s-%s.zip",addon->ID().c_str(),addon->Version().asString().c_str());
 
-        if (addons[i]->Type() == ADDON_PVRDLL &&
-            !PVR::CPVRManager::Get().InstallAddonAllowed(addons[i]->ID()))
-          PVR::CPVRManager::Get().MarkAsOutdated(addon->ID(), referer);
-        else
+        if (newAddon->CanInstall(referer))
           CAddonInstaller::Get().Install(addon->ID(), true, referer);
       }
-      else if (CSettings::Get().GetBool("general.addonnotifications"))
-      {
-        CGUIDialogKaiToast::QueueNotification(addon->Icon(),
-                                              g_localizeStrings.Get(24061),
-                                              addon->Name(),TOAST_DISPLAY_TIME,false,TOAST_DISPLAY_TIME);
-      }
+      else
+        notifications.push_back(addon);
     }
-    if (!addons[i]->Props().broken.empty())
+
+    // Check if we should mark the add-on as broken.  We may have a newer version
+    // of this add-on in the database or installed - if so, we keep it unbroken.
+    bool haveNewer = (addon && addon->Version() > newAddon->Version()) ||
+                     database.GetAddonVersion(newAddon->ID()) > newAddon->Version();
+    if (!haveNewer)
     {
-      if (database.IsAddonBroken(addons[i]->ID()).empty())
+      if (!newAddon->Props().broken.empty())
       {
-        std::string line = g_localizeStrings.Get(24096);
-        if (addons[i]->Props().broken == "DEPSNOTMET")
-          line = g_localizeStrings.Get(24104);
-        if (addon && CGUIDialogYesNo::ShowAndGetInput(addons[i]->Name(),
-                                             line,
-                                             g_localizeStrings.Get(24097),
-                                             ""))
-          CAddonMgr::Get().DisableAddon(addons[i]->ID());
+        if (database.IsAddonBroken(newAddon->ID()).empty())
+        {
+          std::string line = g_localizeStrings.Get(24096);
+          if (newAddon->Props().broken == "DEPSNOTMET")
+            line = g_localizeStrings.Get(24104);
+          if (addon && CGUIDialogYesNo::ShowAndGetInput(newAddon->Name(),
+                                               line,
+                                               g_localizeStrings.Get(24097),
+                                               ""))
+            CAddonMgr::Get().DisableAddon(newAddon->ID());
+        }
       }
+      database.BreakAddon(newAddon->ID(), newAddon->Props().broken);
     }
-    database.BreakAddon(addons[i]->ID(), addons[i]->Props().broken);
+  }
+  database.CommitMultipleExecute();
+  textureDB.CommitMultipleExecute();
+  if (!notifications.empty() && CSettings::Get().GetBool("general.addonnotifications"))
+  {
+    if (notifications.size() == 1)
+      CGUIDialogKaiToast::QueueNotification(notifications[0]->Icon(),
+                                            g_localizeStrings.Get(24061),
+                                            notifications[0]->Name(),TOAST_DISPLAY_TIME,false,TOAST_DISPLAY_TIME);
+    else
+      CGUIDialogKaiToast::QueueNotification("",
+                                            g_localizeStrings.Get(24001),
+                                            g_localizeStrings.Get(24061),TOAST_DISPLAY_TIME,false,TOAST_DISPLAY_TIME);
   }
 
   return true;
 }
 
-VECADDONS CRepositoryUpdateJob::GrabAddons(RepositoryPtr& repo)
+bool CRepositoryUpdateJob::GrabAddons(const RepositoryPtr& repo, VECADDONS& addons)
 {
   CAddonDatabase database;
   database.Open();
-  string checksum;
-  database.GetRepoChecksum(repo->ID(),checksum);
-  string reposum = repo->Checksum();
-  VECADDONS addons;
-  if (checksum != reposum || checksum.empty())
+  string oldReposum;
+  if (!database.GetRepoChecksum(repo->ID(), oldReposum))
+    oldReposum = "";
+
+  string reposum;
+  for (CRepository::DirList::const_iterator it  = repo->m_dirs.begin(); it != repo->m_dirs.end(); ++it)
+  {
+    if (ShouldCancel(0, 0))
+      return false;
+    if (!it->checksum.empty())
+    {
+      const string dirsum = CRepository::FetchChecksum(it->checksum);
+      if (dirsum.empty())
+      {
+        CLog::Log(LOGERROR, "Failed to fetch checksum for directory listing %s for repository %s. ", (*it).info.c_str(), repo->ID().c_str());
+        return false;
+      }
+      reposum += dirsum;
+    }
+  }
+
+  if (oldReposum != reposum || oldReposum.empty())
   {
     map<string, AddonPtr> uniqueAddons;
     for (CRepository::DirList::const_iterator it = repo->m_dirs.begin(); it != repo->m_dirs.end(); ++it)
     {
-      VECADDONS addons2 = CRepository::Parse(*it);
-      for (VECADDONS::const_iterator it2 = addons2.begin(); it2 != addons2.end(); ++it2)
-      {
-        map<string, AddonPtr>::iterator existing = uniqueAddons.find((*it2)->ID());
-        if (existing != uniqueAddons.end())
-        { // already got it - replace if we have a newer version
-          if (existing->second->Version() < (*it2)->Version())
-            existing->second = *it2;
-        }
-        else
-          uniqueAddons.insert(make_pair((*it2)->ID(), *it2));
+      if (ShouldCancel(0, 0))
+        return false;
+      VECADDONS addons;
+      if (!CRepository::Parse(*it, addons))
+      { //TODO: Hash is invalid and should not be saved, but should we fail?
+        //We can still report a partial addon listing.
+        CLog::Log(LOGERROR, "Failed to read directory listing %s for repository %s. ", (*it).info.c_str(), repo->ID().c_str());
+        return false;
       }
+      MergeAddons(uniqueAddons, addons);
     }
 
-    if (uniqueAddons.empty())
+    bool add = true;
+    if (!repo->Props().libname.empty())
     {
-      CLog::Log(LOGERROR,"Repository %s returned no add-ons, listing may have failed",repo->Name().c_str());
-      reposum = checksum; // don't update the checksum
+      CFileItemList dummy;
+      string s = StringUtils::Format("plugin://%s/?action=update", repo->ID().c_str());
+      add = CDirectory::GetDirectory(s, dummy);
     }
-    else
+    if (add)
     {
-      bool add=true;
-      if (!repo->Props().libname.empty())
-      {
-        CFileItemList dummy;
-        string s = StringUtils::Format("plugin://%s/?action=update", repo->ID().c_str());
-        add = CDirectory::GetDirectory(s, dummy);
-      }
-      if (add)
-      {
-        for (map<string, AddonPtr>::const_iterator i = uniqueAddons.begin(); i != uniqueAddons.end(); ++i)
-          addons.push_back(i->second);
-        database.AddRepository(repo->ID(),addons,reposum);
-      }
+      for (map<string, AddonPtr>::const_iterator i = uniqueAddons.begin(); i != uniqueAddons.end(); ++i)
+        addons.push_back(i->second);
+      database.AddRepository(repo->ID(),addons,reposum);
     }
   }
   else
-    database.GetRepository(repo->ID(),addons);
-  database.SetRepoTimestamp(repo->ID(),CDateTime::GetCurrentDateTime().GetAsDBDateTime());
-
-  return addons;
+  {
+    CLog::Log(LOGDEBUG, "Checksum for repository %s not changed.", repo->ID().c_str());
+    database.GetRepository(repo->ID(), addons);
+    database.SetRepoTimestamp(repo->ID(), CDateTime::GetCurrentDateTime().GetAsDBDateTime());
+  }
+  return true;
 }
 

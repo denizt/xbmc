@@ -48,7 +48,7 @@ bool CGUIDialogMusicOSD::OnMessage(CGUIMessage &message)
       unsigned int iControl = message.GetSenderId();
       if (iControl == CONTROL_VIS_BUTTON)
       {
-        CStdString addonID;
+        std::string addonID;
         if (CGUIWindowAddonBrowser::SelectAddonID(ADDON::ADDON_VIZ, addonID, true) == 1)
         {
           CSettings::Get().SetString("musicplayer.visualisation", addonID);
@@ -90,7 +90,8 @@ void CGUIDialogMusicOSD::FrameMove()
     // check for movement of mouse or a submenu open
     if (g_Mouse.IsActive() || g_windowManager.IsWindowActive(WINDOW_DIALOG_VIS_SETTINGS)
                            || g_windowManager.IsWindowActive(WINDOW_DIALOG_VIS_PRESET_LIST))
-      SetAutoClose(100); // enough for 10fps
+      // extend show time by original value
+      SetAutoClose(m_showDuration);
   }
   CGUIDialog::FrameMove();
 }

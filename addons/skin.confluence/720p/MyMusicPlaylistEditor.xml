@@ -82,9 +82,9 @@
 				</control>
 				<control type="textbox">
 					<left>480</left>
-					<top>300</top>
+					<top>302</top>
 					<width>320</width>
-					<height>220</height>
+					<height>218</height>
 					<font>font11</font>
 					<align>center</align>
 					<textcolor>white</textcolor>
@@ -106,9 +106,9 @@
 				</control>
 				<control type="textbox">
 					<left>465</left>
-					<top>300</top>
+					<top>302</top>
 					<width>350</width>
-					<height>220</height>
+					<height>218</height>
 					<font>font11</font>
 					<align>center</align>
 					<textcolor>white</textcolor>
@@ -207,7 +207,7 @@
 						<info>ListItem.Label</info>
 					</control>
 					<control type="label">
-						<left>395</left>
+						<left>35</left>
 						<top>0</top>
 						<width>360</width>
 						<height>30</height>
@@ -242,7 +242,7 @@
 						<info>ListItem.Label</info>
 					</control>
 					<control type="label">
-						<left>395</left>
+						<left>35</left>
 						<top>0</top>
 						<width>360</width>
 						<height>30</height>
@@ -268,7 +268,7 @@
 				<texture border="15,0,0,0" flipx="true">MediaBladeSub.png</texture>
 			</control>
 			<control type="label">
-				<right>440</right>
+				<left>30</left>
 				<top>40</top>
 				<width>410</width>
 				<height>30</height>
@@ -295,7 +295,7 @@
 			</control>
 			<control type="label">
 				<description>Page Count Label</description>
-				<right>440</right>
+				<left>140</left>
 				<top>38r</top>
 				<width>300</width>
 				<height>20</height>
@@ -347,7 +347,7 @@
 						<info>ListItem.Label</info>
 					</control>
 					<control type="label">
-						<left>395</left>
+						<left>35</left>
 						<top>0</top>
 						<width>360</width>
 						<height>30</height>
@@ -382,7 +382,7 @@
 						<info>ListItem.Label</info>
 					</control>
 					<control type="label">
-						<left>395</left>
+						<left>35</left>
 						<top>0</top>
 						<width>360</width>
 						<height>30</height>

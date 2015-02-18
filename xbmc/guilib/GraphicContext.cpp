@@ -167,6 +167,16 @@ void CGraphicContext::ClipRect(CRect &vertex, CRect &texture, CRect *texture2)
   }
 }
 
+CRect CGraphicContext::GetClipRegion()
+{
+  if (m_clipRegions.empty())
+    return CRect(0, 0, m_iScreenWidth, m_iScreenHeight);
+  CRect clipRegion(m_clipRegions.top());
+  if (!m_origins.empty())
+    clipRegion -= m_origins.top();
+  return clipRegion;
+}
+
 bool CGraphicContext::SetViewPort(float fx, float fy, float fwidth, float fheight, bool intersectPrevious /* = false */)
 {
   // transform coordinates - we may have a rotation which changes the positioning of the
@@ -225,8 +235,8 @@ bool CGraphicContext::SetViewPort(float fx, float fy, float fwidth, float fheigh
   if (newRight > m_iScreenWidth) newRight = m_iScreenWidth;
   if (newBottom > m_iScreenHeight) newBottom = m_iScreenHeight;
 
-  ASSERT(newLeft < newRight);
-  ASSERT(newTop < newBottom);
+  assert(newLeft < newRight);
+  assert(newTop < newBottom);
 
   CRect newviewport((float)newLeft, (float)newTop, (float)newRight, (float)newBottom);
 
@@ -363,7 +373,23 @@ bool CGraphicContext::IsValidResolution(RESOLUTION res)
   return false;
 }
 
+// call SetVideoResolutionInternal and ensure its done from mainthread
 void CGraphicContext::SetVideoResolution(RESOLUTION res, bool forceUpdate)
+{
+  if (g_application.IsCurrentThread())
+  {
+    SetVideoResolutionInternal(res, forceUpdate);
+  }
+  else
+  {
+    ThreadMessage msg = {TMSG_SETVIDEORESOLUTION};
+    msg.param1 = res;
+    msg.param2 = forceUpdate ? 1 : 0;
+    CApplicationMessenger::Get().SendMessage(msg, true);
+  }
+}
+
+void CGraphicContext::SetVideoResolutionInternal(RESOLUTION res, bool forceUpdate)
 {
   RESOLUTION lastRes = m_Resolution;
 
@@ -438,9 +464,6 @@ void CGraphicContext::SetVideoResolution(RESOLUTION res, bool forceUpdate)
   m_scissors.SetRect(0, 0, (float)m_iScreenWidth, (float)m_iScreenHeight);
   m_Resolution    = res;
 
-  //tell the videoreferenceclock that we're about to change the refreshrate
-  g_VideoReferenceClock.RefreshChanged();
-
   if (g_advancedSettings.m_fullScreen)
   {
 #if defined (TARGET_DARWIN) || defined (TARGET_WINDOWS)
@@ -454,6 +477,9 @@ void CGraphicContext::SetVideoResolution(RESOLUTION res, bool forceUpdate)
     g_Windowing.SetFullScreen(false, info_org, false);
   else
     g_Windowing.ResizeWindow(info_org.iWidth, info_org.iHeight, -1, -1);
+
+  //tell the videoreferenceclock that we changed the refreshrate
+  g_VideoReferenceClock.RefreshChanged();
 
   // make sure all stereo stuff are correctly setup
   SetStereoView(RENDER_STEREO_VIEW_OFF);
@@ -861,7 +887,7 @@ void CGraphicContext::SetCameraPosition(const CPoint &camera)
 
 void CGraphicContext::RestoreCameraPosition()
 { // remove the top camera from the stack
-  ASSERT(m_cameras.size());
+  assert(m_cameras.size());
   m_cameras.pop();
   UpdateCameraPosition(m_cameras.top());
 }
@@ -952,6 +978,8 @@ bool CGraphicContext::IsFullScreenRoot () const
 bool CGraphicContext::ToggleFullScreenRoot ()
 {
   RESOLUTION uiRes;  ///< resolution to save - not necessarily the same as the one we switch to (e.g. during video playback)
+  RESOLUTION videoRes;
+  bool setVideoRes = false;
 
   if (m_bFullScreenRoot)
   {
@@ -965,22 +993,35 @@ bool CGraphicContext::ToggleFullScreenRoot ()
       uiRes = (RESOLUTION) g_Windowing.DesktopResolution(g_Windowing.GetCurrentScreen());
 
 #if defined(HAS_VIDEO_PLAYBACK)
-    if (IsFullScreenVideo() || IsCalibrating())
+    if (IsCalibrating())
     {
       /* we need to trick renderer that we are fullscreen already so it gives us a valid value */
       m_bFullScreenRoot = true;
       uiRes = g_renderManager.GetResolution();
       m_bFullScreenRoot = false;
     }
+    // if video is playing we need to switch to resolution chosen by RenderManager
+    if (IsFullScreenVideo())
+    {
+      m_bFullScreenRoot = true;
+      videoRes = g_renderManager.GetResolution();
+      m_bFullScreenRoot = false;
+      setVideoRes = true;
+    }
 #endif
   }
 
   CDisplaySettings::Get().SetCurrentResolution(uiRes, true);
 
+  if (setVideoRes)
+  {
+    SetVideoResolution(videoRes);
+  }
+
   return m_bFullScreenRoot;
 }
 
-void CGraphicContext::SetMediaDir(const CStdString &strMediaDir)
+void CGraphicContext::SetMediaDir(const std::string &strMediaDir)
 {
   g_TextureManager.SetTexturePath(strMediaDir);
   m_strMediaDir = strMediaDir;

@@ -43,7 +43,7 @@
 			</control>
 			<control type="label" id="1">
 				<description>Clock label</description>
-				<right>1250</right>
+				<left>450</left>
 				<top>5</top>
 				<width>800</width>
 				<height>25</height>
@@ -173,7 +173,7 @@
 					<height>25</height>
 					<align>left</align>
 					<font>font12</font>
-					<label>$INFO[VideoPlayer.ChannelName]$INFO[VideoPlayer.ChannelNumber, - ([COLOR=blue],[/COLOR])]</label>
+					<label>$INFO[VideoPlayer.ChannelName]$INFO[VideoPlayer.ChannelNumberLabel, - ([COLOR=blue],[/COLOR])]</label>
 					<textcolor>grey2</textcolor>
 					<shadowcolor>black</shadowcolor>
 					<visible>VideoPlayer.Content(LiveTV)</visible>
@@ -281,7 +281,7 @@
 					<top>120</top>
 					<width>910</width>
 					<height>25</height>
-					<label>$INFO[VideoPlayer.NextTitle,$LOCALIZE[209]: ]</label>
+					<label>$INFO[VideoPlayer.NextTitle,$LOCALIZE[19031]: ]</label>
 					<align>center</align>
 					<aligny>center</aligny>
 					<font>font12</font>
@@ -336,7 +336,7 @@
 				</control>
 				<control type="label" id="1">
 					<visible>!VideoPlayer.Content(LiveTV)</visible>
-					<right>920</right>
+					<left>820</left>
 					<top>0</top>
 					<width>100</width>
 					<height>40</height>
@@ -347,7 +347,7 @@
 				</control>
 				<control type="label" id="1">
 					<visible>VideoPlayer.Content(LiveTV)</visible>
-					<right>920</right>
+					<left>820</left>
 					<top>0</top>
 					<width>100</width>
 					<height>40</height>
@@ -368,7 +368,7 @@
 				<left>0</left>
 				<top>0</top>
 				<width>1280</width>
-				<height>140</height>
+				<height>160</height>
 				<texture>black-back.png</texture>
 			</control>
 			<control type="label" id="10">
@@ -398,30 +398,16 @@
 				<left>50</left>
 				<top>100</top>
 				<width>1180</width>
-				<height>30</height>
+				<height>45</height>
 				<align>left</align>
 				<aligny>center</aligny>
 				<font>font12</font>
 				<label>-</label>
 			</control>
 		</control>
-		<control type="selectbutton" id="503">
-			<left>440</left>
-			<top>100</top>
-			<width>400</width>
-			<height>100</height>
-			<font>font13caps</font>
-			<description>TV Channel Group Select Button</description>
-			<texturebg border="20">OverlayDialogBackground.png</texturebg>
-			<onleft>503</onleft>
-			<onright>503</onright>
-			<onup>500</onup>
-			<ondown>500</ondown>
-			<include>VisibleFadeEffect</include>
-		</control>
 		<control type="group">
 			<visible>Player.ShowCodec + VideoPlayer.Content(LiveTV) + system.getbool(pvrplayback.signalquality)</visible>
-			<top>165</top>
+			<top>185</top>
 			<control type="image">
 				<description>media info background image</description>
 				<left>0</left>

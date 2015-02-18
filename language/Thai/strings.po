@@ -1,11 +1,11 @@
-# XBMC Media Center language file
+# Kodi Media Center language file
 msgid ""
 msgstr ""
 "Project-Id-Version: XBMC Main\n"
 "Report-Msgid-Bugs-To: http://trac.xbmc.org/\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: XBMC Translation Team\n"
+"Last-Translator: Kodi Translation Team\n"
 "Language-Team: Thai (http://www.transifex.com/projects/p/xbmc-main/language/th/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -38,8 +38,8 @@ msgid "Settings"
 msgstr "ตั้งค่า"
 
 msgctxt "#6"
-msgid "XBMC SVN"
-msgstr "XBMC SVN"
+msgid "Kodi SVN"
+msgstr "Kodi SVN"
 
 msgctxt "#7"
 msgid "File manager"
@@ -50,8 +50,8 @@ msgid "Weather"
 msgstr "สภาพอากาศ"
 
 msgctxt "#9"
-msgid "xbmc media center"
-msgstr "xbmc media center"
+msgid "Kodi media center"
+msgstr "Kodi media center"
 
 msgctxt "#11"
 msgid "Monday"
@@ -390,8 +390,8 @@ msgid "Confirm file move"
 msgstr "ยืนยันการย้ายแฟ้ม"
 
 msgctxt "#122"
-msgid "Confirm file delete?"
-msgstr "ต้องการลบแฟ้มหรือไม่?"
+msgid "Confirm delete"
+msgstr "ยืนยันการลบ"
 
 msgctxt "#123"
 msgid "Copy these files?"
@@ -689,6 +689,10 @@ msgctxt "#199"
 msgid "Web interface"
 msgstr "ส่วนติดต่อผ่านเว็บ"
 
+msgctxt "#200"
+msgid "Audio encoders"
+msgstr "ตัวถอดรหัสเสียง"
+
 msgctxt "#202"
 msgid "Tagline"
 msgstr "คำโปรย"
@@ -849,6 +853,10 @@ msgctxt "#245"
 msgid "Sizing: (%i,%i)->(%i,%i) (Zoom x%2.2f) AR:%2.2f:1 (Pixels: %2.2f:1) (VShift: %2.2f)"
 msgstr "Sizing: (%i,%i)->(%i,%i) (Zoom x%2.2f) AR:%2.2f:1 (Pixels: %2.2f:1) (VShift: %2.2f)"
 
+msgctxt "#246"
+msgid "Monitor"
+msgstr "จอแสดงผล"
+
 msgctxt "#247"
 msgid "Scripts"
 msgstr "สคริปต์"
@@ -870,8 +878,8 @@ msgid "Select destination directory"
 msgstr "เลือกไดเร็คทอรีเป้าหมาย"
 
 msgctxt "#252"
-msgid "Output stereo to all speakers"
-msgstr "ส่งออกไปยังลำโพงทั้งหมด"
+msgid "Stereo upmix"
+msgstr "ขยายช่องสัญญาณ สเตอริโอ"
 
 msgctxt "#253"
 msgid "Number of channels"
@@ -914,8 +922,8 @@ msgid "Scripts output"
 msgstr "ผลลัพธ์ของสคริปต์"
 
 msgctxt "#263"
-msgid "Allow control of XBMC via HTTP"
-msgstr "อนุญาตให้ควบคุม XBMC ผ่าน HTTP"
+msgid "Allow control of Kodi via HTTP"
+msgstr "อนุญาตให้ควบคุม Kodi ผ่าน HTTP"
 
 msgctxt "#264"
 msgid "Record"
@@ -1086,8 +1094,12 @@ msgid "Original stream's language"
 msgstr "ภาษาของกระแสเสียงต้นฉบับ"
 
 msgctxt "#309"
-msgid "User Interface language"
+msgid "User interface language"
 msgstr "ภาษาของส่วนติดต่อผู้ใช้"
+
+msgctxt "#310"
+msgid "Keyboard layouts"
+msgstr "คีย์บอร์ด เลเอาท์"
 
 msgctxt "#312"
 msgid "(0=auto)"
@@ -1189,9 +1201,17 @@ msgctxt "#336"
 msgid "Framerate conversion"
 msgstr "แปลง เฟรมเรต"
 
+msgctxt "#337"
+msgid "Output configuration"
+msgstr "ปรับตั้งค่า ส่งสัญญาณออก"
+
 msgctxt "#338"
 msgid "Fixed"
-msgstr "คงที่"
+msgstr "ค่าแน่นอน"
+
+msgctxt "#339"
+msgid "Optimized"
+msgstr "ปรับให้เหมาะสม"
 
 msgctxt "#340"
 msgid "Various artists"
@@ -1217,9 +1237,17 @@ msgctxt "#345"
 msgid "Year"
 msgstr "ปี"
 
+msgctxt "#346"
+msgid "Maintain original volume on downmix"
+msgstr "รักษาระดับความดัง เมื่อรวมช่องเสียง"
+
 msgctxt "#347"
 msgid "DTS-HD capable receiver"
 msgstr "ตัวรับที่สนับสนุน DTS-HD"
+
+msgctxt "#348"
+msgid "Enable passthrough"
+msgstr "เปิดใช้ การส่งผ่านเสียง"
 
 msgctxt "#349"
 msgid "TrueHD capable receiver"
@@ -1497,6 +1525,14 @@ msgctxt "#419"
 msgid "High"
 msgstr "สูง"
 
+msgctxt "#420"
+msgid "Best Match"
+msgstr "ตรงกันที่สุด"
+
+msgctxt "#421"
+msgid "Keep audio device alive"
+msgstr "คงการใช้งานอุปกรณ์เสียง"
+
 msgctxt "#422"
 msgid "Delete album info"
 msgstr "ลบข้อมูลอัลบั้ม"
@@ -1641,6 +1677,10 @@ msgctxt "#457"
 msgid "Switch view"
 msgstr "เปลี่ยนมุมมอง"
 
+msgctxt "#458"
+msgid "Limit sampling rate (kHz)"
+msgstr "จำกัด อัตราสุ่ม (kHz)"
+
 msgctxt "#459"
 msgid "Subs"
 msgstr "ย่อย"
@@ -1689,10 +1729,6 @@ msgctxt "#470"
 msgid "Credits"
 msgstr "เครดิต"
 
-msgctxt "#471"
-msgid "Modchip"
-msgstr "Modchip"
-
 msgctxt "#474"
 msgid "Off"
 msgstr "ปิด"
@@ -1726,7 +1762,7 @@ msgid "Audio options"
 msgstr "ตัวเลือกเสียง"
 
 msgctxt "#482"
-msgid "About XBMC"
+msgid "About Kodi"
 msgstr "เกี่ยวกับโปรแกรม"
 
 msgctxt "#485"
@@ -1960,6 +1996,10 @@ msgstr "ไม่พบประวัติศิลปินคนนี้"
 msgctxt "#548"
 msgid "Downmix multichannel audio to stereo"
 msgstr "รวมสัญญาณเสียงหลายช่องไปยังระบบสเตอริโอ"
+
+msgctxt "#549"
+msgid "Number"
+msgstr "หมายเลข"
 
 msgctxt "#550"
 msgid "Sort by: %s"
@@ -2378,8 +2418,64 @@ msgid "Compression level"
 msgstr "ระดับการบีบอัด"
 
 msgctxt "#666"
-msgid "Verbose logging..."
-msgstr "บันทึก โดยละเอียด..."
+msgid "Enable component-specific logging"
+msgstr "เปิดใช้งาน การบันทึกในเฉพาะส่วนประกอบ"
+
+msgctxt "#667"
+msgid "Enable Dolby Digital transcoding"
+msgstr "เปิดใช้ ส่งผ่านการเข้ารหัส Dolby Digital"
+
+msgctxt "#668"
+msgid "Specify component-specific logging..."
+msgstr "ระบุ ส่วนประกอบเฉพาะ ที่จะบันทึก"
+
+msgctxt "#669"
+msgid "Verbose logging for SMB library"
+msgstr "ใช้ถ้อยคำมากเกินไปในการบันทึกล็อค SMB library"
+
+msgctxt "#670"
+msgid "Verbose logging for CURL library (http, dav)"
+msgstr "ใช้ถ้อยคำมากเกินไปในการบันทึกล็อค CURL library  (http, dav)"
+
+msgctxt "#671"
+msgid "Verbose logging for CMYTH library"
+msgstr "ใช้ถ้อยคำมากเกินไปในการบันทึกล็อค CMYTH library"
+
+msgctxt "#672"
+msgid "Verbose logging for FFMPEG libraries"
+msgstr "ใช้ถ้อยคำมากเกินไปในการบันทึกล็อค  FFMPEG libraries"
+
+msgctxt "#673"
+msgid "Verbose logging for RTMP library"
+msgstr "ใช้ถ้อยคำมากเกินไปในการบันทึกล็อค RTMP library"
+
+msgctxt "#674"
+msgid "Verbose logging for DBUS calls"
+msgstr "ใช้ถ้อยคำมากเกินไปในการบันทึกล็อค DBUS calls"
+
+msgctxt "#675"
+msgid "Verbose logging for JSON-RPC requests"
+msgstr "ใช้ถ้อยคำมากเกินไปในการบันทึกล็อค JSON-RPC requests"
+
+msgctxt "#676"
+msgid "Verbose logging for AUDIO component"
+msgstr "ใช้ถ้อยคำมากเกินไปในการบันทึกล็อค AUDIO component"
+
+msgctxt "#677"
+msgid "Verbose logging for AirTunes library"
+msgstr "บันทึกข้อมูลอย่างละเอียด สำหรับคลังข้อมูล AirTunes"
+
+msgctxt "#678"
+msgid "Verbose logging for UPnP components"
+msgstr "บันทึกข้อมูลอย่างละเอียด สำหรับส่วนประกอบ UPnP"
+
+msgctxt "#679"
+msgid "Verbose logging for CEC library"
+msgstr "บันทึกข้อมูลอย่างละเอียด สำหรับคลังข้อมูล CEC"
+
+msgctxt "#680"
+msgid "Verbose logging for VIDEO component"
+msgstr "บันทึกข้อมูลอย่างละเอียด สำหรับส่วนประกอบวิดีโอ"
 
 msgctxt "#700"
 msgid "Cleaning up library"
@@ -2686,8 +2782,8 @@ msgid "Remote control"
 msgstr "รีโมทคอนโทรล"
 
 msgctxt "#791"
-msgid "Allow programs on this system to control XBMC"
-msgstr "อนุญาตให้โปรแกรมในระบบสามารถควบคุม XBMC"
+msgid "Allow programs on this system to control Kodi"
+msgstr "อนุญาตให้โปรแกรมในระบบสามารถควบคุม Kodi"
 
 msgctxt "#792"
 msgid "Port"
@@ -2698,8 +2794,8 @@ msgid "Port range"
 msgstr "ความกว้างของพอร์ต"
 
 msgctxt "#794"
-msgid "Allow programs on other systems to control XBMC"
-msgstr "อนุญาตให้โปรแกรมบนระบบอื่นควบคุม XBMC"
+msgid "Allow programs on other systems to control Kodi"
+msgstr "อนุญาตให้โปรแกรมบนระบบอื่นควบคุม Kodi"
 
 msgctxt "#795"
 msgid "Initial repeat delay (ms)"
@@ -2728,6 +2824,10 @@ msgstr "คลังข้อมูลเพลง ต้องสำรวจ t
 msgctxt "#801"
 msgid "Would you like to scan now?"
 msgstr "คุณต้องการที่จะสแกนตอนนี้หรือไม่?"
+
+msgctxt "#802"
+msgid "%s of %s available"
+msgstr "%s of %s ทีมีอยู่"
 
 msgctxt "#850"
 msgid "Invalid port number entered"
@@ -2762,8 +2862,8 @@ msgid "Unable to connect"
 msgstr "ไม่สามารถเชื่อมต่อได้"
 
 msgctxt "#1002"
-msgid "XBMC was unable to connect to the network location."
-msgstr "XBMC ไม่สามารถเชื่อมต่อไปยังเครือข่ายดังกล่าวได้."
+msgid "Kodi was unable to connect to the network location."
+msgstr "Kodi ไม่สามารถเชื่อมต่อไปยังเครือข่ายดังกล่าวได้."
 
 msgctxt "#1003"
 msgid "This could be due to the network not being connected."
@@ -2924,6 +3024,10 @@ msgstr "ดึงมาแล้ว %i จาก %i รายการ"
 msgctxt "#1043"
 msgid "Program Add-ons"
 msgstr "ส่วนเสริมโปรแกรม"
+
+msgctxt "#1044"
+msgid "Set plug-in thumb"
+msgstr "กำหนดรูปย่อของปลั๊กอิน"
 
 msgctxt "#1045"
 msgid "Add-on settings"
@@ -3105,13 +3209,17 @@ msgctxt "#1260"
 msgid "Announce these services to other systems via Zeroconf"
 msgstr "ประกาศการให้บริการผ่านทาง Zeroconf"
 
+msgctxt "#1268"
+msgid "iOS 8 compatibility mode"
+msgstr "โหมดความเข้ากันได้กับ iOS 8"
+
 msgctxt "#1269"
 msgid "Allow volume control"
 msgstr "อนุญาตให้มีการควบคุมระดับเสียง"
 
 msgctxt "#1270"
-msgid "Allow XBMC to receive AirPlay content"
-msgstr "อนุญาตให้ XBMCรับเนื้อหาจาก AirPlay"
+msgid "Allow Kodi to receive AirPlay content"
+msgstr "อนุญาตให้ Kodiรับเนื้อหาจาก AirPlay"
 
 msgctxt "#1271"
 msgid "Device name"
@@ -3140,6 +3248,86 @@ msgstr "ปรับแต่งอุปกรณ์เสียง"
 msgctxt "#1301"
 msgid "Custom passthrough device"
 msgstr "ปรับแต่งอุปกรณ์ส่งผ่านเสียง"
+
+msgctxt "#1375"
+msgid "Temperature"
+msgstr "อุณหภูมิ"
+
+msgctxt "#1376"
+msgid "Pressure"
+msgstr "ความกดอากาศ"
+
+msgctxt "#1377"
+msgid "Proximity"
+msgstr "ความใกล้ชิด"
+
+msgctxt "#1378"
+msgid "Intensity"
+msgstr "ความหนาแน่น"
+
+msgctxt "#1380"
+msgid "Very"
+msgstr "มาก"
+
+msgctxt "#1381"
+msgid "Extreme"
+msgstr "สูงสุด"
+
+msgctxt "#1382"
+msgid "Whirls"
+msgstr "พายุ"
+
+msgctxt "#1383"
+msgid "Sky Is Clear"
+msgstr "ท้องฟ้าโปร่ง"
+
+msgctxt "#1384"
+msgid "Broken"
+msgstr "เสียหาย"
+
+msgctxt "#1385"
+msgid "Tornado"
+msgstr "พายุทอร์นาโด"
+
+msgctxt "#1386"
+msgid "Tropical"
+msgstr "พายุโซนร้อน"
+
+msgctxt "#1387"
+msgid "Hurricane"
+msgstr "พายุเฮอริเคน"
+
+msgctxt "#1388"
+msgid "Cold"
+msgstr "หนาวเย็น"
+
+msgctxt "#1389"
+msgid "Windy"
+msgstr "ลมแรง"
+
+msgctxt "#1390"
+msgid "Settings"
+msgstr "การตั้งค่า"
+
+msgctxt "#1391"
+msgid "Breeze"
+msgstr "มีลม"
+
+msgctxt "#1392"
+msgid "Gentle"
+msgstr "เบาๆ"
+
+msgctxt "#1393"
+msgid "High wind, near gale"
+msgstr "ลมแรง, ใกล้พายุ"
+
+msgctxt "#1394"
+msgid "Severe"
+msgstr "สภาพเลวร้าย"
+
+msgctxt "#1395"
+msgid "Violent"
+msgstr "รุนแรง"
 
 msgctxt "#1396"
 msgid "Drifting"
@@ -3489,13 +3677,29 @@ msgctxt "#10035"
 msgid "Reset"
 msgstr "คืนค่า"
 
+msgctxt "#10036"
+msgid "Basic"
+msgstr "เบื้องต้น"
+
 msgctxt "#10037"
 msgid "Standard"
 msgstr "มาตรฐาน"
 
+msgctxt "#10038"
+msgid "Advanced"
+msgstr "ขั้นสูง"
+
+msgctxt "#10039"
+msgid "Expert"
+msgstr "ผู้เชี่ยวชาญ"
+
 msgctxt "#10040"
 msgid "Add-on browser"
 msgstr "สืบค้น ส่วนเสริม"
+
+msgctxt "#10041"
+msgid "Reset above settings to default"
+msgstr "คืนค่า การตั้งค่าข้างต้น สู่ค่าเริ่มต้น"
 
 msgctxt "#10042"
 msgid "Are you sure you want to reset the settings in this category?"
@@ -3508,6 +3712,18 @@ msgstr "ช่วยเหลือ"
 msgctxt "#10044"
 msgid "No help available"
 msgstr "ไม่มี ส่วนช่วยเหลือ ที่มีอยู่"
+
+msgctxt "#10045"
+msgid "Resets all the visible settings to their default values."
+msgstr "คืนค่า การตั้งค่าที่ปรากฎทั้งหมด สู่ค่าเริ่มต้น"
+
+msgctxt "#10046"
+msgid "No categories available"
+msgstr "ไม่มีหมวดหมู่ที่ใช้ได้"
+
+msgctxt "#10047"
+msgid "Try changing the setting level to see additional categories and settings."
+msgstr "ลองเปลี่ยนระดับการตั้งค่า เพื่อดูการตั้งค่าและหมวดหมู่เพิ่มเติม."
 
 msgctxt "#10100"
 msgid "Yes/No dialogue"
@@ -3845,6 +4061,10 @@ msgctxt "#12346"
 msgid "Password retry limit exceeded."
 msgstr "ป้อนรหัสผ่านผิดเกินจำนวนที่จำกัด."
 
+msgctxt "#12347"
+msgid "The system will now power down."
+msgstr "ระบบจะปิดลงในขณะนี้."
+
 msgctxt "#12348"
 msgid "Item locked"
 msgstr "ล๊อครายการ"
@@ -3960,6 +4180,18 @@ msgstr "เวลาทำงานทั้งหมด"
 msgctxt "#12395"
 msgid "Battery level"
 msgstr "ระดับแบตเตอรี่"
+
+msgctxt "#12396"
+msgid "Auto updates: On"
+msgstr "ปรับปรุงอัตโนมัติ: เปิด"
+
+msgctxt "#12397"
+msgid "Auto updates: Notify"
+msgstr "ปรับปรุงอัตโนมัติ: แจ้งเตือน"
+
+msgctxt "#12398"
+msgid "Auto updates: Never"
+msgstr "ปรับปรุงอัตโนมัติ: ปิด"
 
 msgctxt "#12600"
 msgid "Weather"
@@ -4145,6 +4377,10 @@ msgctxt "#13110"
 msgid "Save resolution?"
 msgstr "จัดเก็บความละเอียดหน้าจอ?"
 
+msgctxt "#13111"
+msgid "Would you like to keep this change?"
+msgstr "คุณต้องการที่จะจัดเก็บการเปลี่ยนแปลงนี้ ใช่หรือไม่?"
+
 msgctxt "#13112"
 msgid "High quality upscaling"
 msgstr "การปรับขนาดแบบคุณภาพสูง"
@@ -4189,6 +4425,10 @@ msgctxt "#13122"
 msgid "VDPAU Studio level colour conversion"
 msgstr "VDPAU การแปลงค่าสีระดับสตูดิโอ"
 
+msgctxt "#13123"
+msgid "Keep skin?"
+msgstr "คงค่าหน้าตา?"
+
 msgctxt "#13130"
 msgid "Blank other displays"
 msgstr "ยกเลิกการแสดงผลที่จออื่น"
@@ -4206,8 +4446,8 @@ msgid "Active connections detected!"
 msgstr "การเชื่อมต่อที่ใช้งานได้ ถูกตรวจพบ!"
 
 msgctxt "#13141"
-msgid "If you proceed, you might not be able to control XBMC"
-msgstr "ถ้าคุณดำเนินการแล้ว, คุณอาจไม่สามารถควบคุม XBMC ได้"
+msgid "If you proceed, you might not be able to control Kodi"
+msgstr "ถ้าคุณดำเนินการแล้ว, คุณอาจไม่สามารถควบคุม Kodi ได้"
 
 msgctxt "#13142"
 msgid "any longer. Are you sure you want to stop the Event server?"
@@ -4222,8 +4462,8 @@ msgid "If you are currently using the Apple Remote to control"
 msgstr "ถ้าคุณกำลังใช้ Apple รีโมท ควบคุม"
 
 msgctxt "#13146"
-msgid "XBMC, changing this setting might affect your ability"
-msgstr "XBMC, การเปลี่ยนการตั้งค่าจะมีผลต่อความสามารถ"
+msgid "Kodi, changing this setting might affect your ability"
+msgstr "Kodi, การเปลี่ยนการตั้งค่าจะมีผลต่อความสามารถ"
 
 msgctxt "#13147"
 msgid "to continue controlling it. Do you want to proceed?"
@@ -4450,8 +4690,8 @@ msgid "Do you wish to reboot your system"
 msgstr "คุณต้องการจะเริ่มระบบใหม่หรือไม่"
 
 msgctxt "#13309"
-msgid "instead of just XBMC?"
-msgstr "แทนที่เฉพาะ XBMC?"
+msgid "instead of just Kodi?"
+msgstr "แทนที่เฉพาะ Kodi?"
 
 msgctxt "#13310"
 msgid "Zoom effect"
@@ -4602,8 +4842,8 @@ msgid "Scan for new content"
 msgstr "สำรวจสำหรับเนื้อหาใหม่"
 
 msgctxt "#13350"
-msgid "Now playing..."
-msgstr "กำลังเล่น..."
+msgid "Current playlist"
+msgstr "รายการเล่น ปัจจุบัน"
 
 msgctxt "#13351"
 msgid "Album information"
@@ -4909,6 +5149,78 @@ msgctxt "#13439"
 msgid "Allow hardware acceleration (MediaCodec)"
 msgstr "เปิดใช้การเร่งความเร็วฮาร์ดแวร์ (MediaCodec)"
 
+msgctxt "#13441"
+msgid "Use MPEG-2 VDPAU"
+msgstr "ใช้ MPEG-2 VDPAU"
+
+msgctxt "#13442"
+msgid "Enable this option to use hardware acceleration for MPEG-(1/2) codecs. If disabled the CPU will be used instead. Older Radeon Cards tend to segfault with this enabled."
+msgstr "เปิดใช้ตัวเลือกนี้ เพื่อใข้การเร่งความเร็วด้วยฮาร์ดแวร์ สำหรับการเข้ารหัส Mpeg-(1/2). ถ้าปิดใช้งาน จะใช้ซีพียูแทน. การ์ด Radeon รุ่นเก่า อาจมีการแสดงบางส่วนผิดพลาด ถ้าเปิดใช้ส่วนนี้."
+
+msgctxt "#13443"
+msgid "Use MPEG-4 VDPAU"
+msgstr "ใช้งาน MPEG-4 VDPAU"
+
+msgctxt "#13444"
+msgid "Enable this option to use hardware acceleration for the MPEG-4 codec. If disabled the CPU will be used instead. Some ION Hardware has problems with this being enabled by default."
+msgstr "เปิดใช้ตัวเลือกนี้ เพื่อใข้การเร่งความเร็วด้วยฮาร์ดแวร์ สำหรับการเข้ารหัส Mpeg-4. ถ้าปิดใช้งาน จะใช้ซีพียูแทน. ฮาร์ดแวร์ ION บางรุ่น อาจมีปัญหากับการเปิดใช้ส่วนนี้โดยค่าเริ่มต้น."
+
+msgctxt "#13445"
+msgid "Use VC-1 VDPAU"
+msgstr "ใช้งาน VC-1 VDPAU"
+
+msgctxt "#13446"
+msgid "Enable this option to use hardware acceleration for VC-1 based codecs. If disabled the CPU will be used instead. AMD Hardware with VDPAU cannot decode VC-1 Simple."
+msgstr "เปิดใช้ตัวเลือกนี้ เพื่อใข้การเร่งความเร็วด้วยฮาร์ดแวร์ สำหรับการเข้ารหัสหลัก VC-1. ถ้าปิดใช้งาน จะใช้ซีพียูแทน. ฮาร์ดแวร์ AMD ที่ใช้ VDPAU ไม่สามารถถอดรหัส VC-1 แบบพื้นๆได้."
+
+msgctxt "#13447"
+msgid "Use MPEG-2 VAAPI"
+msgstr "ใช้งาน MPEG-2 VAAPI"
+
+msgctxt "#13448"
+msgid "Enable this option to use hardware acceleration for MPEG-(1/2) codecs. If disabled the CPU will be used instead. Some MPEG-2 Videos might have green artifacts."
+msgstr "เปิดใช้ตัวเลือกนี้ เพื่อใข้การเร่งความเร็วด้วยฮาร์ดแวร์ สำหรับการเข้ารหัส Mpeg-(1/2). ถ้าปิดใช้งาน จะใช้ซีพียูแทน. วิดีโอ Mpeg-2 บางส่วน อาจมีการแตกสีเขียว."
+
+msgctxt "#13449"
+msgid "Use MPEG-4 VAAPI"
+msgstr "ใช้งาน MPEG-4 VAAPI"
+
+msgctxt "#13450"
+msgid "Enable this option to use hardware acceleration for the MPEG-4 codec. If disabled the CPU will be used instead."
+msgstr "เปิดใช้ตัวเลือกนี้ เพื่อใข้การเร่งความเร็วด้วยฮาร์ดแวร์ สำหรับการเข้ารหัส Mpeg-4. ถ้าปิดใช้งาน จะใช้ซีพียูแทน."
+
+msgctxt "#13451"
+msgid "Use VC-1 VAAPI"
+msgstr "ใช้งาน VC-1 VAAPI"
+
+msgctxt "#13452"
+msgid "Enable this option to use hardware acceleration for VC-1 based codecs. If disabled the CPU will be used instead. Especially VC-1 Interlaced fails hard on Intel hardware."
+msgstr "เปิดใช้ตัวเลือกนี้ เพื่อใข้การเร่งความเร็วด้วยฮาร์ดแวร์ สำหรับการเข้ารหัสหลัก VC-1. ถ้าปิดใช้งาน จะใช้ซีพียูแทน. มักเกิดความล้มเหลวในการลบเส้นทางขวางอย่างมาก โดยเฉพาะในฮาร์ดแวร์ Intel."
+
+msgctxt "#13454"
+msgid "Decoding method"
+msgstr "กระบวนการถอดรหัส"
+
+msgctxt "#13455"
+msgid "Software"
+msgstr "ซอฟแวร์"
+
+msgctxt "#13456"
+msgid "Hardware accelerated"
+msgstr "เร่งความเร็วฮาร์ดแวร์แล้ว"
+
+msgctxt "#13457"
+msgid "Prefer VAAPI render method"
+msgstr "กำหนดไห้ใช้ กระบวนการแสดงผลด้วย VAAPI"
+
+msgctxt "#13458"
+msgid "Allow hardware acceleration (OMXPlayer)"
+msgstr "เปิดใช้การเร่งความเร็วฮาร์ดแวร์ (OMXPlayer)"
+
+msgctxt "#13459"
+msgid "Use OMXPlayer for decoding of video files."
+msgstr "ใช้ OMXPlayer ในการถอดรหัสสำหรับไฟล์วิดีโอ."
+
 msgctxt "#13500"
 msgid "A/V sync method"
 msgstr "กระบวนการ A/V sync"
@@ -4993,12 +5305,20 @@ msgctxt "#13553"
 msgid "%.1f Seconds"
 msgstr "%.1f วินาที"
 
+msgctxt "#13554"
+msgid "%d Minute"
+msgstr "%d นาที"
+
+msgctxt "#13555"
+msgid "%d Minutes"
+msgstr "%d นาที"
+
 msgctxt "#13600"
 msgid "Apple remote"
 msgstr "Apple รีโมท"
 
 msgctxt "#13602"
-msgid "Allow start of XBMC using the remote"
+msgid "Allow start of Kodi using the remote"
 msgstr "อนุญาตเริ่มการใช้งานด้วยรีโมท"
 
 msgctxt "#13603"
@@ -5026,8 +5346,8 @@ msgid "Apple Remote Error"
 msgstr "Apple รีโมทผิดพลาด"
 
 msgctxt "#13621"
-msgid "Apple Remote support could be enabled."
-msgstr "Apple รีโมทเปิดการสนับสนุนผิดพลาด."
+msgid "Apple Remote support could not be enabled."
+msgstr "การรองรับรีโมท Apple ไม่สามารถเปิดใช้งานได้."
 
 msgctxt "#14000"
 msgid "Stack"
@@ -5130,24 +5450,24 @@ msgid "Video cache - DVD-ROM"
 msgstr "วิดีโอ แคช - ดีวีดี รอม"
 
 msgctxt "#14027"
-msgid "Local Network"
-msgstr "เครือข่ายท้องถิ่น"
+msgid "Video cache - Local Network"
+msgstr "แคชของวิดีโอ - เครือข่ายท้องถิ่น"
 
 msgctxt "#14028"
-msgid "Internet"
-msgstr "อินเตอร์เน็ต"
+msgid "Video cache - Internet"
+msgstr "แคชของวิดีโอ - ผ่านอินเตอร์เน็ต"
 
 msgctxt "#14030"
 msgid "Audio cache - DVD-ROM"
 msgstr "แคชเสียง - ดีวีดี รอม"
 
 msgctxt "#14031"
-msgid "Local Network"
-msgstr "เครือข่ายท้องถิ่น"
+msgid "Audio cache - Local Network"
+msgstr "แคชของออดิโอ - เครือข่ายท้องถิ่น"
 
 msgctxt "#14032"
-msgid "Internet"
-msgstr "อินเตอร์เน็ต"
+msgid "Audio cache - Internet"
+msgstr "แคชของออดิโอ - ผ่านอินเตอร์เน็ต"
 
 msgctxt "#14034"
 msgid "DVD cache - DVD-ROM"
@@ -5161,13 +5481,17 @@ msgctxt "#14036"
 msgid "Services"
 msgstr "บริการ"
 
+msgctxt "#14037"
+msgid "DVD cache - Local Network"
+msgstr "แคชของดีวีดี - เครือข่ายท้องถิ่น"
+
 msgctxt "#14038"
 msgid "Network settings changed"
 msgstr "กาารตั้งค่าเครือข่ายเปลี่ยนแปลง"
 
 msgctxt "#14039"
-msgid "XBMC requires to restart to change your"
-msgstr "XBMC ต้องการเริ่มต้นการทำงานใหม่เพื่อเปลี่ยนการตั้งค่า"
+msgid "Kodi requires to restart to change your"
+msgstr "Kodi ต้องการเริ่มต้นการทำงานใหม่เพื่อเปลี่ยนการตั้งค่า"
 
 msgctxt "#14040"
 msgid "network setup.  Would you like to restart now?"
@@ -5220,6 +5544,10 @@ msgstr "รูปแบบวันที่"
 msgctxt "#14053"
 msgid "GUI filters"
 msgstr "GUI filters"
+
+msgctxt "#14054"
+msgid "%2.1f dB"
+msgstr "%2.1f dB"
 
 msgctxt "#14055"
 msgid "Use background scanning"
@@ -5327,7 +5655,7 @@ msgstr "แสดงข้อมูลภาพ EXIF"
 
 msgctxt "#14083"
 msgid "Use a fullscreen window rather than true fullscreen"
-msgstr "ใช้หน้าต่างเต็มจอมากกว่าการแสเงผลเต็มจอจริง"
+msgstr "ใช้หน้าต่างเต็มจอ แทนที่จะใช้การแสดงผลเต็มจอจริง"
 
 msgctxt "#14084"
 msgid "Queue songs on selection"
@@ -5338,8 +5666,8 @@ msgid "Playback"
 msgstr "เล่นเพลง"
 
 msgctxt "#14087"
-msgid "DVDs"
-msgstr "ดีวีดี"
+msgid "Discs"
+msgstr "แผ่นดิสก์"
 
 msgctxt "#14088"
 msgid "Play DVDs automatically"
@@ -5393,6 +5721,34 @@ msgctxt "#14100"
 msgid "Stop ripping CD"
 msgstr "หยุดการริป แผ่นซีดี"
 
+msgctxt "#14101"
+msgid "Acceleration"
+msgstr "การเร่งความเร็ว"
+
+msgctxt "#14102"
+msgid "Blu-ray playback mode"
+msgstr "โหมดการเล่น บลูเรย์"
+
+msgctxt "#14103"
+msgid "Play main movie"
+msgstr "เล่นภาพยนตร์หลัก"
+
+msgctxt "#14104"
+msgid "Show simplified menu"
+msgstr "แสดงเมนูแบบง่าย"
+
+msgctxt "#15012"
+msgid "Unavailable source"
+msgstr "ไม่พบแหล่งข้อมูล"
+
+msgctxt "#15013"
+msgid "What would you like to do with media items from %s"
+msgstr "คุณต้องการทำอะไรกับ รายการสื่อจาก %s"
+
+msgctxt "#15014"
+msgid "Keep"
+msgstr "เก็บ"
+
 msgctxt "#15015"
 msgid "Remove"
 msgstr "ลบ"
@@ -5444,6 +5800,10 @@ msgstr "เสียงนำทาง"
 msgctxt "#15109"
 msgid "Skin default"
 msgstr "หน้าตาพื้นฐาน"
+
+msgctxt "#15110"
+msgid "Larger font size"
+msgstr "ขนาดตัวอักษรใหญ่ขึ้น"
 
 msgctxt "#15111"
 msgid "Theme"
@@ -5677,6 +6037,10 @@ msgctxt "#16105"
 msgid "Edit title"
 msgstr "แก้ไขชื่อเรื่อง"
 
+msgctxt "#16106"
+msgid "Manage..."
+msgstr "จัดการ..."
+
 msgctxt "#16107"
 msgid "Edit sort title"
 msgstr "แก้ไข การจัดลำดับ ชื่อเรื่อง"
@@ -5813,6 +6177,38 @@ msgctxt "#16325"
 msgid "VDPAU - Bob"
 msgstr "VDPAU - Bob"
 
+msgctxt "#16326"
+msgid "DXVA-HD"
+msgstr "DXVA-HD"
+
+msgctxt "#16327"
+msgid "VAAPI Bob"
+msgstr "VAAPI Bob"
+
+msgctxt "#16328"
+msgid "VAAPI Motion Adaptive"
+msgstr "VAAPI ปรับการเคลื่อนไหว"
+
+msgctxt "#16329"
+msgid "VAAPI Motion Compensated"
+msgstr "VAAPI ชดเชยการเคลื่อนไหว"
+
+msgctxt "#16330"
+msgid "MMAL - Advanced"
+msgstr "MMAL - ขั้นสูง"
+
+msgctxt "#16331"
+msgid "MMAL - Advanced (Half)"
+msgstr "MMAL - ขั้นสูง (ครึ่ง)"
+
+msgctxt "#16332"
+msgid "MMAL - Bob"
+msgstr "MMAL - Bob"
+
+msgctxt "#16333"
+msgid "MMAL - Bob (Half)"
+msgstr "MMAL - Bob (ครึ่ง)"
+
 msgctxt "#16400"
 msgid "Post-processing"
 msgstr "การประมวลผลหลัง"
@@ -5846,8 +6242,8 @@ msgid "or use phrases to find an exact match, like \"The wizard of Oz\"."
 msgstr "หรือใช้วลีที่จะหาจับคู่ที่ตรงกันเช่น \"Wizard of Oz\""
 
 msgctxt "#19003"
-msgid "Find similar programs"
-msgstr "ค้นหาโปรแกรมที่คล้ายกัน"
+msgid "Find similar"
+msgstr "พบวิดีโอที่คล้ายกัน"
 
 msgctxt "#19004"
 msgid "Importing EPG from clients"
@@ -5891,7 +6287,7 @@ msgstr "ออกอากาศฟรี"
 
 msgctxt "#19014"
 msgid "Fixed"
-msgstr "คงที่"
+msgstr "ค่าแน่นอน"
 
 msgctxt "#19015"
 msgid "Encryption"
@@ -5902,12 +6298,12 @@ msgid "PVR Backend %i - %s"
 msgstr "PVR Backend %i - %s"
 
 msgctxt "#19017"
-msgid "TV recordings"
-msgstr "บันทึกทีวี"
+msgid "Recordings"
+msgstr "กำลังบันทึก"
 
 msgctxt "#19018"
-msgid "Default folder for PVR thumbnails"
-msgstr "โฟลเดอร์เริ่มต้นสำหรับภาพย่อของ PVR"
+msgid "Folder with channel icons"
+msgstr "โฟลเดอร์ที่มีไอคอนช่องรายการ"
 
 msgctxt "#19019"
 msgid "Channels"
@@ -6093,9 +6489,9 @@ msgctxt "#19064"
 msgid "Go to end"
 msgstr "ไปยัง จุดสิ้นสุด"
 
-msgctxt "#19065"
-msgid "Default EPG window"
-msgstr "ค่าเริ่มต้น หน้าต่าง EPG"
+msgctxt "#19066"
+msgid "Channel icons"
+msgstr "ไอคอน ช่องรายการ"
 
 msgctxt "#19067"
 msgid "This event is already being recorded."
@@ -6108,6 +6504,10 @@ msgstr "การบันทึกนี้ไม่สามารถลบไ
 msgctxt "#19069"
 msgid "EPG"
 msgstr "EPG"
+
+msgctxt "#19070"
+msgid "Go to now"
+msgstr "ไปยัง ขณะนี้"
 
 msgctxt "#19071"
 msgid "EPG update interval"
@@ -6221,6 +6621,18 @@ msgctxt "#19098"
 msgid "Warning"
 msgstr "คำเตือน"
 
+msgctxt "#19099"
+msgid "Service"
+msgstr "บริการ"
+
+msgctxt "#19100"
+msgid "Mux"
+msgstr "รวมสัญญาณ"
+
+msgctxt "#19101"
+msgid "Provider"
+msgstr "ผู้ให้บริการ"
+
 msgctxt "#19102"
 msgid "Please switch to another channel."
 msgstr "โปรดเปลี่ยนไปยังช่องอื่น"
@@ -6249,6 +6661,14 @@ msgctxt "#19111"
 msgid "PVR backend error. Check the log for details."
 msgstr "ข้อผิดพลาดของ PVR backend ตรวจสอบlogเพื่อดูรายละเอียด"
 
+msgctxt "#19112"
+msgid "Delete this recording?"
+msgstr "ลบการบันทึกนี้หรือไม่"
+
+msgctxt "#19113"
+msgid "Delete all recordings in this folder?"
+msgstr "ลบการบันทึกทั้งหมดภายในแฟ้มนี้หรือไม่"
+
 msgctxt "#19114"
 msgid "Version"
 msgstr "เวอร์ชั่น"
@@ -6270,8 +6690,8 @@ msgid "Cannot use PVR functions while searching."
 msgstr "ไม่สามารถใช้การทำงาน PVR ขณะที่ทำการค้นหา"
 
 msgctxt "#19119"
-msgid "On which server you want to search?"
-msgstr "บนเซิร์ฟเวอร์ที่คุณต้องการค้นหา?"
+msgid "On which server do you want to search?"
+msgstr "เปิดเซิร์ฟเวอร์ที่คุณต้องการค้นหา?"
 
 msgctxt "#19120"
 msgid "Client number"
@@ -6352,6 +6772,10 @@ msgstr "ก่อนอื่น โปรดสร้างกลุ่ม"
 msgctxt "#19139"
 msgid "Name of the new group"
 msgstr "ชื่อของกลุ่มใหม่"
+
+msgctxt "#19140"
+msgid "Search..."
+msgstr "ค้นหา..."
 
 msgctxt "#19141"
 msgid "Group"
@@ -6497,10 +6921,6 @@ msgctxt "#19178"
 msgid "Show channel information when switching channels"
 msgstr "แสดงข้อมูลช่องสัญญาณ เมื่อมีการเปลี่ยนช่อง"
 
-msgctxt "#19179"
-msgid "Automatically hide channel information"
-msgstr "ซ่อนข้อมูลช่องสัญญาณ โดยอัตโนมัติ"
-
 msgctxt "#19180"
 msgid "TV"
 msgstr "ทีวี"
@@ -6513,9 +6933,9 @@ msgctxt "#19182"
 msgid "Days to display in the EPG"
 msgstr "วันที่จะแสดงใน EPG"
 
-msgctxt "#19184"
-msgid "Channel information duration"
-msgstr "ระยะเวลาแสดงข้อมูลช่องสัญญาณ"
+msgctxt "#19183"
+msgid "Radio"
+msgstr "วิทยุ"
 
 msgctxt "#19185"
 msgid "Reset the PVR database"
@@ -6538,8 +6958,8 @@ msgid "Continue last channel on startup"
 msgstr "ดูต่อช่องล่าสุดในการเริ่มต้น"
 
 msgctxt "#19190"
-msgid "Minimised"
-msgstr "ทำให้เล็กลง"
+msgid "Background"
+msgstr "พื้นหลัง"
 
 msgctxt "#19191"
 msgid "PVR service"
@@ -6614,8 +7034,8 @@ msgid "Enter the name of the new channel"
 msgstr "ป้อนชื่อของช่องใหม่"
 
 msgctxt "#19209"
-msgid "XBMC virtual backend"
-msgstr "XBMC virtual backend"
+msgid "Kodi virtual backend"
+msgstr "Kodi virtual backend"
 
 msgctxt "#19210"
 msgid "Client"
@@ -6662,12 +7082,16 @@ msgid "Channels in"
 msgstr "ช่อง ใน"
 
 msgctxt "#19221"
-msgid "Synchronise channel groups with backends"
+msgid "Synchronise channel groups with backend(s)"
 msgstr "เชื่อมโยงกลุ่มช่องด้วย backends"
 
 msgctxt "#19222"
 msgid "EPG"
 msgstr "EPG"
+
+msgctxt "#19223"
+msgid "No PVR Add-on could be enabled. Check your settings or the log for more info."
+msgstr "ไม่มี ส่วนเสริม PVR ที่เปิดใช้ได้ ตรวจสอบการตั้งค่าหรือ log ของคุณ เพื่อดูข้อมูลเพิ่มเติม."
 
 msgctxt "#19224"
 msgid "Recording aborted"
@@ -6709,6 +7133,10 @@ msgctxt "#19233"
 msgid "Display a notification on timer updates"
 msgstr "แสดงการแจ้งเตือนในการปรับปรุงตัวตั้งเวลา"
 
+msgctxt "#19234"
+msgid "Use backend channels numbers (only works with 1 enabled PVR Add-on)"
+msgstr "ใช้ หมายเลขช่องของ backend (ใช้ได้กับการเปิดใช้งานเพียง 1 ส่วนเสริม PVR เท่านั้น)"
+
 msgctxt "#19235"
 msgid "PVR manager is starting up"
 msgstr "การจัดการ PVR กำลังเริ่มขึ้น"
@@ -6729,9 +7157,17 @@ msgctxt "#19239"
 msgid "Starting background threads"
 msgstr "กำลังเริ่มการทำงานเบื้องหลัง"
 
+msgctxt "#19240"
+msgid "No PVR Add-on enabled"
+msgstr "ไม่มี ส่วนเสริม PVR ที่เปิดใช้งาน"
+
 msgctxt "#19241"
 msgid "The PVR manager has been enabled without any"
 msgstr "การจัดการ PVR ถูกเปิดใช้งานโดยไม่มี"
+
+msgctxt "#19242"
+msgid "enabled PVR Add-on. Enable at least one Add-on"
+msgstr "เปิดใช้งาน ส่วนเสริม PVR. เปิดใช้งานอย่างน้อยหนึ่ง ส่วนเสริม"
 
 msgctxt "#19243"
 msgid "in order to use the PVR functionality."
@@ -6841,17 +7277,17 @@ msgctxt "#19269"
 msgid "Do not show 'connection lost' warnings"
 msgstr "ไม่แสดงคำเตือน 'การเชื่อมต่อที่ขาดหาย'"
 
-msgctxt "#19270"
-msgid "* All recordings"
-msgstr "* ที่บันทึกทั้งหมด"
+msgctxt "#19271"
+msgid "No PVR Add-ons could be found"
+msgstr "ไม่มี ส่วนเสริม PVR ที่สามารถค้นพบ"
 
 msgctxt "#19272"
 msgid "You need a tuner, backend software, and an"
 msgstr "คุณต้องมีตัวรับสัญญาณ, ซอฟแวร์backendและ"
 
-msgctxt "#19274"
-msgid "Please visit xbmc.org/pvr to learn more."
-msgstr "กรุณาเยี่ยมชม xbmc.org/pvr เพื่อเรียนรู้เพิ่มเติม"
+msgctxt "#19273"
+msgid "Add-on for the backend to be able to use PVR."
+msgstr "ส่วนเสริม เพื่อให้ backend สามารถใช้งาน PVR ได้."
 
 msgctxt "#19275"
 msgid "Conflict warning"
@@ -6880,6 +7316,26 @@ msgstr "ตั้งค่า การระบุลูกข่าย"
 msgctxt "#19281"
 msgid "Confirm channel switches by pressing OK"
 msgstr "ยืนยันการเปลี่ยนช่อง โดยการกด ตกลง"
+
+msgctxt "#19282"
+msgid "Current icon"
+msgstr "ไอคอน ปัจจุบัน"
+
+msgctxt "#19283"
+msgid "No icon"
+msgstr "ไม่มี ไอคอน"
+
+msgctxt "#19284"
+msgid "Choose icon"
+msgstr "เลือก ไอคอน"
+
+msgctxt "#19285"
+msgid "Browse for icon"
+msgstr "เรียกดูไอคอน"
+
+msgctxt "#19287"
+msgid "All channels"
+msgstr "ช่องรายการทั้งหมด"
 
 msgctxt "#19499"
 msgid "Other/Unknown"
@@ -7166,8 +7622,8 @@ msgid "Motoring"
 msgstr "ยานยนต์"
 
 msgctxt "#19648"
-msgid "Fitness &amp; Health"
-msgstr "ออกกำลัง &amp; สุขภาพ"
+msgid "Fitness & Health"
+msgstr "การออกกำลัง & สุขภาพ"
 
 msgctxt "#19649"
 msgid "Cooking"
@@ -7190,8 +7646,8 @@ msgid "Original Language"
 msgstr "ภาษาต้นฉบับ"
 
 msgctxt "#19662"
-msgid "Black &amp; White"
-msgstr "ขาว &amp; ดำ"
+msgid "Black & White"
+msgstr "ขาว & ดำ"
 
 msgctxt "#19663"
 msgid "Unpublished"
@@ -7270,8 +7726,8 @@ msgid "Screenshots"
 msgstr "จับภาพหน้าจอ"
 
 msgctxt "#20009"
-msgid "Use XBMC"
-msgstr "ใช้ XBMC"
+msgid "Use Kodi"
+msgstr "ใช้ Kodi"
 
 msgctxt "#20011"
 msgid "Music playlists"
@@ -7969,6 +8425,14 @@ msgctxt "#20199"
 msgid "Downloading artist info failed"
 msgstr "ดาวน์โหลดข้อมูลศิลปินผิดพลาด"
 
+msgctxt "#20220"
+msgid "Override song tags with online information"
+msgstr "แทนที่ tags เพลง ด้วยข้อมูลแบบออนไลน์"
+
+msgctxt "#20221"
+msgid "With this enabled, any information that is downloaded for albums and artists will override anything you have set in your song tags, such as genres, year, song artists etc. Useful if you have MusicBrainz identifiers in your song tags."
+msgstr "ด้วยการเปิดใช้ส่วนนี้, ทุกข้อมูลที่ถูกดาวน์โหลดสำหรับอัลบั้มและศิลปิน จะแทนที่ทุกอย่างที่คุณกำหนดไว้ในแท็กเพลง, อย่างเช่น ประเภท, ปี, ศิลปินเพลง อื่นๆ. มีประโยชน์ถ้าคุณมีการระบุไอดีของ MusicBrainz ในแท็กเพลงของคุณ."
+
 msgctxt "#20240"
 msgid "Android music"
 msgstr "เพลง Android"
@@ -8101,6 +8565,10 @@ msgctxt "#20321"
 msgid "Scanning albums using %s"
 msgstr "สำรวจอัลบั้มโดยใช้ %s"
 
+msgctxt "#20323"
+msgid "Movie plot"
+msgstr "เรื่องย่อ ภาพยนตร์"
+
 msgctxt "#20324"
 msgid "Play part..."
 msgstr "ส่วนที่เล่น"
@@ -8114,8 +8582,8 @@ msgid "This will reset the calibration values for %s"
 msgstr "การกระทำนี้จะคืนกลับค่าเดิมของการปรับเทียบ สำหรับ %s"
 
 msgctxt "#20327"
-msgid "to it's default values."
-msgstr "กลับสู่ค่าพื้นฐาน."
+msgid "to its default values."
+msgstr "ไปยังค่าเริ่มต้น."
 
 msgctxt "#20328"
 msgid "Browse for destination"
@@ -8170,7 +8638,7 @@ msgid "Do you want to remove all items within"
 msgstr "คุณต้องการลบทุกรายการภายใน"
 
 msgctxt "#20341"
-msgid "this path from the XBMC library?"
+msgid "this path from the Kodi library?"
 msgstr "เส้นทางนี้ออกจากคลังข้อมูลหรือไม่?"
 
 msgctxt "#20342"
@@ -8333,10 +8801,6 @@ msgctxt "#20381"
 msgid "Specials"
 msgstr "พิเศษ"
 
-msgctxt "#20382"
-msgid "Automatically grab season thumbs"
-msgstr "ดึงรูปย่อของฤดู อัตโนมัติ"
-
 msgctxt "#20383"
 msgid "Selected folder contains a single video"
 msgstr "โฟลเดอร์ที่เลือกมีวิดีโอเดียว"
@@ -8454,8 +8918,8 @@ msgid "Flatten"
 msgstr "เรียบง่าย"
 
 msgctxt "#20412"
-msgid "Flatten TV shows"
-msgstr "รายการทีวี แบบเรียบง่าย"
+msgid "Flatten TV show seasons"
+msgstr "รวม ฤดูของรายการทีวี"
 
 msgctxt "#20413"
 msgid "Get fanart"
@@ -8746,8 +9210,8 @@ msgid "Remove media share"
 msgstr "สื่อที่แบ่งปัน"
 
 msgctxt "#21366"
-msgid "Subtitle folder"
-msgstr "โฟลเดอร์คำบรรยาย"
+msgid "Custom subtitle folder"
+msgstr "โฟลเดอร์คำบรรยายที่กำหนดเอง"
 
 msgctxt "#21367"
 msgid "Movie & alternate subtitle directory"
@@ -8758,8 +9222,8 @@ msgid "Override ASS/SSA subtitles fonts"
 msgstr "แทนที่แบบอักษรคำบรรยาย ASS / SSA"
 
 msgctxt "#21369"
-msgid "Enable mouse and Touch Screen support"
-msgstr "เปิดใช้งานเมาส์"
+msgid "Enable mouse and touch screen support"
+msgstr "เปิดใช้งาน การรองรับเมาส์และหน้าจอสัมผัส"
 
 msgctxt "#21370"
 msgid "Play navigation sounds during media playback"
@@ -9118,12 +9582,12 @@ msgid "mixed"
 msgstr "ผสม"
 
 msgctxt "#21460"
-msgid "Subtitle location"
-msgstr "ตำแหน่งของคำบรรยาย"
+msgid "Subtitle position on screen"
+msgstr "ตำแหน่งของคำบรรยายบนหน้าจอ"
 
 msgctxt "#21461"
 msgid "Fixed"
-msgstr "คงที่"
+msgstr "ค่าแน่นอน"
 
 msgctxt "#21462"
 msgid "Bottom of video"
@@ -9152,6 +9616,10 @@ msgstr "%d to %d"
 msgctxt "#21469"
 msgid "%s to %s"
 msgstr "%s to %s"
+
+msgctxt "#21602"
+msgid "(External)"
+msgstr "(ภายนอก)"
 
 msgctxt "#21800"
 msgid "File name"
@@ -9382,8 +9850,8 @@ msgid "Reference service"
 msgstr "บริการอ้างอิง"
 
 msgctxt "#21881"
-msgid "Allow control of XBMC via UPnP"
-msgstr "อนุญาตควบคุม XBMC ผ่าน UPnP"
+msgid "Allow control of Kodi via UPnP"
+msgstr "อนุญาตควบคุม Kodi ผ่าน UPnP"
 
 msgctxt "#21882"
 msgid "Attempt to skip introduction before DVD menu"
@@ -9762,6 +10230,10 @@ msgid "Enable"
 msgstr "เปิดการใช้งาน"
 
 msgctxt "#24023"
+msgid "Disabled"
+msgstr "ปิดการใช้งาน"
+
+msgctxt "#24024"
 msgid "Add-on disabled"
 msgstr "ปิดใช้งาน ส่วนเสริม"
 
@@ -9833,13 +10305,29 @@ msgctxt "#24043"
 msgid "Available Updates"
 msgstr "ที่มีการปรับรุ่น"
 
+msgctxt "#24044"
+msgid "Dependencies not met. Please contact Add-on author."
+msgstr "ไม่พบส่วนที่ต้องใช้ร่วมกัน. โปรดติดต่อผู้เขียน ส่วนเสริม."
+
 msgctxt "#24045"
 msgid "Add-on does not have the correct structure"
 msgstr "ส่วนเสริม มีโครงสร้างที่ไม่ถูกต้อง"
 
+msgctxt "#24046"
+msgid "%s is used by the following installed Add-on(s)"
+msgstr "%s ถูกใช้โดย ส่วนเสริมที่ติดตั้งแล้ว ตามนี้(s)"
+
+msgctxt "#24047"
+msgid "This Add-on cannot be uninstalled"
+msgstr "ส่วนเสริมนี้ ไม่สามารถถอนการติดตั้ง"
+
 msgctxt "#24048"
 msgid "Rollback"
 msgstr "ย้อนกลับ"
+
+msgctxt "#24049"
+msgid "Incompatible"
+msgstr "ไม่รองรับ"
 
 msgctxt "#24050"
 msgid "Available Add-ons"
@@ -9861,6 +10349,14 @@ msgctxt "#24054"
 msgid "Changelog"
 msgstr "บันทึกการปรับเปลี่ยน"
 
+msgctxt "#24055"
+msgid "Check for updates"
+msgstr "ตรวจสอบอัพเดท"
+
+msgctxt "#24056"
+msgid "Last updated %s"
+msgstr "ปรับปรุงครั้งสุดท้ายเมื่อ %s"
+
 msgctxt "#24059"
 msgid "Would you like to enable this Add-on?"
 msgstr "คุณต้องการจะเปิดใช้งาน ส่วนเสริม นี้?"
@@ -9875,7 +10371,7 @@ msgstr "ส่วนเสริม ที่พร้อมปรับรุ�
 
 msgctxt "#24062"
 msgid "Enabled Add-ons"
-msgstr "เปิดใช้ ส่วนเสริม"
+msgstr "ส่วนเสริม ที่เปิดใช้"
 
 msgctxt "#24063"
 msgid "Auto update"
@@ -9945,6 +10441,10 @@ msgctxt "#24090"
 msgid "Lock Add-on manager"
 msgstr "ล็อคการจัดการ ส่วนเสริม"
 
+msgctxt "#24091"
+msgid "This Add-on cannot be disabled"
+msgstr "ส่วนเสริมนี้ ไม่สามารถปิดการใช้งาน"
+
 msgctxt "#24094"
 msgid "(current)"
 msgstr "(ปัจจุบัน)"
@@ -9952,6 +10452,10 @@ msgstr "(ปัจจุบัน)"
 msgctxt "#24095"
 msgid "(blacklisted)"
 msgstr "(บัญชีดำ)"
+
+msgctxt "#24096"
+msgid "Add-on is incompatible or has been marked broken in repository."
+msgstr "ส่วนเสริมที่ไม่รองรับ หรือถูกระบุว่าเสียหายในแหล่งข้อมูล"
 
 msgctxt "#24097"
 msgid "Would you like to disable it on your system?"
@@ -9981,6 +10485,102 @@ msgctxt "#24103"
 msgid "Skin is missing some files"
 msgstr "สกินมีบางไฟล์ที่หายไป"
 
+msgctxt "#24104"
+msgid "Add-on is incompatible due to unmet dependencies."
+msgstr "ส่วนเสริมที่ไม่รองรับ จากการไม่พบส่วนที่ต้องใช้ร่วมกัน"
+
+msgctxt "#24105"
+msgid "Pause when searching for subtitles"
+msgstr "หยุดชั่วขณะ เมื่อทำการต้นหาคำบรรยาย"
+
+msgctxt "#24106"
+msgid "Specify where downloaded subtitles should be saved, the same location as the video or a custom location."
+msgstr "กำหนดตำแหน่งบันทึกคำบรรยายที่ถูกดาวน์โหลด, ในที่เดียวกับวิดีโอ หรือตำแหน่งที่กำหนดเอง."
+
+msgctxt "#24107"
+msgid "Searching for subtitles ..."
+msgstr "ทำการค้นหา คำบรรยาย"
+
+msgctxt "#24108"
+msgid "%d subtitles found"
+msgstr "%d คำบรรยาย ที่พบ"
+
+msgctxt "#24109"
+msgid "No subtitles found"
+msgstr "ไม่พบ คำบรรยาย"
+
+msgctxt "#24110"
+msgid "Downloading subtitles ..."
+msgstr "ทำการดาวน์โหลด คำบรรยาย ..."
+
+msgctxt "#24111"
+msgid "Languages to download subtitles for"
+msgstr "เลือกภาษาที่จะดาวน์โหลดคำบรรยาย"
+
+msgctxt "#24112"
+msgid "Set languages to use when searching for subtitles. Not all subtitle services will use all languages."
+msgstr "กำหนดภาษาที่ใช้ในการค้นหาคำบรรบาย. ไม่ทั้งหมดของบริการคำบรรยาย ที่จะใช้ได้ทุกภาษา."
+
+msgctxt "#24113"
+msgid "Failed to download subtitle"
+msgstr "ล้มเหลวในการดาวน์โหลดคำบรรยาย"
+
+msgctxt "#24114"
+msgid "No subtitle services installed"
+msgstr "ไม่มีบริการคำบรรยายติดตั้งอยู่"
+
+msgctxt "#24115"
+msgid "Subtitle storage location"
+msgstr "ตำแหน่งของแหล่งเก็บคำบรรยาย"
+
+msgctxt "#24116"
+msgid "Default TV Service"
+msgstr "ค่าเริ่มต้น บริการทีวี"
+
+msgctxt "#24117"
+msgid "Select service that will be used as default to search for TV Show subtitles."
+msgstr "เลือกบริการที่จะใช้เป็นค่าเริ่มต้น ในการค้นหาคำบรรยายสำหรับรายการทีวี."
+
+msgctxt "#24118"
+msgid "Default Movie Service"
+msgstr "ค่าเริ่มต้น บริการภาพยนตร์"
+
+msgctxt "#24119"
+msgid "Select service that will be used as default to search for Movie subtitles."
+msgstr "เลือกบริการที่จะใช้เป็นค่าเริ่มต้น ในการค้นหาคำบรรยายสำหรับภาพยนตร์."
+
+msgctxt "#24120"
+msgid "Manual search string"
+msgstr "คำค้น ที่กำหนดเอง"
+
+msgctxt "#24121"
+msgid "Enter search string"
+msgstr "ป้อนคำค้น"
+
+msgctxt "#24122"
+msgid "Update all"
+msgstr "อัพเดททั้งหมด"
+
+msgctxt "#24123"
+msgid "Pause the current video while searching for subtitles and resume once the subtitle is available."
+msgstr "หยุดวิดีโอชั่วคราว ในขณะที่กำลังค้นหาคำบรรยาย และเล่นต่ออีกครั้ง เมื่อมีคำบรรยาย."
+
+msgctxt "#24124"
+msgid "Next to the video"
+msgstr "ถัดไปยังวิดีโอ"
+
+msgctxt "#24125"
+msgid "Custom location"
+msgstr "ตำแหน่งที่กำหนดเอง"
+
+msgctxt "#24126"
+msgid "Auto download first subtitle"
+msgstr "ดาวน์โหลดบทบรรยายแรกอัตโนมัติ"
+
+msgctxt "#24127"
+msgid "Automatically download first subtitle from the search result list"
+msgstr "ดาวน์โหลดบทบรรยายแรกจากผลการค้นหาอัตโนมัติ"
+
 msgctxt "#25000"
 msgid "Notifications"
 msgstr "การแจ้งเตือน"
@@ -9993,10 +10593,6 @@ msgctxt "#25002"
 msgid "Select from all titles ..."
 msgstr "เลือกจากชื่อเรื่องทั้งหมด ..."
 
-msgctxt "#25003"
-msgid "Show bluray menus"
-msgstr "แสดง bluray เมนู"
-
 msgctxt "#25004"
 msgid "Play main title: %d"
 msgstr "เล่นชื่อเรื่องหลัก: %d"
@@ -10008,6 +10604,18 @@ msgstr "ชื่อเรื่อง: %d"
 msgctxt "#25006"
 msgid "Select playback item"
 msgstr "เลือกรายการที่เล่น"
+
+msgctxt "#25007"
+msgid "Chapters: %u - duration: %s"
+msgstr "ที่คั่นหน้า: %u - ช่วงเวลา: %s"
+
+msgctxt "#25008"
+msgid "Playback of Blu-ray failed"
+msgstr "การเล่นของบลูเรย์ ล้มเหลว"
+
+msgctxt "#25009"
+msgid "The menu of this Blu-ray is not supported"
+msgstr "เมนูของบลูเรย์นี้ ไม่รองรับ"
 
 msgctxt "#29800"
 msgid "Library Mode"
@@ -10084,6 +10692,10 @@ msgstr "ถามการดาวน์โหลดก่อนเริ่ม
 msgctxt "#33016"
 msgid "Clips"
 msgstr "คลิป"
+
+msgctxt "#33017"
+msgid "Restart plug-in to enable"
+msgstr "เริ่มการใช้งานปล๊ักอินใหม่ เพื่อเปิดใช้"
 
 msgctxt "#33018"
 msgid "Tonight"
@@ -10270,12 +10882,12 @@ msgid "This version of %s requires an"
 msgstr "เวอร์ชั่น %s ต้องการ"
 
 msgctxt "#33075"
-msgid "XBMC revision of %s or greater to run."
-msgstr "XBMC รุ่นปรับปรุง %s หรือใหม่กว่าในการทำงาน."
+msgid "Kodi revision of %s or greater to run."
+msgstr "Kodi รุ่นปรับปรุง %s หรือใหม่กว่าในการทำงาน."
 
 msgctxt "#33076"
-msgid "Please update XBMC."
-msgstr "กรุณาปรับปรุงรุ่น XBMC."
+msgid "Please update Kodi."
+msgstr "กรุณาปรับปรุงรุ่น Kodi."
 
 msgctxt "#33077"
 msgid "No data found!"
@@ -10362,8 +10974,8 @@ msgid "Windows Media Audio 2 (FFmpeg wmav2)"
 msgstr "เสียง Windows Media 2 (FFmpeg wmav2)"
 
 msgctxt "#34100"
-msgid "Speaker Configuration"
-msgstr "ตั้งค่าลำโพง"
+msgid "Number of channels"
+msgstr "จำนวนของช่อง"
 
 msgctxt "#34101"
 msgid "2.0"
@@ -10405,6 +11017,10 @@ msgctxt "#34110"
 msgid "7.1"
 msgstr "7.1"
 
+msgctxt "#34111"
+msgid "Select the behaviour when no sound is required for either playback or GUI sounds. [Always] - continuous inaudible signal is output, this keeps the receiving audio device alive for any new sounds, however this might also block sound from other applications. [1- 10 Minutes] - same as Always except that after the selected period of time audio enters a suspended state [Off] - audio output enters a suspended state. Note - sounds can be missed if audio enters suspended state."
+msgstr "เลือกลักษณะการทำงาน เมื่อไม่มีเสียงที่ใช้สำหรับการเล่นหรือเสียง GUI. [เสมอ] - สัญญาณเสียงเงียบจะถูกส่งออกอย่างต่อเนื่อง ชึ่งทำให้อุปกรณ์เสียงที่รับสัญญาณคงการใช้งานอยู่ เพื่อรับเสียงใหม่ได้ทันที, อย่างไรก็ตามการกระทำนี้อาจปิดกั้นเสียงจากโปรแกรมอื่น ๆ. [1 - 10 นาที] - เช่นเดียวกับ เสมอ เว้นแต่ว่า หลังจากช่วงเวลาที่เลือก เสียงจะเข้าสู่สถานะพัก. [ปิด] - สัญญาณเสียงออก เข้าสู่สถานะพัก. หมายเหตุ - เสียงอาจจะขาดหาย ถ้าเสียงเข้าสู่สถานะพัก."
+
 msgctxt "#34120"
 msgid "Play GUI sounds"
 msgstr "เล่นเสียง GUI"
@@ -10420,6 +11036,26 @@ msgstr "เสมอ"
 msgctxt "#34123"
 msgid "Never"
 msgstr "ไม่เลย"
+
+msgctxt "#34124"
+msgid "44.1"
+msgstr "44.1"
+
+msgctxt "#34125"
+msgid "48.0"
+msgstr "48.0"
+
+msgctxt "#34126"
+msgid "88.2"
+msgstr "88.2"
+
+msgctxt "#34127"
+msgid "96.0"
+msgstr "96.0"
+
+msgctxt "#34128"
+msgid "192.0"
+msgstr "192.0"
 
 msgctxt "#34201"
 msgid "Can't find a next item to play"
@@ -10582,12 +11218,12 @@ msgid "Could not open the adaptor"
 msgstr "ไม่สามารถเปิดการ์ดเชื่อมต่อ"
 
 msgctxt "#36007"
-msgid "Devices to power on when starting XBMC"
-msgstr "อุปกรณ์ที่จะเปิด เมื่อเริ่มต้น XBMC"
+msgid "Devices to power on when starting Kodi"
+msgstr "อุปกรณ์ที่จะเปิด เมื่อเริ่มต้น Kodi"
 
 msgctxt "#36008"
-msgid "Devices to power off when stopping XBMC"
-msgstr "อุปกรณ์ที่จะปิด เมื่อหยุด XBMC"
+msgid "Devices to power off when stopping Kodi"
+msgstr "อุปกรณ์ที่จะปิด เมื่อหยุด Kodi"
 
 msgctxt "#36009"
 msgid "Put devices in standby mode when activating screensaver"
@@ -10626,8 +11262,8 @@ msgid "Connected to HDMI device"
 msgstr "เชื่อมต่อกับอุปกรณ์ HDMI"
 
 msgctxt "#36020"
-msgid "Make XBMC the active source when starting"
-msgstr "ทำให้ XBMC เป็นแหล่งของสื่อที่ทำงานเมื่อเริ่ม"
+msgid "Make Kodi the active source when starting"
+msgstr "ทำให้ Kodi เป็นแหล่งของสื่อที่ทำงานเมื่อเริ่ม"
 
 msgctxt "#36021"
 msgid "Physical address (overrules HDMI port)"
@@ -10646,8 +11282,8 @@ msgid "Failed to set the new configuration. Please check your settings."
 msgstr "ล้มเหลวในการตั้งกำหนดค่าใหม่ กรุณาตรวจสอบการตั้งค่าของคุณ"
 
 msgctxt "#36025"
-msgid "Send 'inactive source' command when stopping XBMC"
-msgstr "ส่งคำสั่ง 'แหล่งที่ไม่ใช้งาน' เมื่อหยุด XBMC"
+msgid "Send 'inactive source' command when stopping Kodi"
+msgstr "ส่งคำสั่ง 'แหล่งที่ไม่ใช้งาน' เมื่อหยุด Kodi"
 
 msgctxt "#36026"
 msgid "Put devices in standby mode when putting the PC in standby"
@@ -10702,8 +11338,8 @@ msgid "TV and AVR device (explicit)"
 msgstr "TV และอุปกรณ์ AVR (แน่ชัด)"
 
 msgctxt "#36040"
-msgid "Unsupported libCEC interface version. %x is lower than the version XBMC supports (%x)"
-msgstr "รุ่นที่ไม่สนับสนุนส่วนติดต่อ libCEC. %x ซึ่งต่ำกว่ารุ่นที่ XBMC สนับสนุน (%x)"
+msgid "Unsupported libCEC interface version. %x is lower than the version Kodi supports (%x)"
+msgstr "รุ่นที่ไม่สนับสนุนส่วนติดต่อ libCEC. %x ซึ่งต่ำกว่ารุ่นที่ Kodi สนับสนุน (%x)"
 
 msgctxt "#36041"
 msgid "* Item folder"
@@ -10714,16 +11350,16 @@ msgid "Use limited colour range (16-235)"
 msgstr "ใช้เฉดสีแบบจำกัด (16-235)"
 
 msgctxt "#36101"
-msgid "Change the look and feel of the User Interface."
-msgstr "เปลี่ยนรูปลักษณ์และความรู้สึก ของส่วนติดต่อผู้ใช้."
+msgid "Change the look and feel of the user interface."
+msgstr "เปลี่ยนรูปลักษณ์และอารมณ์ ของส่วนติดต่อผู้ใช้."
 
 msgctxt "#36102"
-msgid "No info available yet."
-msgstr "ยังไม่มีข้อมูล."
+msgid "Category containing all Skin related settings."
+msgstr "หมวดหมู่ที่ประกอบด้วย การปรับแต่งทั้งหมดที่เกี่ยวกับสกิน."
 
 msgctxt "#36103"
-msgid "Select the skin for the User Interface. This will define the look and feel of XBMC."
-msgstr "เลือกสกินสำหรับส่วนติดต่อผู้ใช้. ส่วนนี้จะกำหนดรูปลักษณ์และความรู้สึกของ XBMC."
+msgid "Select the skin for the user interface. This will define the look and feel of Kodi."
+msgstr "เลือกหน้าตาของส่วนติดต่อผู้ใช้. ซึ่งจะกำหนดรูปลักษณ์และอารมณ์ของ Kodi."
 
 msgctxt "#36104"
 msgid "Change specific skin settings. The available options are dependent on the skin used."
@@ -10738,20 +11374,20 @@ msgid "Change the colours of your selected skin."
 msgstr "เปลี่ยนสีของสกินที่คุณเลือกใช้."
 
 msgctxt "#36107"
-msgid "Choose the fonts displayed in the User Interface. The font sets are configured by your skin."
-msgstr "เลือกแบบอักษร ที่แสดงในส่วนติดต่อผู้ใช้. ชุดของแบบอักษร ได้ถูกกำหนดค่าโดยสกินของคุณเอง."
+msgid "Choose the fonts displayed in the user interface. The font sets are configured by your skin."
+msgstr "เลือกแบบอักษรที่แสดงในส่วนติดต่อผู้ใช้. ซึ่งชุดตัวอักษรจะถูกกำหนดค่าโดยสกินของคุณ."
 
 msgctxt "#36108"
-msgid "Resize the view of the GUI."
-msgstr "ปรับขนาดมุมมองของ GUI."
+msgid "Resize the view of the user interface."
+msgstr "ปรับขนาดมุมมองของส่วนติดต่อผู้ใช้."
 
 msgctxt "#36109"
-msgid "Select the media window that XBMC displays on startup."
-msgstr "เลือกหน้าต่างของสื่อ ที่ XBMC จะแสดงในตอนเริ่มระบบ."
+msgid "Select the media window that Kodi displays on startup."
+msgstr "เลือกหน้าต่างของสื่อ ที่ Kodi จะแสดงในตอนเริ่มระบบ."
 
 msgctxt "#36110"
-msgid "Select or disable the sound scheme used in the User Interface."
-msgstr "เลือกหรือปิดรูปแบบเสียง ที่ใช้ในส่วนติดต่อผู้ใช้."
+msgid "Select or disable the sound scheme used in the user interface."
+msgstr "เลือกหรือปิด รูปแบบเสียงที่ใช้ในส่วนติดต่อผู้ใช้."
 
 msgctxt "#36111"
 msgid "Turn this off to remove the scrolling RSS news ticker."
@@ -10762,20 +11398,20 @@ msgid "Edit the RSS feeds."
 msgstr "แก้ไข RSS feeds."
 
 msgctxt "#36113"
-msgid "No info available yet."
-msgstr "ยังไม่มีข้อมูล."
+msgid "Category containing all locale/regional settings."
+msgstr "หมวดหมู่ที่ประกอบด้วย การตั้งค่าทั้งหมดของท้องถิ่น/ภูมิภาค."
 
 msgctxt "#36114"
-msgid "Chooses the language of the User Interface."
-msgstr "เลือกภาษา ของส่วนติดต่อผู้ใช้."
+msgid "Chooses the language of the user interface."
+msgstr "เลือกภาษาของส่วนติดต่อผู้ใช้."
 
 msgctxt "#36115"
 msgid "Select the formats for temperature, time and date. The available options depend on the selected language."
 msgstr "เลือกรูปแบบของอุณหภูมิ, เวลาและวันที่. ตัวเลือกที่มีขึ้นอยู่กับภาษาที่เลือกไว้."
 
 msgctxt "#36116"
-msgid "Choose which character set is used for displaying text in the GUI."
-msgstr "เลือกชุดอักขระ ที่จะใช้สำหรับการแสดงผลใน GUI."
+msgid "Choose which character set is used for displaying text in the user interface."
+msgstr "เลือกชุดอักขระที่จะนำไปใช้ สำหรับการแสดงผลตัวอักษรในส่วนติดต่อผู้ใช้."
 
 msgctxt "#36117"
 msgid "Select country location."
@@ -10794,8 +11430,8 @@ msgid "Select the default subtitles when different languages are available."
 msgstr "เลือกคำบรรยายเริ่มต้น เมื่อมีภาษาที่แตกต่างกัน"
 
 msgctxt "#36121"
-msgid "No info available yet."
-msgstr "ยังไม่มีข้อมูล."
+msgid "Category containing settings related to how file lists are displayed."
+msgstr "หมวดหมู่ที่ประกอบด้วย การตั้งต่าที่เกียวข้องในวิธีการแสดงรายการแฟ้ม."
 
 msgctxt "#36122"
 msgid "Display the (..) item in lists for visiting the parent folder."
@@ -10806,32 +11442,32 @@ msgid "Show file extensions on media files. For example, 'You Enjoy Myself.mp3' 
 msgstr "แสดงส่วนขยายของแฟ้มมีเดีย. ตัวอย่าง เช่น, 'You Enjoy Myself.mp3' ซึ่งจะถูกแสดงแบบง่ายเพียง 'You Enjoy Myself'."
 
 msgctxt "#36124"
-msgid "Ignore certain tokens during sort operations. For example, 'The Simpsons' would simply be sorted as 'Simpsons'. To configure tokens, see http://wiki.xbmc.org/index.php?title=Settings/Appearance."
-msgstr "ไม่สนใจคำนำหน้าบางคำ ในระหว่างทำการจัดเรียง. ตัวอย่าง เช่น, 'The Simpsons' จะถูกจัดเรียงแบบง่ายเพียง 'Simpsons'. ในการกำหนดค่าคำนำหน้า, ดูที่ http://wiki.xbmc.org/index.php?title=Settings/Appearance."
+msgid "Ignore certain tokens during sort operations. For example, 'The Simpsons' would be sorted as 'Simpsons'."
+msgstr "เว้นคำนำหน้าบางคำ ขณะทำการจัดเรียง. ตัวอย่าง เช่น, 'The Simpsons' จะถูกจัดเรียงเป็น 'Simpsons'."
 
 msgctxt "#36125"
 msgid "Allow files to be deleted and renamed through the user interface, via the contextual menu (press C on a keyboard, for example, to bring up this menu)."
 msgstr "อนุญาตให้สามารถลบและเปลี่ยนชื่อแฟ้ม ด้วยส่วนติดต่อผู้ใช้, ผ่านทางเมนูตามเนื้อหา (กด C บนแป้นพิมพ์, ตัวอย่าง เช่น, การเรียกเมนูนี้)."
 
 msgctxt "#36126"
-msgid "Show the add source button from root sections of the user interface."
-msgstr "แสดงปุ่ม เพิ่มแหล่งข้อมูล จากส่วนหลักของส่วนติดต่อผู้ใช้"
+msgid "Show the add source button in root sections of the user interface."
+msgstr "แสดงปุ่มเพิ่มแหล่งข้อมูล ในส่วนแรกสุดของส่วนติดต่อผู้ใช้."
 
 msgctxt "#36127"
-msgid "Show hidden files and directories."
-msgstr "แสดงแฟ้มและไดเร็กทอรี่ที่ซ่อนอยู่"
+msgid "Show hidden files and directories when listing files."
+msgstr "แสดงแฟ้มและไดเรกทอรีที่ซ่อน เมื่อเรียกแสดงแฟ้ม."
 
 msgctxt "#36128"
-msgid "No info available yet."
-msgstr "ยังไม่มีข้อมูล."
+msgid "Category containing all screensaver settings."
+msgstr "หมวดหมู่ที่ประกอบด้วย การตั้งค่าถนอมหน้าจอทั้งหมด."
 
 msgctxt "#36129"
 msgid "Set the amount of idle time required before displaying the screensaver."
 msgstr "ตั้งระยะเวลาที่ไม่ได้ใช้งาน ก่อนจะแสดงผลการพักหน้าจอ"
 
 msgctxt "#36130"
-msgid "Select the screensaver. XBMC will force the 'Dim' screensaver when fullscreen video playback is paused or a dialogue box is active."
-msgstr "เลือกการพักหน้าจอ. XBMC จะบังคับใช้  การพักหน้าจอ 'ทำให้มืดลง'  เมื่อการเล่นวิดีโอเต็มจอถูก หยุดชั่วขณะ หรือเมื่อกล่องโต้ตอบปรากฏขึ้น."
+msgid "Select the screensaver. Kodi will force the 'Dim' screensaver when fullscreen video playback is paused or a dialogue box is active."
+msgstr "เลือกการพักหน้าจอ. Kodi จะบังคับใช้  การพักหน้าจอ 'ทำให้มืดลง'  เมื่อการเล่นวิดีโอเต็มจอถูก หยุดชั่วขณะ หรือเมื่อกล่องโต้ตอบปรากฏขึ้น."
 
 msgctxt "#36131"
 msgid "Change specific screensaver settings. The available options are dependent on the screensaver used."
@@ -10842,8 +11478,8 @@ msgid "Preview the selected screensaver."
 msgstr "แสดงตัวอย่าง การพักหน้าจอที่เลือกไว้"
 
 msgctxt "#36133"
-msgid "If music is being played, XBMC will start the selected visualisation instead of displaying the screensaver."
-msgstr "เมื่อเพลงถูกเล่น, XBMC จะเริ่มการแสดงแสงสีที่เลือกไว้ แทนที่การแสดงผลพักหน้าจอ"
+msgid "If music is being played, Kodi will start the selected visualisation instead of displaying the screensaver."
+msgstr "เมื่อเพลงถูกเล่น, Kodi จะเริ่มการแสดงแสงสีที่เลือกไว้ แทนที่การแสดงผลพักหน้าจอ"
 
 msgctxt "#36134"
 msgid "Dim the display when media is paused. Not valid for the 'Dim' screensaver mode."
@@ -10862,24 +11498,20 @@ msgid "No info available yet."
 msgstr "ยังไม่มีข้อมูล."
 
 msgctxt "#36138"
-msgid "No info available yet."
-msgstr "ยังไม่มีข้อมูล."
+msgid "Section that contains settings related to videos and how they are handled."
+msgstr "ส่วนที่มีการตั้งค่า ซึ่งเกี่ยวข้องกับวิดีโอและวิธีการจัดการ."
 
 msgctxt "#36139"
-msgid "No info available yet."
-msgstr "ยังไม่มีข้อมูล."
+msgid "Category containing the settings for how the video library is handled."
+msgstr "หมวดหมู่ที่ประกอบด้วยการตั้งค่า สำหรับวิธีการจัดการ คลังข้อมูลวิดีโอ."
 
 msgctxt "#36140"
-msgid "No info available yet."
-msgstr "ยังไม่มีข้อมูล."
+msgid "Enable the video library."
+msgstr "เปิดใช้งาน คลังข้อมูลวิดีโอ"
 
 msgctxt "#36141"
 msgid "Show plot information for unwatched media in the Video Library."
 msgstr "แสดงข้อมูลเรื่องย่อ สำหรับสื่อที่ยังไม่ได้ดู ในคลังวิดีโอ"
-
-msgctxt "#36142"
-msgid "No info available yet."
-msgstr "ยังไม่มีข้อมูล."
 
 msgctxt "#36143"
 msgid "Get thumbnails for actors when scanning media."
@@ -10894,8 +11526,8 @@ msgid "Group movies into 'Movie sets' when browsing the movie library."
 msgstr "รวมภาพยนตร์ เป็น 'ภาพยนตร์ชุด' เมื่อเลื่อนดูใน คลังข้อมูลภาพยนตร์."
 
 msgctxt "#36146"
-msgid "Check for new media files on XBMC startup."
-msgstr "ตรวจสอบแฟ้มสื่อใหม่ ในตอนเริ่มระบบ XBMC."
+msgid "Check for new media files on Kodi startup."
+msgstr "ตรวจสอบแฟ้มสื่อใหม่ ในตอนเริ่มระบบ Kodi."
 
 msgctxt "#36147"
 msgid "Hide the library scanning progress bar during scans."
@@ -10914,64 +11546,60 @@ msgid "Import a XML file into the Video Library database."
 msgstr "นำเข้าแฟ้ม XML ไปยังฐานข้อมูล คลังวิดีโอ."
 
 msgctxt "#36151"
-msgid "No info available yet."
-msgstr "ยังไม่มีข้อมูล."
+msgid "Category containing settings for how video playback is handled."
+msgstr "หมวดหมู่ที่ประกอบด้วยการตั้งค่า สำหรับจัดการ วิธีการเล่นกลับวิดีโอ."
 
 msgctxt "#36152"
-msgid "Enable automatic playback of the next file in the list of the selected item."
-msgstr "เปิดใช้งานการเล่นอัตโนมัติของแฟ้มถัดไป ในลำดับรายการของสิ่งที่เลือก."
+msgid "Enable automatic playback of the next file in the list."
+msgstr "เปิดใช้งาน เล่นวิดีโอถัดไปในรายการโดยอัตโนมัติ."
 
 msgctxt "#36153"
 msgid "Adjust the method used to process and display video."
 msgstr "ปรับกระบวนการที่ใช้ ในการประมวลผลและแสดงผลวิดีโอ."
 
 msgctxt "#36154"
-msgid "No info available yet."
-msgstr "ยังไม่มีข้อมูล."
+msgid "Use high quality scalers when upscaling a video by at least this percentage."
+msgstr "ใฃ้ตัวปรับขนาดคุณภาพสูง เมื่อปรับขนาดวิด๊โอขึ้น โดยอย่างน้อยร้อยละเท่านี้."
 
 msgctxt "#36155"
-msgid "Enable hardware decoding of video files."
-msgstr "เปิดใช้งาน การถอดรหัสด้วยฮาร์ดแวร์สำหรับไฟล์วิดีโอ."
+msgid "Enable VDPAU hardware decoding of video files, mainly used for NVIDIA graphics and in some circumstances AMD graphics."
+msgstr "เปิดใช้งาน การถอดรหัสด้วยฮาร์ดแวร์ VDPAU ของแฟ้มวิดีโอ, ส่วนใหญ่จะใช้สำหรับกราฟิก NVIDIA และบางกรณีในกราฟิก AMD."
 
 msgctxt "#36156"
-msgid "No info available yet."
-msgstr "ยังไม่มีข้อมูล."
-
-msgctxt "#36157"
-msgid "No info available yet."
-msgstr "ยังไม่มีข้อมูล."
+msgid "Enable VAAPI hardware decoding of video files, mainly used for Intel graphics and in some circumstances AMD graphics."
+msgstr "เปิดใช้งาน การถอดรหัสด้วยฮาร์ดแวร์ VAAPI สำหรับแฟ้มวิดีโอ, ส่วนใหญ่จะใช้สำหรับกราฟิกอินเทล และบางกรณีในกราฟิกเอเอ็มดี."
 
 msgctxt "#36158"
-msgid "No info available yet."
-msgstr "ยังไม่มีข้อมูล."
+msgid "Enable DXVA2 hardware decoding of video files."
+msgstr "เปิดใช้งาน การถอดรหัสด้วยฮาร์ดแวร์ DXVA2 สำหรับแฟ้มวิดีโอ ."
 
 msgctxt "#36159"
-msgid "No info available yet."
-msgstr "ยังไม่มีข้อมูล."
+msgid "Enable CrystalHD decoding of video files."
+msgstr "เปิดใช้งาน การถอดรหัสด้วย CrystalHD สำหรับแฟ้มวิดีโอ."
 
 msgctxt "#36160"
-msgid "No info available yet."
-msgstr "ยังไม่มีข้อมูล."
+msgid "Enable VDA hardware decoding of video files."
+msgstr "เปิดใช้งาน การถอดรหัสด้วยฮาร์ดแวร์ VDA สำหรับแฟ้มวิดีโอ."
 
 msgctxt "#36161"
-msgid "No info available yet."
-msgstr "ยังไม่มีข้อมูล."
+msgid "Enable OpenMax hardware decoding of video files."
+msgstr "เปิดใช้งาน การถอดรหัสด้วยฮาร์ดแวร์ OpenMax สำหรับแฟ้มวิดีโอ."
 
 msgctxt "#36162"
-msgid "No info available yet."
-msgstr "ยังไม่มีข้อมูล."
+msgid "Enable VideoToolbox hardware decoding of video files."
+msgstr "เปิดใช้งาน การถอดรหัสด้วยฮาร์ดแวร์ VideoToolbox สำหรับแฟ้มวิดีโอ."
 
 msgctxt "#36163"
-msgid "No info available yet."
-msgstr "ยังไม่มีข้อมูล."
+msgid "Enable decoding of video files using pixel buffer objects."
+msgstr "เปิดใช้งาน การถอดรหัสไฟล์วิดีโอ โดยการใช้วัตถุของบัฟเฟอร์พิกเซล."
 
 msgctxt "#36164"
-msgid "Select when the refresh rate adjustments should take place."
-msgstr "เลือกว่าจะปรับอัตราการรีเฟชหน้าจอเมื่อไหร่."
+msgid "Allow the refresh rate of the display to be changed so that it best matches the video frame rate. This may yield smoother video playback."
+msgstr "ยินยอมให้เปลี่ยนอัตราการรีเฟรชของจอแสดงผล ให้เข้ากันกับเฟรมเรตของวิดีโอ. ซึ่งอาจทำให้การเล่นวิดีโอลื่นไหลยิ่งขึ้น."
 
 msgctxt "#36165"
-msgid "Pause for a small amount of time during a refresh rate change. Activate to automatically set the refresh rate which is best matched with the video that is playing. This potentially allows for perfectly smooth video reproduction, as video material can be recorded in a variety of frame rates which need to be properly matched by the refresh rate of the display in order to be displayed smoothly."
-msgstr "หยุดชั่วขณะ เป็นเวลาเล็กน้อย ในระหว่างทำการเปลี่ยนอัตรารีเฟชหน้าจอ. เปิดใช้งาน เพื่อตั้งอัตราการรีเฟชหน้าจอโดยอัตโนมัติ ที่เหมาะสมกับวิดีโอที่เล่นอยู่. นี้อาจช่วยให้การแสดงภาพวิดีโอลื่นไหลสมบูรณ์แบบ, ดังที่เนื้อหาวิดีโอนั้นได้บันทึกมาในอัตรารีเฟชที่หลากหลาย ที่จำเป็นต้องใช้การจับคู่ที่เหมาะสมกับอัตรารีเฟชหน้าจอ เพื่อให้แสดงผลได้อย่างลื่นไหล."
+msgid "Pause for a small amount of time during a refresh rate change."
+msgstr "หยุดชั่วขณะ ในช่วงระยะเวลาหนึ่ง ขณะทำการเปลี่ยนอัตรารีเฟรช."
 
 msgctxt "#36166"
 msgid "Synchronise the video to the refresh rate of the monitor."
@@ -10979,11 +11607,15 @@ msgstr "ทำให้วิดีโอตรงกับอัตรากา
 
 msgctxt "#36167"
 msgid "Audio has to stay in sync, this can either be done by resampling, skipping/duplicating packets, or adjusting the clock if it gets out of sync too far."
-msgstr "เสียงอยู่ในการทำให้ตรงกัน, นี้สามารถทำได้โดย เพิ่มอัตราสุ่ม, การข้าม/ทำซ้ำ ชุดข้อมูล, หรือปรับสัญญาณนาฬิกา ถ้ามันเริ่มไม่ตรงกันมากเกินไป."
+msgstr "เสียงอยู่ในการทำให้ตรงกัน, ซึ่งสามารถทำได้โดย เพิ่มอัตราสุ่ม, การข้าม/ทำซ้ำ ชุดข้อมูล, หรือปรับสัญญาณนาฬิกา ถ้ามันเริ่มไม่ตรงกันมากเกินไป."
 
 msgctxt "#36168"
 msgid "Maximum video speed adjust to match actual screen refresh rate."
 msgstr "ปรับแต่งความเร็ววิดีโอสูงสุด เพื่อให้เข้ากันกับอัตราการรีเฟรชจริงๆของจอภาพ."
+
+msgctxt "#36169"
+msgid "Select the quality of resampling for cases where the audio output needs to be at a different sampling rate from that used by the source. [Low] is fast and will have minimal impact on system resources such as the use of the CPU, [Medium] & [High] will use progressively more system resources."
+msgstr "เลือก คุณภาพของการปรับอัตราสุ่ม สำหรับกรณีที่สัญญาณเสียงออกจำเป็นต้องมีอัตราสุ่มที่แตกต่างจากที่ใช้ในต้นฉบับ. [ต่ำ] จะเร็วจะมีผลกระทบน้อยที่สุดกับทรัพยากรของระบบเช่นการใช้ CPU, [กลาง] & [สูง] จะใช้ทรัพยากรของระบบมากขึ้นตามลำดับ"
 
 msgctxt "#36170"
 msgid "Allow video player to ignoring aspect ratio by a certain amount to fill a larger amount of the screen with video."
@@ -10994,12 +11626,12 @@ msgid "Select the zoom level that 4:3 videos are shown on widescreen displays."
 msgstr "เลือกระดับการซูมภาพ ที่วิดีโอ สัดส่วน 4:3 จะแสดงบนจอภาพแบบกว้าง."
 
 msgctxt "#36172"
-msgid "VDPAU studio level conversion provides a way for advanced applications like XBMC to influence the colour space conversion."
-msgstr "การแปลงในระดับสตูดิโอ VDPAU เปิดโอกาสให้โปรแกรมขั้นสูงเช่น XBMC สามารถควบคุมการแปลง ขอบเขตการแสดงผลของสี."
+msgid "VDPAU studio level conversion provides a way for advanced applications like Kodi to influence the colour space conversion."
+msgstr "การแปลงในระดับสตูดิโอ VDPAU เปิดโอกาสให้โปรแกรมขั้นสูงเช่น Kodi สามารถควบคุมการแปลง ขอบเขตการแสดงผลของสี."
 
 msgctxt "#36173"
-msgid "No info available yet."
-msgstr "ยังไม่มีข้อมูล."
+msgid "Enable upscaling using VDPAU."
+msgstr "เปิดใช้งาน การปรับขนาดภาพโดยใช้ VDPAU."
 
 msgctxt "#36174"
 msgid "Enable Teletext when watching a live TV stream."
@@ -11010,16 +11642,16 @@ msgid "Scale Teletext to 4:3 ratio."
 msgstr "ปรับขนาดเทเลเท็กซ์ ไปยังสัดส่วน 4:3"
 
 msgctxt "#36176"
-msgid "No info available yet."
-msgstr "ยังไม่มีข้อมูล."
+msgid "Category containing settings for how video file lists are handled."
+msgstr "หมวดหมู่ที่ประกอบด้วยการตั้งค่า สำหรับจัดการกับ วิธีแสดงรายการแฟ้ม."
 
 msgctxt "#36177"
 msgid "Toggle between Choose, Play (default), Resume and Show Information. Choose will select an item, e.g. open a directory in files mode. Resume will automatically resume videos from the last position that you were viewing them, even after restarting the system."
 msgstr "สลับค่าระหว่าง เลือก, เล่น (ค่าเริ่มต้น), เล่นต่อ และ แสดงข้อมูล. เลือกจะเลือกรายการ, อย่างเช่น เปิดไดเรกทอรีในโหมดแฟ้ม. เล่นต่อ จะดำเนินการวิดีโอจากตำแหน่งสุดท้ายที่คุณได้ดูไป, แม้หลังจากเริ่มระบบใหม่แล้ว."
 
 msgctxt "#36178"
-msgid "No info available yet."
-msgstr "ยังไม่มีข้อมูล."
+msgid "Extract thumbnails and metadata information such as codec and aspect ratio from videos."
+msgstr "ดึงรูปย่อและข้อมูลหลัก อย่างเช่น การเข้ารหัสและอัตราส่วนภาพจากวิดีโอ."
 
 msgctxt "#36179"
 msgid "When a file is scanned into the library it will display the metadata title instead of the file name."
@@ -11034,40 +11666,40 @@ msgid "No info available yet."
 msgstr "ยังไม่มีข้อมูล."
 
 msgctxt "#36182"
-msgid "Enables direct playback of videos that are in folders, without having to open those folders first, as well as displaying multi-part video files as single items in non-library views."
-msgstr "เปิดใช้งาน การเล่นวิดีโอที่อยู่ในโฟลเดอร์โดยตรง, โดยไม่ต้องเปิดโฟลเดอร์นั้นก่อน, รวมไปถึงการแสดงแฟ้มวิดีโอที่แบ่งเป็นหลายส่วน ให้เป็นรายการเดียว ในมุมมองที่ไม่ใช่คลังข้อมูล."
+msgid "Combines multi-part video files, DVD folders, and movie folders down to a single item in non-library views."
+msgstr "รวม แฟ้มวิดีโอ หลาย-ส่วน เข้าด้วยกัน, โฟลเดอร์ดีวีดี, และโฟลเดอร์ภาพยนตร์ ยุบรวมเป็นรายการเดียว ในมุมมอง ที่ไม่ใช่คลังข้อมูล."
 
 msgctxt "#36183"
 msgid "Removes the title, genre etc nodes from the library view. Selecting a category takes you straight to the title view."
 msgstr "นำหมวดย่อย ชื่อเรื่อง, ประเภท และอื่นๆ ออกจากมุมมองคลังข้อมูล. การเลือกหมวด จะนำคุณไปสู่มุมมองชื่อเรื่องโดยตรง."
 
 msgctxt "#36184"
-msgid "No info available yet."
-msgstr "ยังไม่มีข้อมูล."
+msgid "Category containing settings for how subtitles are handled."
+msgstr "หมวดหมู่ที่ประกอบด้วยการตั้งค่า สำหรับวิธีจัดการกับคำบรรยาย."
 
 msgctxt "#36185"
-msgid "No info available yet."
-msgstr "ยังไม่มีข้อมูล."
+msgid "Set the font type to be used for subtitles."
+msgstr "กำหนดรูปแบบตัวอักษร เพื่อใช้สำหรับคำบรรยาย."
 
 msgctxt "#36186"
-msgid "No info available yet."
-msgstr "ยังไม่มีข้อมูล."
+msgid "Set the font size to be used for subtitles."
+msgstr "กำหนดขนาดตัวอักษร เพื่อใช้สำหรับคำบรรยาย."
 
 msgctxt "#36187"
-msgid "No info available yet."
-msgstr "ยังไม่มีข้อมูล."
+msgid "Set the font style to be used for subtitles."
+msgstr "กำหนดลักษณะตัวอักษร เพื่อใช้สำหรับคำบรรยาย."
 
 msgctxt "#36188"
-msgid "No info available yet."
-msgstr "ยังไม่มีข้อมูล."
+msgid "Set the font colour to be used for subtitles."
+msgstr "กำหนดสีตัวอักษร เพื่อใช้สำหรับคำบรรยาย."
 
 msgctxt "#36189"
-msgid "No info available yet."
-msgstr "ยังไม่มีข้อมูล."
+msgid "Set the font character set to be used for subtitles."
+msgstr "กำหนดชุดอักขระของตัวอักษร เพื่อใช้สำหรับคำบรรยาย."
 
 msgctxt "#36190"
-msgid "No info available yet."
-msgstr "ยังไม่มีข้อมูล."
+msgid "Override ASS/SSA subtitles fonts."
+msgstr "แทนที่แบบอักษร คำบรรยาย ASS / SSA."
 
 msgctxt "#36191"
 msgid "Set a custom directory for your subtitles. This can be a file share."
@@ -11078,8 +11710,8 @@ msgid "Location of subtitles on the screen."
 msgstr "ตำแหน่งของคำบรรยาย บนหน้าจอ."
 
 msgctxt "#36193"
-msgid "No info available yet."
-msgstr "ยังไม่มีข้อมูล."
+msgid "Category containing settings for how DVDs are handled."
+msgstr "หมวดหมู่ที่ประกอบด้วยการตั้งค่า สำหรับวิธีจัดการ แผ่นดีวีดี."
 
 msgctxt "#36194"
 msgid "Autorun DVD video when inserted in drive."
@@ -11110,24 +11742,28 @@ msgid "Default scraper used for adding music videos to your library."
 msgstr "ค่าเริ่มต้น ตัวดึงข้อมูล ที่ใช้เพื่อเพิ่ม วิดีโอเพลง ไปยังคลังข้อมูลของคุณ."
 
 msgctxt "#36201"
-msgid "No info available yet."
-msgstr "ยังไม่มีข้อมูล."
+msgid "Settings for PVR/Live TV features."
+msgstr "การตั้งค่า สำหรับคุณสมบัติ PVR/ทีวี สด."
 
 msgctxt "#36202"
-msgid "No info available yet."
-msgstr "ยังไม่มีข้อมูล."
+msgid "Category for general settings for PVR/Live TV features."
+msgstr "หมวดหมู่ สำหรับการตั้งค่าทั่วไป ของคุณสมบัติ PVR/ทีวี สด."
+
+msgctxt "#36203"
+msgid "Enable the Personal Video Recorder (PVR) features in Kodi. This requires that at least one PVR Add-on is installed."
+msgstr "เปิดใช้คุณสมบัติ เครื่องบันทึกวิดีโอส่วนบุคคล (PVR) ใน Kodi. นี้ต้องใช้การติดตั้ง ส่วนเสริม PVR อย่างน้อยหนึ่งอย่าง."
 
 msgctxt "#36204"
 msgid "Import channel groups from the PVR backend (if supported). Will delete user created groups if they're not found on the backend."
 msgstr "นำเข้ากลุ่มช่องรายการจาก PVR backend (ถ้ารองรับ). การกระทำนี้จะลบกลุ่มที่สร้างโดยผู้ใช้ ถ้าไม่พบกลุ่มใน backend."
 
 msgctxt "#36205"
-msgid "Sort the channels by channel number on the server, but uses XBMC's own numbering for channels."
-msgstr "จัดเรียงช่องรายการ โดยหมายเลขบนเซิร์ฟเวอร์, แต่ยังใช้หมายเลขของ XBMC เอง สำหรับช่องรายการ."
+msgid "Sort the channels by channel number on the backend, but use Kodi's own numbering for channels."
+msgstr "จัดเรียงช่องรายการ โดยหมายเลขบน backend, แต่ยังใช้หมายเลขของ Kodi เอง สำหรับช่องรายการ."
 
 msgctxt "#36206"
-msgid "Use numbering from the backend, instead of configuring them manually over XBMC."
-msgstr "ใช้หมายเลขจาก backend, แทนการกำหนดค่าด้วยตนเองผ่าน XBMC."
+msgid "Use numbering from the backend, instead of configuring them manually over Kodi."
+msgstr "ใช้หมายเลขจาก backend, แทนการกำหนดค่าด้วยตนเองผ่าน Kodi."
 
 msgctxt "#36207"
 msgid "Open the channel manager, which allows modifying the channel order, channel name, icon, etc."
@@ -11142,124 +11778,132 @@ msgid "Delete channel/EPG database and reimport the data from the backend afterw
 msgstr "ลบ ฐานข้อมูล ช่องรายการ/EPG แล้วนำเข้าข้อมูลจาก backend ในภายหลัง."
 
 msgctxt "#36210"
-msgid "No info available yet."
-msgstr "ยังไม่มีข้อมูล."
+msgid "Prevent the 'connection lost' notification window from displaying when Kodi is unable to talk to the PVR backend server."
+msgstr "ป้องกันไม่ให้แสดง หน้าต่างแจ้งเตือน 'การเชื่อมต่อขาดหาย' เมื่อ Kodi ไม่สามารถติดต่อกับเซิร์ฟเวอร์ PVR backend."
 
 msgctxt "#36211"
-msgid "No info available yet."
-msgstr "ยังไม่มีข้อมูล."
+msgid "Category for PVR menus and on-screen display settings, as well as channel info windows."
+msgstr "หมวดหมู่ของเมนู PVR และ การตั้งค่าที่แสดงผลบนหน้าจอ, เป็นอย่างเดียวกับ หน้าต่างรายละเอียดช่อง.."
 
 msgctxt "#36212"
-msgid "No info available yet."
-msgstr "ยังไม่มีข้อมูล."
-
-msgctxt "#36213"
-msgid "No info available yet."
-msgstr "ยังไม่มีข้อมูล."
+msgid "Display programming information when changing channels, such as the current TV show."
+msgstr "แสดงผล รายละเอียดของผังรายการ เมื่อเปลี่ยนช่องรายการ, อย่างเช่น รายการทีวีในปัจจุบัน."
 
 msgctxt "#36214"
-msgid "No info available yet."
-msgstr "ยังไม่มีข้อมูล."
-
-msgctxt "#36215"
-msgid "No info available yet."
-msgstr "ยังไม่มีข้อมูล."
+msgid "Close the on screen display controls after switching channels."
+msgstr "ปิด การควบคุมบนหน้าจอ หลังจากการเปลี่ยนช่อง."
 
 msgctxt "#36216"
-msgid "No info available yet."
-msgstr "ยังไม่มีข้อมูล."
+msgid "Folder where channel icons are stored."
+msgstr "โฟลเดอร์ที่จัดเก็บไอคอนช่องรายการไว้."
 
 msgctxt "#36217"
-msgid "No info available yet."
-msgstr "ยังไม่มีข้อมูล."
+msgid "Scan for missing channel icons."
+msgstr "สแกนหาไอคอนช่องรายการที่ไม่มี."
 
 msgctxt "#36218"
-msgid "No info available yet."
-msgstr "ยังไม่มีข้อมูล."
-
-msgctxt "#36219"
-msgid "Default EPG window to show. Defaults to Timeline."
-msgstr "ค่าเริ่มต้นของหน้าต่างที่จะแสดง EPG. ค่าเริ่มต้นคือ ลำดับเวลา."
+msgid "Category for electronic programming guide settings."
+msgstr "หมวดหมู่สำหรับ การตั้งค่าคู่มือผังรายการอิเล็คทรอนิคส์."
 
 msgctxt "#36220"
-msgid "Number of days of EPG data to import from backends. Defaults to 2 days."
-msgstr "จำนวนวัน ที่ข้อมูล EPG จะถูกนำเข้าจาก backends. ค่าเริ่มต้นคือ 2 วัน."
+msgid "Number of days of EPG data to import from backends."
+msgstr "จำนวนวัน ที่ข้อมูล EPG จะถูกนำเข้าจาก backends."
 
 msgctxt "#36221"
-msgid "Time between EPG data imports from backends. Defaults to 120 minutes."
-msgstr "ระยะเวลา ในระหว่าง ข้อมูล EPG นำเข้าจาก backends. ค่าเริ่มต้น ถึง 120 นาที."
+msgid "Time between EPG data imports from backends."
+msgstr "ระยะเวลา ในระหว่าง ข้อมูล EPG นำเข้าจาก backends."
 
 msgctxt "#36222"
 msgid "Do not import EPG data while playing TV to minimise CPU usage."
 msgstr "อย่าได้นำเข้า ข้อมูล EPG ขณะกำลังเล่นทีวี เพื่อเป็นการลดใช้งาน CPU."
 
 msgctxt "#36223"
-msgid "By default, EPG data is stored in a local database to speed up importing when XBMC is restarted."
-msgstr "โดยค่าเริ่มต้น, ข้อมูล EPG จะเก็บถูกไว้ในฐานข้อมูลภายใน เพื่อเพิ่มความเร็วการนำเข้า เมื่อ XBMC เริ่มระบบใหม่."
+msgid "By default, EPG data is stored in a local database to speed up importing when Kodi is restarted."
+msgstr "โดยค่าเริ่มต้น, ข้อมูล EPG จะเก็บถูกไว้ในฐานข้อมูลภายใน เพื่อเพิ่มความเร็วการนำเข้า เมื่อ Kodi เริ่มระบบใหม่."
 
 msgctxt "#36224"
 msgid "Hide \"no information available\" labels when no EPG data can be retrieved for a channel."
 msgstr "ซ่อน ป้าย \"ไม่มีข้อมูลปรากฏ\" เมื่อไม่มีข้อมูล EPG ที่สามารถเรียกดูได้จากช่องรายการ."
 
 msgctxt "#36225"
-msgid "Delete the EPG database in xbmc and reimport the data afterwards from the backend."
-msgstr "ลบฐานข้อมูล EPG ใน  xbmc แล้วนำเข้าข้อมูลอีกในภายหลัง จาก backend."
+msgid "Delete the EPG database in Kodi and reimport the data afterwards from the backend."
+msgstr "ลบฐานข้อมูล EPG ใน Kodi แล้วนำเข้าข้อมูลอีกในภายหลัง จาก backend."
 
 msgctxt "#36226"
-msgid "No info available yet."
-msgstr "ยังไม่มีข้อมูล."
+msgid "Category for PVR playback and channel switching settings."
+msgstr "หมวดหมู่สำหรับการตั้งค่า การเล่น PVR และ การเปลี่ยนช่อง."
 
 msgctxt "#36227"
 msgid "Display stream of selected channel in a small box instead of fullscreen."
 msgstr "แสดงผล กระแสของช่องรายการที่เลือก ในช่องขนาดเล็ก แทนการแสดงแบบเต็มจอ."
 
 msgctxt "#36228"
-msgid "Show the last viewed channel if switching to live tv."
-msgstr "แสดงช่องรายการที่รับชมล่าสุด ถ้าเปลี่ยนไปยัง ทีวีสด."
+msgid "Continue with the last viewed channel on startup."
+msgstr "เล่นต่อด้วยช่องที่ดูล่าสุด ในตอนเริ่มต้น."
+
+msgctxt "#36229"
+msgid "Display signal quality information in the codec information window (if supported by the Add-on and backend)."
+msgstr "แสดงข้อมูลคุณภาพสัญญาณ ในหน้าต่างแสดงข้อมูลการเข้ารหัส (ถ้ารองรับโดย ส่วนเสริม และ backend)."
 
 msgctxt "#36230"
-msgid "No info available yet."
-msgstr "ยังไม่มีข้อมูล."
+msgid "How long Kodi will wait to change the channel if the channel isn't being received. Useful for over-the-air channels that occasionally lose signal strength."
+msgstr "ช่วงเวลาที่ Kodi จะรอเพื่อเปลี่ยนช่อง ถ้าช่องยังไม่ได้รับสัญญาณ. มีประโยชน์สำหรับช่องรายการทางอากาศ ทีบางครั้งอาจสูญเสียความแรงของสัญญาณ."
 
 msgctxt "#36231"
 msgid "Pressing a number button in full screen mode will automatically switch to the channel number that was entered after 1 second."
 msgstr "การกดปุ่มหมายเลขในโหมดเต็มจอ จะเปลี่ยนไปยังช่องรายการ ตามหมายเลขที่ป้อนโดยอัตโนมัติ ภายใน 1 วินาที."
 
 msgctxt "#36232"
-msgid "No info available yet."
-msgstr "ยังไม่มีข้อมูล."
+msgid "When pressing channel up or down, the actual channel switch is delayed, allowing the user to flip to a channel number without waiting for each channel switch."
+msgstr "เมื่อกดปุ่ม เลื่อนช่องขึ้น หรือ ลง, การเปลี่ยนช่องจริงๆ จะมีการหน่วงเวลา, ทำให้ผู้ใช้สามารถเลื่อนไปยังหมายเลขช่อง โดยไม่ต้องรอการสลับแต่ละช่อง."
 
 msgctxt "#36233"
-msgid "No info available yet."
-msgstr "ยังไม่มีข้อมูล."
+msgid "Category for default recording duration settings."
+msgstr "หมวดหมู่ สำหรับการตั้งค่าเริ่มต้นของระยะเวลาการบันทึก."
 
 msgctxt "#36234"
-msgid "Duration of the recording when pressing the record button, or when creating a new manual timer. Defaults to 180 minutes."
-msgstr "ช่วงเวลาของการบันทึก เมื่อทำการกดปุ่มบันทึก, หรือเมื่อทำการตั้งเวลาใหม่ด้วยตนเอง. ค่าเริ่มต้นคือ 180 นาที."
+msgid "Duration of instant recordings when pressing the record button."
+msgstr "ระยะเวลาของการบันทึกโดยทันที เมื่อทำการกดปุ่มบันทึก."
+
+msgctxt "#36235"
+msgid "Priority of the recording. Higher number means higher priority. Not supported by all Add-ons and backends."
+msgstr "ลำดับความสำคัญของการบันทึก. ตัวเลขที่มากขึ้น หมายถึง ลำดับความสำคัญสูงกว่า. อาจไม่รองรับ โดย ส่วนเสริม และ backends ทั้งหมด."
+
+msgctxt "#36236"
+msgid "Delete recording after this time. Not supported by all Add-ons and backends."
+msgstr "ลบการบันทึกหลังจากเวลานี้. อาจไม่รองรับ โดย ส่วนเสริม และ backends ทั้งหมด."
+
+msgctxt "#36237"
+msgid "Start recordings before the actual time. Not supported by all Add-ons and backends."
+msgstr "เริ่มการบันทึกก่อนเวลาจริง. อาจไม่รองรับ โดย ส่วนเสริม และ backends ทั้งหมด."
+
+msgctxt "#36238"
+msgid "End recordings after the actual time. Not supported by all Add-ons and backends."
+msgstr "จบการบันทึกหลังจากเวลาจริง. อาจไม่รองรับ โดย ส่วนเสริม และ backends ทั้งหมด."
 
 msgctxt "#36239"
 msgid "Display a notification when timers are added, finished or removed by the backend."
 msgstr "แสดงการแจ้งเตือน เมื่อการตั้งเวลาถูก เพิ่ม, เสร็จสิ้น หรือ เอาออก โดย backend."
 
 msgctxt "#36240"
-msgid "No info available yet."
-msgstr "ยังไม่มีข้อมูล."
+msgid "Category for PVR power management settings, such as when to wake the PVR backend server."
+msgstr "หมวดหมู่ สำหรับการตั้งค่าการจัดการพลังงานของ PVR, อย่างเช่น เวลาที่จะปลุกเซิร์ฟเวอร์ PVR backend."
 
 msgctxt "#36241"
-msgid "Execute the \"wakeup command\" below when XBMC exits or is going into hibernation mode. The timestamp of the next scheduled recording is passed as parameter."
-msgstr "ดำเนินการ \"คำสั่งปลุก\" ด้านล่าง เมื่อออกจาก XBMC หรือเข้าสู่โหมดการจำศีล. บันทึกเวลาของกำหนดการบันทึก จะถูกส่งเป็นค่าตัวแปร."
+msgid "Execute the \"wakeup command\" below when Kodi exits or is going into hibernation mode. The timestamp of the next scheduled recording is passed as parameter."
+msgstr "ดำเนินการ \"คำสั่งปลุก\" ด้านล่าง เมื่อออกจาก Kodi หรือเข้าสู่โหมดการจำศีล. บันทึกเวลาของกำหนดการบันทึก จะถูกส่งเป็นค่าตัวแปร."
 
 msgctxt "#36242"
-msgid "The command will not be executed when a recording will be started within this timeout. Defaults to 15 minutes."
-msgstr "คำสั่งจะไม่ถูกดำเนินการ เมื่อการบันทึกจะเริ่มภายในช่วงเวลานี้. ค่าเริ่มต้นคือ 15 นาที."
+msgid "The command will not be executed when a recording will be started within this timeout."
+msgstr "คำสั่งจะไม่ถูกดำเนินการ เมื่อการบันทึกจะเริ่มภายในเวลาที่กำหนดนี้."
 
 msgctxt "#36243"
-msgid "The command to execute. Defaults to '/usr/bin/setwakeup.sh'."
-msgstr "คำสั่งที่จะเรียกใช้งาน. ค่าเริ่มต้นคือ '/usr/bin/setwakeup.sh'."
+msgid "The command to execute."
+msgstr "คำสั่งที่จะดำเนินการ."
 
 msgctxt "#36244"
-msgid "Time to substract from the start time of the next scheduled recording. Defaults to 15 minutes."
-msgstr "ช่วงเวลาที่จะลบออกจากเวลาเริ่มต้น ของกำหนดการบันทึกถัดไป. ค่าเริ่มต้นคือ 15 นาที."
+msgid "Time to subtract from the start time of the next scheduled recording."
+msgstr "ช่วงเวลาที่จะลบออกจากเวลาเริ่มต้น ของกำหนดการบันทึกถัดไป."
 
 msgctxt "#36245"
 msgid "Execute the wakeup command every day at the given time."
@@ -11270,8 +11914,8 @@ msgid "When to execute the daily wakeup command."
 msgstr "เวลาที่จะดำเนินการคำสั่ง ปลุก ประจำวัน."
 
 msgctxt "#36247"
-msgid "No info available yet."
-msgstr "ยังไม่มีข้อมูล."
+msgid "Category for parental control settings if the PVR backend server supports parental controls."
+msgstr "หมวดหมู่ สำหรับการตั้งค่าควบคุมโดยผู้ปกครอง ถ้าเซิร์ฟเวอร์ PVR backendรองรับการตั้งค่าควบคุมโดยผู้ปกครอง."
 
 msgctxt "#36248"
 msgid "Asks for a pin code to access parental locked channels. Channels can be marked as locked in the channels editor on the general tab. Parental locked channels can not be played or recorded without entering a pin code, and the EPG information is hidden for those channels."
@@ -11282,24 +11926,24 @@ msgid "Enter a new pin code to unlock parental locked channels."
 msgstr "ป้อนรหัส pin ใหม่ เพื่อปลดล็อคช่องรายดาร ที่ถูกล็อคโดยผู้ปกครอง."
 
 msgctxt "#36250"
-msgid "Ask for the pin code again when trying to access a parental locked channel and the code hasn't been asked for this duration. Defaults to 300 seconds."
-msgstr "ขอรหัส pin อีกครั้งเมื่อพยายามที่จะใช้ช่องรายการที่ถูกล็อคโดยผู้ปกครอง และรหัสไม่ได้รับการถามในช่วงเวลา. ค่าเริ่มต้น 300 วินาที"
+msgid "Ask for the pin code again when trying to access a parental locked channel and the code hasn't been asked for this duration."
+msgstr "ขอรหัส pin อีกครั้ง เมื่อพยายามที่จะเข้าถึงช่องรายการที่ถูกล็อคโดยผู้ปกครอง และรหัสจะไม่ถูกถามในช่วงเวลานี้."
 
 msgctxt "#36251"
-msgid "No info available yet."
-msgstr "ยังไม่มีข้อมูล."
+msgid "Category for any specific settings for your PVR backend, if the PVR backend supports changing those settings in Kodi."
+msgstr "หมวดหมู่ ที่ใช้ในการตั้งค่าเฉพาะสำหรับ PVR backend ของคุณ, ถ้า PVR backend รองรับการเปลี่ยนแปลงการตั้งค่าเหล่านั้นใน Kodi."
 
 msgctxt "#36252"
-msgid "No info available yet."
-msgstr "ยังไม่มีข้อมูล."
+msgid "This option will bring you to any specific settings for your PVR backend, if the PVR backend supports changing those settings in Kodi."
+msgstr "ตัวเลือกนี้ จะนำคุณไปสู่ การตั้งค่าโดยเฉพาะของ PVR backend ของคุณ, ถ้า PVR backend รองรับการเปลี่ยนแปลงการตั้งค่าเหล่านั้นใน Kodi."
 
 msgctxt "#36253"
-msgid "No info available yet."
-msgstr "ยังไม่มีข้อมูล."
+msgid "Section that contains settings related to music files and how they are handled."
+msgstr "ส่วนที่มีการตั้งค่า ซึ่งเกี่ยวข้องกับแฟ้มเพลงและวิธีการจัดการ."
 
 msgctxt "#36254"
-msgid "No info available yet."
-msgstr "ยังไม่มีข้อมูล."
+msgid "Enable the music library."
+msgstr "เปิดใช้งาน คลังข้อมูลเพลง"
 
 msgctxt "#36255"
 msgid "Determine if artists that appear only on compilations are shown in the library artist view."
@@ -11310,24 +11954,20 @@ msgid "Automatically fetch album and artist information via scrapers during scan
 msgstr "เรียกข้อมูลอัลบั้มและศิลปินโดยอัตโนมัติ ผ่านแหล่งดึงข้อมูลขณะทำการสำรวจ."
 
 msgctxt "#36257"
-msgid "Select the default album information source"
-msgstr "เลือกค่าเริ่มต้น ของแหล่งข้อมูลอัลบั้ม"
+msgid "Select the default album information source."
+msgstr "เลือก ค่าเริ่มต้นของแหล่งข้อมูลอัลบั้ม"
 
 msgctxt "#36258"
 msgid "Select the default artist information source. See the Add-ons Manager for options."
 msgstr "เลือกค่าเริ่มต้น ของแหล่งข้อมูลศิลปิน. ดูตัวเลือกใน การจัดการ ส่วนเสริม."
 
 msgctxt "#36259"
-msgid "Check for new and removed media files on XBMC startup."
-msgstr "ตรวจสอบเพื่อหา สื่อที่มาใหม่และถูกเอาออก ขณะเริ่มระบบ XBMC."
+msgid "Check for new and removed media files on Kodi startup."
+msgstr "ตรวจสอบเพื่อหา สื่อที่มาใหม่และถูกเอาออก ขณะเริ่มระบบ Kodi."
 
 msgctxt "#36260"
 msgid "No info available yet."
 msgstr "ยังไม่มีข้อมูล."
-
-msgctxt "#36261"
-msgid "Path where taken screenshots will be stored."
-msgstr "ตำแหน่งเส้นทาง ที่ภาพจับหน้าจอ จะถูกจัดเก็บ."
 
 msgctxt "#36262"
 msgid "Export the Music Library database to XML files. This will optionally overwrite your current XML files."
@@ -11338,20 +11978,20 @@ msgid "Import a XML file into the Music Library database."
 msgstr "นำเข้าแฟ้ม XML ไปยัง ฐานข้อมูลคลังเพลง."
 
 msgctxt "#36264"
-msgid "No info available yet."
-msgstr "ยังไม่มีข้อมูล."
+msgid "Category containing settings for how music playback is handled."
+msgstr "หมวดหมู่ที่ประกอบด้วยการตั้งค่า สำหรับวิธีจัดการ การเล่นเพลง."
 
 msgctxt "#36265"
-msgid "XBMC automatically plays the next item in the current folder. For example, in Files View: After a track has been played, XBMC would automatically play the next track in the same folder."
-msgstr "XBMC จะเล่นรายการถัดไปในโฟลเดอร์ปัจจุบันโดยอัตโนมัติ. ตัวอย่าง เช่น, ในมุมมอง แฟ้ม: หลังจากแทร็คหนึ่งได้เล่นไปแล้ว, XBMC จะเล่นแทร็คถัดไปที่อยู่ในโฟลเดอร์เดียวกัน โดยอัตโนมัติ."
+msgid "Kodi automatically plays the next item in the current folder. For example, in Files View: After a track has been played, Kodi would automatically play the next track in the same folder."
+msgstr "Kodi จะเล่นรายการถัดไปในโฟลเดอร์ปัจจุบันโดยอัตโนมัติ. ตัวอย่าง เช่น, ในมุมมอง แฟ้ม: หลังจากแทร็คหนึ่งได้เล่นไปแล้ว, Kodi จะเล่นแทร็คถัดไปที่อยู่ในโฟลเดอร์เดียวกัน โดยอัตโนมัติ."
 
 msgctxt "#36266"
-msgid "When songs are added to a playlist they are queued instead of playback starting immediately."
-msgstr "เมื่อเพลงถูกเพิ่มไปยังรายการเล่น พวกมันจะถูกจัดคิวแทนที่จะเริ่มเล่นโดยทันที."
+msgid "When songs are selected they are queued instead of playback starting immediately."
+msgstr "เมื่อเพลงถูกเลือกแล้ว พวกมันจะถูกจัดคิวแทนที่จะเริ่มเล่นโดยทันที."
 
 msgctxt "#36267"
-msgid "XBMC will read the ReplayGain information encoded in your audio files by a program such as MP3Gain and normalise the sound levels accordingly."
-msgstr "XBMC จะอ่านข้อมูลระดับเสียงการเล่น ที่ถูกเข้ารหัสไว้ในแฟ้มเสียง โดย โปรแกรมอย่าง MP3Gain แล้วปรับระดับเสียงให้เป็นปกติตามนั้น."
+msgid "Kodi will read the ReplayGain information encoded in your audio files by a program such as MP3Gain and normalise the sound levels accordingly."
+msgstr "Kodi จะอ่านข้อมูลระดับเสียงการเล่น ที่ถูกเข้ารหัสไว้ในแฟ้มเสียง โดย โปรแกรมอย่าง MP3Gain แล้วปรับระดับเสียงให้เป็นปกติตามนั้น."
 
 msgctxt "#36268"
 msgid "Default is 89dB per standard. Change with caution."
@@ -11362,15 +12002,15 @@ msgid "Default is 89dB per standard. Change with caution."
 msgstr "ค่าเริ่มต้นคือ 89dB ต่อค่ามาตรฐาน. จงเปลี่ยนอย่างระมัดระวัง."
 
 msgctxt "#36270"
-msgid "Reduce the volume of the file if clipping is likely to occur."
-msgstr "ลดระดับเสียงของไฟล์ ถ้ามีแนวโน้มการเกินจุดตัดเสียงเกิดขึ้น."
+msgid "Reduce the volume of the file if clipping will occur."
+msgstr "ลดระดับเสียงของไฟล์ ถ้าจะเกิดการตัดเสียงขึ้น."
 
 msgctxt "#36271"
 msgid "Smoothly fade from one audio track to the next. You can set the amount of overlap from 1-15 seconds."
 msgstr "ผสานเสียง จากแทร็คเสียงหนึ่งไปยังแทรคถัดไป อย่างกลมกลืน. คุณสามารถปรับขนาดช่วงการทับซ้อน ได้ตั้งแต่ 1-15 วินาที."
 
 msgctxt "#36272"
-msgid "Allow crassfading to occur when both tracks are from the same album."
+msgid "Allow crossfading to occur when both tracks are from the same album."
 msgstr "ยอมให้การผสานเสียงเกิดขึ้น เมื่อแทร็คทั้งหมดมาจากอัลบั้มเดียวกัน."
 
 msgctxt "#36273"
@@ -11382,36 +12022,36 @@ msgid "Read the tag information from song files. For large directories this can 
 msgstr "อ่านรายละเอียดข้อมูล tag จากแฟ้มเพลง. สำหรับไดเรกทอรีที่มีขนาดใหญ่ นี่จะทำให้เวลาอ่านช้าลง, โดยเฉพาะอย่างยิ่งบนเครือข่าย."
 
 msgctxt "#36275"
-msgid "Control the way that the names of songs are displayed in the User Interface. In order to function properly, ID3 tags need to be enabled."
-msgstr "ควบคุมวิธีการที่ชื่อของเพลงจะถูกแสดงในส่วนติดต่อผู้ใช้. เพื่อให้การทำงานเป็นไปอย่างถูกต้อง, ID3 tags จำเป็นต้องเปิดการใช้งาน."
+msgid "Control the way that the names of songs are displayed in the user interface. In order to function properly, tag reading needs to be enabled."
+msgstr "เพื่อให้การควบคุมการแสดงผลของชื่อเพลงทำงานเป็นปกติ การอ่านแท็กจำเป็นต้องเปิดใช้งาน"
 
 msgctxt "#36276"
-msgid "Used for the information on the right-hand side of the UI. It is commonly used to display the length of tracks."
-msgstr "ใช้สำหรับรายละเอียดข้อมูล ที่ด้านขวา-มือของ UI. ซึ่งมักจะใช้ในการแสดงความยาวของแทร็ค."
+msgid "Used for formatting the second column in file lists."
+msgstr "ใช้เพื่อการปรับรูปแบบคอลัมน์ที่สองในรายการไฟล์"
 
 msgctxt "#36277"
-msgid "No info available yet."
-msgstr "ยังไม่มีข้อมูล."
+msgid "Control the way that the names of songs are displayed in the now playing list."
+msgstr "ปรับแต่งการแสดงผลชื่อเพลงที่แสดงในรายการเพลงที่กำลังเล่น"
 
 msgctxt "#36278"
-msgid "No info available yet."
-msgstr "ยังไม่มีข้อมูล."
+msgid "Used for formatting the second column in the now playing list."
+msgstr "ใช้จัดรูปแบบคอลัมน์ที่สองของรายการที่กำลังถูกเล่น"
 
 msgctxt "#36279"
-msgid "No info available yet."
-msgstr "ยังไม่มีข้อมูล."
+msgid "Control the way that the names of songs are displayed in library lists."
+msgstr "ปรับแต่งการแสดงผลของชื่อเพลงในไลบรารี"
 
 msgctxt "#36280"
-msgid "No info available yet."
-msgstr "ยังไม่มีข้อมูล."
+msgid "Used for formatting the second column in library lists."
+msgstr "ใช้เพื่อการจัดรูปแบบคอลัมน์ที่สองในไลบรารี"
 
 msgctxt "#36281"
-msgid "XBMC will search for thumbs on remote shares and optical media. This can often slow down the listing of network folders."
-msgstr "XBMC จะค้นหารูปย่อ บนการแบ่งปันทางไกลและสื่อออปติคอล. ซึ่งมักจะทำให้การแสดงรายการ ของโฟลเดอร์เครือข่ายช้าลง."
+msgid "Kodi will search for thumbs on remote shares and optical media. This can often slow down the listing of network folders."
+msgstr "Kodi จะค้นหารูปย่อ บนการแบ่งปันทางไกลและสื่อออปติคอล. ซึ่งมักจะทำให้การแสดงรายการ ของโฟลเดอร์เครือข่ายช้าลง."
 
 msgctxt "#36282"
-msgid "No info available yet."
-msgstr "ยังไม่มีข้อมูล."
+msgid "Category containing settings for how CDs are handled."
+msgstr "หมวดหมู่ที่ประกอบด้วยการตั้งค่า สำหรับวิธีจัดการ แผ่นซีดี."
 
 msgctxt "#36283"
 msgid "Autorun CDs when inserted in drive."
@@ -11426,8 +12066,8 @@ msgid "Select the location on your hard drive where ripped tracks will be saved 
 msgstr "เลือกตำแหน่งบนฮาร์ดไดว์ ที่จะบันทึกแทร็คที่ริปแล้ว."
 
 msgctxt "#36286"
-msgid "Tags: [B]%N[/B]: TrackNumber, [B]%S[/B]: DiscNumber, [B]%A[/B]: Artist, [B]%T[/B]: Title, [B]%B[/B]: Album, [B]%G[/B]: Genre, [B]%Y[/B]: Year, [B]%F[/B]: FileName, [B]%D[/B]: Duration, [B]%J[/B]: Date, [B]%R[/B]: Rating, [B]%I[/B]: FileSize."
-msgstr "Tags: [B]%N[/B]: หมายเลขแทร็ค, [B]%S[/B]: หมายเลขดิสค์, [B]%A[/B]: ศิลปิน, [B]%T[/B]: ชื่อเพลง, [B]%B[/B]: อัลบั้ม, [B]%G[/B]: ประเภท, [B]%Y[/B]: ปี, [B]%F[/B]: ชื่อแฟ้ม, [B]%D[/B]: ช่วงการเล่น, [B]%J[/B]: วันที่, [B]%R[/B]: อันดับความนิยม, [B]%I[/B]: ขนาดแฟ้ม."
+msgid "Control how saved music is named from the tags. Tags: [B]%N[/B]: TrackNumber, [B]%S[/B]: DiscNumber, [B]%A[/B]: Artist, [B]%T[/B]: Title, [B]%B[/B]: Album, [B]%G[/B]: Genre, [B]%Y[/B]: Year, [B]%F[/B]: FileName, [B]%D[/B]: Duration, [B]%J[/B]: Date, [B]%R[/B]: Rating, [B]%I[/B]: FileSize."
+msgstr "ตั้งค่าแท็กของเพลง แท็ก: [B]%N[/B]: หมายเลขเพลง [B]%S[/B]: หมายเลขแผ่น, [B]%A[/B]: ศิลปิน, [B]%T[/B]: ชื่อเพลง, [B]%B[/B]: อัลบั้ม, [B]%G[/B]: ประเภท, [B]%Y[/B]: ปี, [B]%F[/B]: ชื่อไฟล์, [B]%D[/B]: เวลา, [B]%J[/B]: วันที่, [B]%R[/B]: เรตติ้ง, [B]%I[/B]: ขนาดไฟล์"
 
 msgctxt "#36287"
 msgid "Select which audio encoder to use when ripping."
@@ -11442,48 +12082,48 @@ msgid "Select which bitrate to use for the specified audio encoder for audio com
 msgstr "เลือกที่บิตเรตที่จะใช้ เพื่อกำหนดตัวเข้ารหัสเสียง สำหรับการบีบอัดสัญญาณเสียง."
 
 msgctxt "#36290"
-msgid "For FLAC define compression level, default 5"
-msgstr "เพื่อกำหนดระดับการบีบอัดแฟ้ม FLAC, ค่าเริ่มต้นคือ 5"
+msgid "For FLAC define compression level, default 5."
+msgstr "การตั้งค่าระดับการบีบอัด FLAC, ค่าเริ่มต้น 5"
 
 msgctxt "#36291"
 msgid "Auto eject disc after rip is complete."
 msgstr "ดันแผ่นดิสค์ออกโดยอัตโนมัติ หลังจากการริปเสร็จสมบูรณ์."
 
 msgctxt "#36292"
-msgid "No info available yet."
-msgstr "ยังไม่มีข้อมูล."
+msgid "Category containing the settings for how karaoke is handled."
+msgstr "หมวดหมู่ที่ประกอบด้วยการตั้งค่า สำหรับวิธีจัดการ เล่นคาราโอเกะ."
 
 msgctxt "#36293"
-msgid "When playing any music file, XBMC will look for a matching .cdg file and display its graphics."
-msgstr "เมื่อเล่นแฟ้มเพลงใดๆ, XBMC จะค้นหาแฟ้ม .cdg ที่ตรงกัน แล้วแสดงกราฟิกนั้น."
+msgid "When playing any music file, Kodi will look for a matching .cdg file and display its graphics."
+msgstr "เมื่อเล่นแฟ้มเพลงใดๆ, Kodi จะค้นหาแฟ้ม .cdg ที่ตรงกัน แล้วแสดงกราฟิกนั้น."
 
 msgctxt "#36294"
-msgid "No info available yet."
-msgstr "ยังไม่มีข้อมูล."
+msgid "Show song selection dialog once the last song in the queue has been played."
+msgstr "แสดงแถบเลือกเพลงเมื่อเพลงสุดท้ายในลำดับถูกเล่น"
 
 msgctxt "#36295"
-msgid "Select the font used during karoake."
-msgstr "เลือกแบบตัวอักษร ที่ใช้ขณะเล่นคาราโอเกะ."
+msgid "Select the font type used during karaoke."
+msgstr "เลือกแบบตัวอักษร ที่ใช้เมื่อเล่นคาราโอเกะ."
 
 msgctxt "#36296"
-msgid "Select the size of the font used during karoake."
-msgstr "เลือกขนาดของตัวอักษร ที่ใช้ขณะเล่นคาราโอเกะ."
+msgid "Select the size of the font used during karaoke."
+msgstr "เลือกขนาดของตัวอักษร ที่ใช้เมื่อเล่นคาราโอเกะ."
 
 msgctxt "#36297"
-msgid "Select the font colour used during karoake."
-msgstr "เลือกสีของตัวอักษร ที่ใช้ขณะเล่นคาราโอเกะ."
+msgid "Select the font colour used during karaoke."
+msgstr "เลือกสีของตัวอักษร ที่ใช้เมื่อเล่นคาราโอเกะ."
 
 msgctxt "#36298"
-msgid "Select the character set used during karoake."
-msgstr "เลือกชุดอักขระ ที่ใช้ขณะเล่นคาราโอเกะ."
+msgid "Select the character set used during karaoke."
+msgstr "เลือกชุดอักขระ ที่ใช้เมื่อเล่นคาราโอเกะ."
 
 msgctxt "#36299"
-msgid "No info available yet."
-msgstr "ยังไม่มีข้อมูล."
+msgid "Export the karaoke numbered songs to HTML or CSV files."
+msgstr "ส่งออกเลขเพลงคาราโอเกะเป็นไฟล์ HTML หรือ CSV"
 
 msgctxt "#36300"
-msgid "No info available yet."
-msgstr "ยังไม่มีข้อมูล."
+msgid "Import the karaoke numbered songs from HTML or CSV files."
+msgstr "นำเข้าเลขเพลงคาราโอเกะจากไฟล์ HTML หรือ CSV"
 
 msgctxt "#36301"
 msgid "No info available yet."
@@ -11498,12 +12138,12 @@ msgid "No info available yet."
 msgstr "ยังไม่มีข้อมูล."
 
 msgctxt "#36304"
-msgid "No info available yet."
-msgstr "ยังไม่มีข้อมูล."
+msgid "Section that contains settings related to pictures and how they are handled."
+msgstr "ส่วนการตั้งค่าการจัดการของแฟ้มภาพ"
 
 msgctxt "#36305"
-msgid "No info available yet."
-msgstr "ยังไม่มีข้อมูล."
+msgid "Category containing settings for how picture file lists are handled."
+msgstr "หมวดหมู่ที่ประกอบด้วยการตั้งค่า สำหรับวิธีจัดการ แสดงรายการแฟ้มรูปภาพ."
 
 msgctxt "#36306"
 msgid "If EXIF information exists (date, time, camera used, etc.), it will be displayed."
@@ -11518,16 +12158,16 @@ msgid "Pictures will automatically rotate according to information in the EXIF t
 msgstr "รูปภาพจะถูกหมุนโดนอัตโนมัติ ตามรายละเอียดข้อมูลใน tag EXIF, ถ้าพบ."
 
 msgctxt "#36309"
-msgid "Show video media in picture file lists, since most digital cameras nowadays have video recording capabilities."
-msgstr "แสดงสื่อวิดีโอในรายการแฟ้มรูปภาพ, เนื่องจากกล้องดิจิตอลส่วนใหญ่ในทุกวันนี้ สามารถทำการบันทึกวิดีโอได้."
+msgid "Show videos in picture file lists."
+msgstr "แสดงแฟ้มวิดีโอในรายการรูปภาพ"
 
 msgctxt "#36310"
 msgid "No info available yet."
 msgstr "ยังไม่มีข้อมูล."
 
 msgctxt "#36311"
-msgid "No info available yet."
-msgstr "ยังไม่มีข้อมูล."
+msgid "Category containing settings for how picture slideshows are handled."
+msgstr "หมวดหมู่ที่ประกอบด้วยการตั้งค่า สำหรับวิธีจัดการ แสดงภาพสไลด์."
 
 msgctxt "#36312"
 msgid "Select the amount of time that each image is displayed in a slideshow."
@@ -11542,12 +12182,12 @@ msgid "View slideshow images in a random order."
 msgstr "ดูรูปภาพในการแสดงภาพนิ่ง แบบสุ่มลำดับ."
 
 msgctxt "#36315"
-msgid "No info available yet."
-msgstr "ยังไม่มีข้อมูล."
+msgid "Section that contains weather related settings."
+msgstr "ส่วนการตั้งค่าสภาพอากาศ"
 
 msgctxt "#36316"
-msgid "No info available yet."
-msgstr "ยังไม่มีข้อมูล."
+msgid "Category containing settings for how weather addons are handled."
+msgstr "หมวดหมู่ที่ประกอบด้วยการตั้งค่า สำหรับวิธีจัดการ ส่วนเสริมสภาพอากาศ."
 
 msgctxt "#36317"
 msgid "Select up to three locations for which the weather can be displayed."
@@ -11558,176 +12198,180 @@ msgid "Specify the default weather information source. See the Add-ons Manager f
 msgstr "กำหนดค่าเริ่มต้น แหล่งข้อมูลสภาพอากาศ. ดูตัวเลือกใน การจัดการ ส่วนเสริม."
 
 msgctxt "#36319"
-msgid "No info available yet."
-msgstr "ยังไม่มีข้อมูล."
+msgid "Section containing settings for how network services are handled."
+msgstr "ส่วนการตั้งค่าเครือข่าย"
 
 msgctxt "#36320"
-msgid "No info available yet."
-msgstr "ยังไม่มีข้อมูล."
+msgid "Category containing settings used for all services."
+msgstr "หมวดหมู่ที่ประกอบด้วยการตั้งค่า สำหรับทุกบริการ."
 
 msgctxt "#36321"
-msgid "Display name of the XBMC installation when using various network services."
-msgstr "แสดงชื่อของการติดตั้ง XBMC เมื่อใช้งาน บริการบนเครือช่ายต่างๆ."
+msgid "Display name of the Kodi installation when using various network services."
+msgstr "แสดงชื่อของการติดตั้ง Kodi เมื่อใช้งาน บริการบนเครือช่ายต่างๆ."
 
 msgctxt "#36322"
-msgid "No info available yet."
-msgstr "ยังไม่มีข้อมูล."
+msgid "Category containing settings for how the UPnP service is handled."
+msgstr "หมวดหมู่ที่ประกอบด้วยการตั้งค่า สำหรับวิธีจัดการ บริการ UPnP."
 
 msgctxt "#36323"
-msgid "Enable the UPnP server. This will allow you to stream media to any UPnP client."
-msgstr "เปิดใช้งาน เซิร์ฟเวอร์ UPnP. นี้จะช่วยให้คุณส่งกระแสข้อมูลสื่อ ไปยังลูกช่าย UPnP ใดๆได้."
+msgid "Enable the UPnP server. This allows you to stream media to a UPnP client."
+msgstr "เปิดใช้งานเซิร์ฟเวอร์ UPnP จะช่วยให้คุณสามารถสตรีมมีเดียไปยังลูกช่าย UPnP ได้"
 
 msgctxt "#36324"
 msgid "When a manual or automatical library update occurs, notify UPnP clients."
 msgstr "เมื่อมีการอัพเดตคลังข้อมูลเกิดขึ้น ไม่ว่าด้วยดนเองหรืออัตโนมัติ, แจ้งเตือน ลูกข่าย UPnP."
 
 msgctxt "#36325"
-msgid "No info available yet."
-msgstr "ยังไม่มีข้อมูล."
+msgid "Enable the UPnP client. This allows you to stream media from any UPnP server with a control point and control playback from that server."
+msgstr "เปิดใช้งานลูกข่าย UPnP จะช่วยให้คุณสามารถสตรีมมีเดียจากเซิร์ฟเวอร์ UPnP ได้พร้อมทั้งมีจุดควบคุมการเล่นจากเซิร์ฟเวอร์นั้น"
 
 msgctxt "#36326"
-msgid "Enable the UPnP client. This will allow you to stream media from any UPnP server with a control point and control playback from that server."
-msgstr "เปิดใช้งาน ลูกข่าย UPnP. นี้จะช่วยให้คุณส่งกระแสข้อมูลสื่อจากเซิร์ฟเวอร์ UPnP ใดๆ พร้อมทั้งรับจุดสั่งการและควบคุมการเล่นจากเซิร์ฟเวอร์นั้น."
+msgid "Enable the UPnP control point. This allows you to stream media to any UPnP client and control playback from Kodi."
+msgstr "เปิดใช้จุดควบคุมเซิร์ฟเวอร์ UPnP ที่อนุญาตให้คุณสตรีมมีเดียไปยังลูกข่าย UPnP และควบคุมการเล่นจาก Kodi"
 
 msgctxt "#36327"
-msgid "No info available yet."
-msgstr "ยังไม่มีข้อมูล."
+msgid "Category containing settings for how the webserver service is handled."
+msgstr "หมวดหมู่ที่ประกอบด้วยการตั้งค่า สำหรับวิธีจัดการ บริการเว็บเซิร์ฟเวอร์."
 
 msgctxt "#36328"
-msgid "Enable remote users to control XBMC through the built-in webserver."
-msgstr "เปิดใช้งาน ผู้ใช้จากระยะไกล ในการควบคุม XBMC ผ่านเว็บเซิร์ฟเวอร์-ในตัว"
+msgid "Enable remote users to control Kodi through the built-in webserver."
+msgstr "เปิดใช้งาน ผู้ใช้จากระยะไกล ในการควบคุม Kodi ผ่านเว็บเซิร์ฟเวอร์-ในตัว"
 
 msgctxt "#36329"
 msgid "Define the webserver port."
 msgstr "กำหนด พอร์ต เว็บเซิร์ฟเวอร์."
-
-msgctxt "#36330"
-msgid "Define the webserver username."
-msgstr "กำหนด ชื่อผู้ใช้ เว็บเซิร์ฟเวอร์."
-
-msgctxt "#36331"
-msgid "Define webserver password."
-msgstr "กำหนด รหัสผ่าน เว็บเซิร์ฟเวอร์."
 
 msgctxt "#36332"
 msgid "Select between web interfaces installed via the Add-on Manager."
 msgstr "เลือกใช้ส่วนติดต่อผ่านเว็บ ที่ได้ติดตั้งผ่าน ตัวจัดการ ส่วนเสริม."
 
 msgctxt "#36333"
-msgid "No info available yet."
-msgstr "ยังไม่มีข้อมูล."
+msgid "Category containing settings for how the remote control service is handled."
+msgstr "หมวดหมู่ที่ประกอบด้วยการตั้งค่า สำหรับวิธีจัดการ บริการควบคุมระยะไกล."
 
 msgctxt "#36334"
-msgid "Allow programs on this computer to control XBMC via the Web Interface or the JSON-RPC interface protocol."
-msgstr "อนุญาตให้โปรแกรมบนคอมพิวเตอร์เครื่องนี้ ควบคุม XBMC ผ่านเว็บอินเตอร์เฟส หรือ โปรโตคอล อินเตอร์เฟซ JSON-RPC."
+msgid "Allow programs on this computer to control Kodi via the Web Interface or the JSON-RPC interface protocol."
+msgstr "อนุญาตให้โปรแกรมบนคอมพิวเตอร์เครื่องนี้ ควบคุม Kodi ผ่านเว็บอินเตอร์เฟส หรือ โปรโตคอล อินเตอร์เฟซ JSON-RPC."
 
 msgctxt "#36335"
-msgid "No info available yet."
-msgstr "ยังไม่มีข้อมูล."
+msgid "Define the remote control port."
+msgstr "ตั้งค่าพอร์ตควบคุมรีโมท"
 
 msgctxt "#36336"
-msgid "No info available yet."
-msgstr "ยังไม่มีข้อมูล."
+msgid "Define the remote control port range."
+msgstr "กำหนดขอบเขตพอร์ตควบคุมรีโมท"
 
 msgctxt "#36337"
-msgid "No info available yet."
-msgstr "ยังไม่มีข้อมูล."
+msgid "Define the maximum number of clients that can connect."
+msgstr "กำหนดจำนวนลูกข่ายสูงสุดที่สามารถเชื่อมต่อได้"
 
 msgctxt "#36338"
-msgid "Allow programs on the network to control XBMC."
-msgstr "อนุญาตให้โปรแกรมบนเครือข่าย ควบคุม XBMC."
+msgid "Allow programs on the network to control Kodi."
+msgstr "อนุญาตให้โปรแกรมบนเครือข่าย ควบคุม Kodi."
 
 msgctxt "#36339"
-msgid "No info available yet."
-msgstr "ยังไม่มีข้อมูล."
+msgid "Initial repeat delay (ms)."
+msgstr "หน่วงเวลาเล่นซ้ำเริ่มต้น (ms)"
 
 msgctxt "#36340"
-msgid "No info available yet."
-msgstr "ยังไม่มีข้อมูล."
+msgid "Continuous repeat delay (ms)."
+msgstr "หน่วงเวลาเล่นซ้ำแบบต่อเนื่อง (ms)"
 
 msgctxt "#36341"
-msgid "No info available yet."
-msgstr "ยังไม่มีข้อมูล."
+msgid "Category containing settings for how the zeroconf network discovery service is handled, required for AirPlay."
+msgstr "หมวดหมู่ที่ประกอบด้วยการตั้งค่า สำหรับวิธีจัดการ บริการค้นหาเครือข่าย zeroconf, จำเป็นสำหรับ AirPlay."
 
 msgctxt "#36342"
-msgid "No info available yet."
-msgstr "ยังไม่มีข้อมูล."
+msgid "Allows applications on the network to discover Kodi's running services."
+msgstr "อนุญาตให้แอพพลิเคชั่นบนเครือข่ายค้นหาบริการของ  Kodi"
 
 msgctxt "#36343"
-msgid "No info available yet."
-msgstr "ยังไม่มีข้อมูล."
+msgid "Allows Kodi to receive content from other AirPlay devices or applications."
+msgstr "อนุญาตให้ Kodi รับข้อมูลจากอุปกรณ์ AirPlay หรือแอพพลิเคชั่นอื่นๆ"
 
 msgctxt "#36344"
-msgid "No info available yet."
-msgstr "ยังไม่มีข้อมูล."
+msgid "Enable AirPlay password protection."
+msgstr "เปิดใช้งานรหัสผ่าน AirPlay"
 
 msgctxt "#36345"
-msgid "No info available yet."
-msgstr "ยังไม่มีข้อมูล."
+msgid "Sets the AirPlay password."
+msgstr "ตั้งค่ารหัสผ่าน AirPlay"
 
 msgctxt "#36346"
-msgid "No info available yet."
-msgstr "ยังไม่มีข้อมูล."
+msgid "Category containing settings for how the SMB Client (samba) service is handled."
+msgstr "หมวดหมู่ที่ประกอบด้วยการตั้งค่า สำหรับวิธีจัดการ บริการลูกข่าย SMB (samba)."
 
 msgctxt "#36347"
-msgid "No info available yet."
-msgstr "ยังไม่มีข้อมูล."
+msgid "If a WINS server is running on the network, enter its IP address here. Otherwise, leave blank."
+msgstr "หากเซิร์ฟเวอร์ WINS กำลังรันบนเครือข่าย ให้ใส่ไอพีแอดเดรสตรงนี้  ถ้าไม่มีให้เว้นว่างไว้"
 
 msgctxt "#36348"
-msgid "No info available yet."
-msgstr "ยังไม่มีข้อมูล."
+msgid "If a WINS server is running on the network, enter its workgroup name here. Otherwise, leave blank."
+msgstr "หากเซิร์ฟเวอร์ WINS กำลังรันบนเครือข่าย ให้ใส่ชื่อ workgroup ตรงนี้  ถ้าไม่มีให้เว้นว่างไว้"
 
 msgctxt "#36349"
-msgid "No info available yet."
-msgstr "ยังไม่มีข้อมูล."
+msgid "Section that contains the System related settings for the device Kodi is installed on."
+msgstr "ส่วนการตั้งค่าระบบของอุปกรณ์ที่ใช้ติดตั้ง Kodi"
 
 msgctxt "#36350"
 msgid "Automatically send 'Wake-On-Lan' to server(s) right before trying to access shared files or services."
 msgstr "ส่งคำสั่ง 'ปลุก-ผ่าน-แลน' โดยอัตโนมัติ เพื่อให้เซิร์ฟเวอร์(s)พร้อม ก่อนพยายามที่จะเข้าถึง การแบ่งปัน แฟ้มหรือบริการ."
 
 msgctxt "#36351"
-msgid "No info available yet."
-msgstr "ยังไม่มีข้อมูล."
+msgid "Display Kodi in a window, or fullscreen on the selected screen."
+msgstr "แสดงผล Kodi แบบ หน้าต่าง หรือ เต็มจอ บนจอที่เลือก"
 
 msgctxt "#36352"
-msgid "No info available yet."
-msgstr "ยังไม่มีข้อมูล."
+msgid "Changes the resolution that the user interface is displayed in."
+msgstr "ปรับความละเอียดในการแสดงภาพ"
 
 msgctxt "#36353"
-msgid "No info available yet."
-msgstr "ยังไม่มีข้อมูล."
+msgid "Changes the refresh rate that the user interface is displayed in."
+msgstr "ปรับอัตราการรีเฟรชที่ user interface แสดงผล"
 
 msgctxt "#36354"
-msgid "The main benefit is for multi-screen configurations, so XBMC can be used without automatically minimising other applications. Uses a bit more resources and playback may be slightly less smooth."
-msgstr "ประโยชน์หลักๆ คือ เพื่อการกำหนดค่าหลายหน้าจอ, ดังนั้น XBMC จึงสามารถใช้งานได้โดยไม่ต้องย่อโปรแกรมอื่นลงแบบอัตโนมัติ. ใช้ทรัพยากรระบบเพิ่มขึ้นนิดหน่อย และอาจจะทำให้ความลื่นไหลในการเล่น ลดลงเล็กน้อย."
+msgid "Display Kodi in a fullscreen window. The main benefit is for multi-screen configurations, so that Kodi can be used without minimising other applications. This uses more resources so playback may be less smooth."
+msgstr "แสดงผล Kodi ในหน้าต่างแบบเต็มจอ. ประโยชน์หลักๆ คือ เพื่อการกำหนดค่าหลายหน้าจอ, ดังนั้น Kodi จึงสามารถใช้งานได้โดยไม่ต้องย่อโปรแกรมอื่นลงแบบอัตโนมัติ. ใช้ทรัพยากรระบบเพิ่มขึ้นนิดหน่อย ดังนั้นอาจจะทำให้ความลื่นไหลในการเล่นลดลง."
 
 msgctxt "#36355"
-msgid "In a multi-screen configuration, the screens where XBMC is not displayed are blacked out."
-msgstr "ในการกำหนดค่าหลายหน้าจอ, จอภาพที่ XBMC ไม่ได้แสดงผลจะมืดไป."
+msgid "In a multi-screen configuration, the screens where Kodi is not displayed are blacked out."
+msgstr "ในการกำหนดค่าหลายหน้าจอ, จอภาพที่ Kodi ไม่ได้แสดงผลจะมืดไป."
 
 msgctxt "#36356"
 msgid "Eliminate vertical tearing."
 msgstr "ลดการฉีกของภาพในแนวตั้ง."
 
 msgctxt "#36357"
-msgid "Calibrate the User Interface by adjusting the overscan. Use this tool if the image being displayed is too large or small for your display."
-msgstr "ปรับเทียบส่วนติดต่อผู้ใช้ โดยปรับแต่งการขยายสแกน. ให้ใช้เครื่องมือนี้ ถ้าภาพที่แสดงนั้น ใหญ่หรือเล็ก กว่าขนาดจอภาพของคุณ."
+msgid "Calibrate the user interface by adjusting the overscan. Use this tool if the image being displayed is too large or small for your display."
+msgstr "ปรับตำแหน่งหน้าจอ ใช้ฟังก์ชั่นนี้เวลาภาพที่แสดงใหญ่หรือเล็กเกินไปสำหรับหน้าจอของคุณ"
 
 msgctxt "#36358"
 msgid "Test patterns for display hardware calibration."
 msgstr "แบบลวดลายทดสอบ การปรับเทียบฮาร์ดแวร์การแสดงผล."
 
 msgctxt "#36359"
-msgid "No info available yet."
-msgstr "ยังไม่มีข้อมูล."
+msgid "Use limited colour range (16-235) instead of full colour range (0-255). Limited range should be used if your display is a regular HDMI TV and doesn't have a PC or other mode to display full range colour, however if your display is a PC monitor then leave this disabled to get proper blacks."
+msgstr "ใช้ช่วงสีที่จำกัด (16-235) แทนการใช้ช่วงสีแบบเต็ม (0-255) ช่วงสีจำกัดควรใช้เมื่อหน้าจอของคุณเป็นทีวี HDMI ธรรมดาและไม่รองรับการแสดงช่วงสีแบบเต็ม หากจอของคุณเป็นจอคอมพิวเตอร์ ให้ปิดฟังชั่นนี้เพื่อการแสดงผลสีดำที่สมบูรณ์"
 
 msgctxt "#36360"
-msgid "No info available yet."
-msgstr "ยังไม่มีข้อมูล."
+msgid "Category containing settings for how audio output is handled."
+msgstr "หมวดหมู่ที่ประกอบด้วยการตั้งค่า สำหรับวิธีจัดการ การส่งสัญญาณเสียงออก."
+
+msgctxt "#36361"
+msgid "Select how the properties of the audio output are set: [Fixed] - output properties are set to the specified sampling rate & speaker configuration at all times; [Best Match] - output properties are set to always be as close a match to the source properties as possible; [Optimized] - output properties are set at the start of playback and will not change if the properties of the source changes."
+msgstr "เลือกวิธีการกำหนดค่าคุณสมบัติของสัญญาณเสียงออก: [ค่าแน่นอน] - คุณสมบัติการส่งสัญญาณออกจะถูกกำหนดเป็นอัตราสุ่มและการตั้งค่าลำโพงที่ระบุไว้ตลอด; [ตรงกันที่สุด] - คุณสมบัติการส่งสัญญาณออก มีการปรับอยู่เสมอ ให้ใกล้เคียงตรงกับคุณสมบัติต้นฉบับเท่าที่เป็นไปได้; [ปรับให้เหมาะสม] - คุณสมบัติการส่งสัญญาณออก จะปรับตอนเริ่มการเล่นและจะไม่เปลี่ยน แม้คุณสมบัติของต้นฉบับมีการเปลี่ยนแปลง."
+
+msgctxt "#36362"
+msgid "Select the number of channels supported by the audio connection, or the number of speakers if connected by analog connections. This setting does not apply to passthrough audio. Note - SPDIF supports 2.0 channels only but can still output multichannel audio using a format supported by passthrough."
+msgstr "เลือกจำนวนของช่องสัญญาณ ที่รองรับในการเชื่อมต่อสัญญาณเสียง, หรือจำนวนของลำโพง ในกรณีที่ใช้การเชื่อมต่อแบบอนาล็อก. การตั้งค่านี้จะไม่ถูกใช้ในการส่งผ่านเสียง. ข้อควรจำ - SPDIF รองรับ 2.0 ช่องสัญญาณ เท่านั้น แต่ยังคงสามารถส่งออกหลายช่องสัญญาณ โดยใช้รูปแบบการเข้ารหัสที่รองรับโดย การส่งผ่านเสียง."
 
 msgctxt "#36363"
 msgid "Boost AC3 streams that have been downmixed to 2 channels."
 msgstr "เพิ่มระดับเสียงของกระแสสัญญาณ AC3 ที่ได้ถูกรวมลงมาเป็น 2 ช่องเสียง."
+
+msgctxt "#36364"
+msgid "Select to enable upmixing of 2 channel audio to the number of audio channels specified by the channel configuration."
+msgstr "เลือกเพื่อเปิดใช้ การแยกกระจายเสียง 2 ช่องสัญญาณ ไปตามจำนวนช่องสัญญาณเสียงที่ระบุ โดยการกำหนดค่าช่องสัญญาณเสียงออก."
 
 msgctxt "#36365"
 msgid "Select this option if your receiver is capable of decoding AC3 streams."
@@ -11737,6 +12381,14 @@ msgctxt "#36366"
 msgid "Select this option if your receiver is capable of decoding DTS streams."
 msgstr "เลือกตัวเลือกนี้ ถ้าเครื่องรับของคุณสามารถถอดรหัส กระแสเสียง DTS."
 
+msgctxt "#36367"
+msgid "Select the maximum number of audio channels/speakers available for audio decoded. If optical/coax digital outputs are used this must be set to 2.0"
+msgstr "เลือกจำนวนสูงสุดของช่องสัญญาณเสียง / ลำโพง เพื่อใช้ในการถอดรหัสเสียง. ถ้ามีการส่งออกสัญญาณดิจิตอล optical/coax ตรงนี้ต้องกำหนดเป็น 2.0"
+
+msgctxt "#36368"
+msgid "Select to enable the passthrough audio options for playback of encoded audio such as Dolby Digital."
+msgstr "เลือกเพื่อเปิดใช้งาน ตัวเลือกส่งผ่านเสียง สำหรับเล่นเสียงที่เข้ารหัส เช่น Dolby Digital."
+
 msgctxt "#36369"
 msgid "Select this option if your receiver is capable of decoding TrueHD streams."
 msgstr "เลือกตัวเลือกนี้ ถ้าเครื่องรับของคุณสามารถถอดรหัส กระแสเสียง TrueHD."
@@ -11745,33 +12397,41 @@ msgctxt "#36370"
 msgid "Select this option if your receiver is capable of decoding DTS-HD streams."
 msgstr "เลือกตัวเลือกนี้ ถ้าเครื่องรับของคุณสามารถถอดรหัส กระแสเสียง DTS-HD."
 
+msgctxt "#36371"
+msgid "Select the device to be used for playback of audio that has been decoded such as mp3."
+msgstr "เลือกอุปกรณ์ที่จะใช้สำหรับการเล่นเสียง ที่ถูกถอดรหัสแล้ว เช่น MP3."
+
+msgctxt "#36372"
+msgid "Select the device to be used for playback of encoded formats, these are any of the formats below in the 'capable receiver' options."
+msgstr "เลือกอุปกรณ์ที่จะใช้สำหรับเล่นรูปแบบการเข้ารหัส, ตามรูปแบบด้านล่าง ในตัวเลือก 'ตัวรับที่สนับสนุน'"
+
 msgctxt "#36373"
 msgid "Configure how interface sounds are handled, such as menu navigation and important notifications."
 msgstr "ตั้งค่าวิธีการจัดการเสียงของส่วนติดต่อผู้ใช้, อย่างเช่น การเลื่อนเมนูและการแจ้งเตือนที่สำคัญ."
 
 msgctxt "#36374"
-msgid "No info available yet."
-msgstr "ยังไม่มีข้อมูล."
+msgid "Category containing settings for how input devices are handled."
+msgstr "หมวดหมู่ที่ประกอบด้วยการตั้งค่า สำหรับวิธีจัดการ อุปกรณ์ป้อนข้อมูล."
 
 msgctxt "#36375"
-msgid "No info available yet."
-msgstr "ยังไม่มีข้อมูล."
+msgid "Configure any attached peripheral devices."
+msgstr "กำหนดค่าอุปกรณ์ต่อพ่วงใดๆ ที่เชื่อมต่ออยู่."
 
 msgctxt "#36376"
 msgid "When activated, your keyboard arrows will move the selection on the virtual keyboard. When deactivated, they will move the cursor from your text."
 msgstr "เมื่อเปิดใช้งาน, ปุุ่มลูกศรบนแป้นพิมพ์ของคุณจะใช้เลื่อนการเลือกบนแป้นพิมพ์เสมือน. เมื่อปิดการใช้, จะเลื่อนตัวชี้จากข้อความของคุณ."
 
 msgctxt "#36377"
-msgid "Use a mouse or touch screen device to control XBMC. Note: disabling will cause you to lose control over XBMC when no keyboard or remote is present."
-msgstr "ใช้เมาท์หรืออุปกรณ์หน้าจอสัมผัส ในการควบคุม XBMC. ข้อควรจำ: การปิดการใช้งาน จะทำให้คุณไม่สามารถควบคุม XBMC เมื่อไม่มีคีย์บอร์ดหรือรีโมทอยู่."
+msgid "Use a mouse or touch screen device to control Kodi. Note: disabling will cause you to lose control over Kodi when no keyboard or remote is present."
+msgstr "ใช้เมาท์หรืออุปกรณ์หน้าจอสัมผัส ในการควบคุม Kodi. ข้อควรจำ: การปิดการใช้งาน จะทำให้คุณไม่สามารถควบคุม Kodi เมื่อไม่มีคีย์บอร์ดหรือรีโมทอยู่."
 
 msgctxt "#36378"
-msgid "Use a joystick to control XBMC."
-msgstr "ใช้จอยสติ๊กในการควบคุม XBMC."
+msgid "Use a joystick to control Kodi."
+msgstr "ใช้จอยสติ๊กในการควบคุม Kodi."
 
 msgctxt "#36379"
-msgid "No info available yet."
-msgstr "ยังไม่มีข้อมูล."
+msgid "Category containing settings for internet access."
+msgstr "หมวดหมู่ที่ประกอบด้วยการตั้งค่า สำหรับการเข้าถึงอินเตอร์เน็ต."
 
 msgctxt "#36380"
 msgid "If your internet connection uses a proxy, configure it here."
@@ -11798,100 +12458,96 @@ msgid "Configure the proxy server password."
 msgstr "กำหนดค่า รหัสผ่าน ของเซิร์ฟเวอร์พร็อกซี่."
 
 msgctxt "#36386"
-msgid "If you have limited bandwidth available, XBMC will try to keep within these limits."
-msgstr "หากคุณมีการจำกัดค่าแบนด์วิดธ์, XBMC จะพยายามให้อยู่ในขอบเขตเหล่านี้."
+msgid "If you have limited bandwidth available, Kodi will try to keep within these limits."
+msgstr "หากคุณมีการจำกัดค่าแบนด์วิดธ์, Kodi จะพยายามให้อยู่ในขอบเขตเหล่านี้."
 
 msgctxt "#36387"
-msgid "Turn off display when idle. Useful for TVs that turn off when there is no display signal detected, but you don't want to suspend/shutdown the whole computer."
-msgstr "ปิดหน้าจอแสดงผลเมื่อไม่ได้ใช้งาน. เป็นประโยชน์สำหรับทีวี ที่ปิดเมื่อไม่มีสัญญาณเข้า, แต่คุณไม่ต้องการที่จะพัก/ปิดระบบ ของคอมพิวเตอร์ทั้งหมด."
+msgid "Category containing settings for power saving."
+msgstr "หมวดหมู่ที่ประกอบด้วยการตั้งค่า สำหรับการประหยัดพลังงาน."
 
 msgctxt "#36388"
-msgid "No info available yet."
-msgstr "ยังไม่มีข้อมูล."
+msgid "Turn off display when idle. Useful for TVs that turn off when there is no display signal detected."
+msgstr "ปิดการแสดงผลเมื่อไม่ใช้งาน. เป็นประโยชน์สำหรับทีวีที่จะปิด เมื่อไม่มีสัญญาณการแสดงผลเข้ามา."
 
 msgctxt "#36389"
-msgid "Define how long XBMC should idle before shutting down."
-msgstr "กำหนดระยะเวลาที่ XBMC ไม่ได้ใช้งาน ก่อนที่จะทำการปิดระบบ."
+msgid "Define how long Kodi should idle before shutting down."
+msgstr "กำหนดระยะเวลาที่ Kodi ไม่ได้ใช้งาน ก่อนที่จะทำการปิดระบบ."
 
 msgctxt "#36390"
-msgid "Define what action XBMC should do when it has been idle for a long period of time."
-msgstr "กำหนดการทำงานที่ XBMC จะต้องกระทำ เมื่อไม่ได้ถูกใช้งานในช่วงเวลานาน."
+msgid "Define what action Kodi should do when it has been idle for a long period of time."
+msgstr "กำหนดการทำงานที่ Kodi จะต้องกระทำ เมื่อไม่ได้ถูกใช้งานในช่วงเวลานาน."
 
 msgctxt "#36391"
+msgid "Category containing settings for debugging functions."
+msgstr "หมวดหมู่ที่ประกอบด้วยการตั้งค่า สำหรับการทำหน้าที่แก้ไขจุดบกพร่อง."
+
+msgctxt "#36392"
 msgid "Turn debug logging on or off. Useful for troubleshooting."
 msgstr "เปิดหรือปิด บันทึกแก้ไขจุดบกพร่อง. เป็นประโยชน์ในการบ่งชี้ปัญหา."
 
-msgctxt "#36392"
-msgid "No info available yet."
-msgstr "ยังไม่มีข้อมูล."
-
 msgctxt "#36393"
-msgid "Folder used to save screenshots taken within XBMC."
-msgstr "โฟลเดอร์ที่ใช้ในการบันทึกภาพหน้าจอ ที่จับได้ใน XBMC."
-
-msgctxt "#36394"
-msgid "Specify additional libraries to be included in the debug log."
-msgstr "ระบุคลังข้อมูลเพิ่มเติม ที่จะรวมเข้าในบันทึกการแก้ไขจุดบกพร่อง."
+msgid "Folder used to save screenshots taken within Kodi."
+msgstr "โฟลเดอร์ที่ใช้ในการบันทึกภาพหน้าจอ ที่จับได้ใน Kodi."
 
 msgctxt "#36395"
-msgid "Open the Master Lock dialogue, where you can configure your Master Lock options."
-msgstr "เปิดกล่องโต้ตอบ ล็อคผู้ดูแลระบบ, ที่คุณสามารถกำหนดตัวเลือก ล็อคผู้ดูแลระบบ."
+msgid "Category containing settings for the master lock function."
+msgstr "หมวดหมู่ที่ประกอบด้วยการตั้งค่า สำหรับการทำงานของมาสเตอร์ล็อค."
 
 msgctxt "#36396"
 msgid "Define the PIN code used for the master lock."
 msgstr "กำหนดรหัส PIN ที่ใช้สำหรับ ล็อคผู้ดูแลระบบ."
 
 msgctxt "#36397"
-msgid "If enabled, the master lock code is required to unlock XBMC on startup "
-msgstr "หากเปิดใช้งาน, รหัสผ่านของล็อคผู้ดูแลระบบ จำเป็นต้องใช้ในการปลดล็อค XBMC ขณะเริ่มระบบ"
+msgid "If enabled, the master lock code is required to unlock Kodi on startup."
+msgstr "ถ้าเปิดใช้, รหัส มาสเตอร์ล็อค จะต้องใช้ในการปลดล็อค Kodi ในตอนเริ่มโปรแกรม."
 
 msgctxt "#36398"
-msgid "Define the maximum number of retries before XBMC is closed down."
-msgstr "กำหนดจำนวนของการลองใหม่ ก่อนที่ XBMC จะปิดไป."
+msgid "Define the maximum number of retries before Kodi is closed down."
+msgstr "กำหนดจำนวนของการลองใหม่ ก่อนที่ Kodi จะปิดไป."
 
 msgctxt "#36399"
-msgid "No info available yet."
-msgstr "ยังไม่มีข้อมูล."
+msgid "Category containing settings for the cache function."
+msgstr "หมวดหมู่ที่ประกอบด้วยการตั้งค่า สำหรับการทำงานของแคช."
 
 msgctxt "#36400"
-msgid "No info available yet."
-msgstr "ยังไม่มีข้อมูล."
+msgid "Enable cache for playback of Video, Audio or DVDs from hard disk."
+msgstr "เปิดใช้การแคฃข้อมูล เพื่อการเล่นวิดีโอ, เสียง หรือ ดีวีดี จากฮาร์ดดิสก์."
 
 msgctxt "#36401"
-msgid "No info available yet."
-msgstr "ยังไม่มีข้อมูล."
+msgid "Enable cache for playback of Video from DVD-ROM."
+msgstr "เปิดใช้การแคฃข้อมูล เพื่อการเล่นวิดีโอ จาก ดีวีดี-รอม."
 
 msgctxt "#36402"
-msgid "No info available yet."
-msgstr "ยังไม่มีข้อมูล."
+msgid "Enable cache for Video playback from Local Network."
+msgstr "เปิดใช้การแคฃข้อมูล เพื่อการเล่นวิดีโอ จากเครือข่ายท้องถิ่น."
 
 msgctxt "#36403"
-msgid "No info available yet."
-msgstr "ยังไม่มีข้อมูล."
+msgid "Enable cache for Video playback from Internet."
+msgstr "เปิดใช้การแคฃข้อมูล เพื่อการเล่นวิดีโอ จากอินเตอร์เน็ต."
 
 msgctxt "#36404"
-msgid "No info available yet."
-msgstr "ยังไม่มีข้อมูล."
+msgid "Enable cache for playback of Audio from DVD-ROM."
+msgstr "เปิดใช้การแคฃข้อมูล เพื่อการเล่นเสียง จาก ดีวีดี-รอม."
 
 msgctxt "#36405"
-msgid "No info available yet."
-msgstr "ยังไม่มีข้อมูล."
+msgid "Enable cache for Audio playback from Local Network."
+msgstr "เปิดใช้การแคฃข้อมูล เพื่อการเล่นเสียง จากเครือข่ายท้องถิ่น."
 
 msgctxt "#36406"
-msgid "No info available yet."
-msgstr "ยังไม่มีข้อมูล."
+msgid "Enable cache for Audio playback from Internet."
+msgstr "เปิดใช้การแคฃข้อมูล เพื่อการเล่นเสียง จากอินเตอร์เน็ต."
 
 msgctxt "#36407"
-msgid "No info available yet."
-msgstr "ยังไม่มีข้อมูล."
+msgid "Enable cache for playback of DVD from DVD-ROM."
+msgstr "เปิดใช้การแคฃข้อมูล เพื่อการเล่นของ ดีวีดี จาก ดีวีดี-รอม."
 
 msgctxt "#36408"
-msgid "No info available yet."
-msgstr "ยังไม่มีข้อมูล."
+msgid "Enable cache for DVD playback from Local Network."
+msgstr "เปิดใช้การแคฃข้อมูล เพื่อการเล่น ดีวีดี จากเครือข่ายท้องถิ่น."
 
 msgctxt "#36409"
-msgid "No info available yet."
-msgstr "ยังไม่มีข้อมูล."
+msgid "Enable cache of unknown types from Internet."
+msgstr "เปิดใช้การแคฃข้อมูล สำหรับที่ไม่ทราบชนิด จากอินเตอร์เน็ต."
 
 msgctxt "#36410"
 msgid "No info available yet."
@@ -11918,44 +12574,64 @@ msgid "No info available yet."
 msgstr "ยังไม่มีข้อมูล."
 
 msgctxt "#36416"
-msgid "Define the Apple remote standard used."
-msgstr "กำหนดค่าการใช้รีโมทแอปเปิ้ล แบบมาตรฐาน."
+msgid "Specify the type of remote used."
+msgstr "ระบุฃนิดของรีโมทที่ใช้."
 
 msgctxt "#36417"
-msgid "No info available yet."
-msgstr "ยังไม่มีข้อมูล."
+msgid "Always run an Kodi helper so that the remote can be used to start Kodi."
+msgstr "เรียกใช้ ตัวช่วย  Kodi เสมอ เพื่อให้รีโมทสามารถใช้งานได้ เพื่อเริ่มต้น Kodi."
 
 msgctxt "#36418"
-msgid "No info available yet."
-msgstr "ยังไม่มีข้อมูล."
+msgid "Specify the delay between button sequences on a universal remote."
+msgstr "กำหนดช่วงหน่วงเวลา ระหว่างลำดับการกดปุ่ม บนรีโมทเอนกประสงค์."
 
 msgctxt "#36419"
 msgid "Define locations used for retrieving weather information."
 msgstr "กำหนดตำแหน่งพื้นที่ ที่ใช้เพื่อรับข้อมูลสภาพอากาศ."
 
-msgctxt "#36420"
-msgid "No info available yet."
-msgstr "ยังไม่มีข้อมูล."
-
 msgctxt "#36421"
-msgid "Bypassing VDPAU mixer saves resources on low power systems but slightly reduces picture quality"
-msgstr "ข้ามผ่านกระบวนการผสมวิดีโอ VDPAU เพื่อลดทรัพยากรบนระบบที่ใช้พลังงานต่ำ แต่จะลดคุณภาพของภาพลงเล็กน้อย"
+msgid "Bypassing VDPAU mixer saves resources on low power systems but slightly reduces picture quality."
+msgstr "การข้าม ตัวผสม VDPAU ช่วยประหยัดทรัพยากรในระบบประหยัดพลังงาน แต่จะลดคุณภาพของภาพลงเล็กน้อย."
 
 msgctxt "#36422"
-msgid "Enable hardware video decode using AMLogic decoder"
-msgstr "เปิดใช้ การถอดรหัสด้วยฮาร์ดแวร์ โดยใช้ตัวถอดรหัส AMLogic"
+msgid "Enable hardware video decode using AMLogic decoder."
+msgstr "เปิดใช้งาน การถอดรหัสวิดีโอด้วยฮาร์ดแวร์ โดยใช้ ตัวถอดรหัส AMLogic."
 
-msgctxt "#36500"
-msgid "Stereoscopic mode (current)"
-msgstr "โหมดภาพสามมิติ (ปัจจุบัน)"
+msgctxt "#36424"
+msgid "Select what will happen when an EPG item is selected: [Show context menu] will trigger the contextual menu from where you can choose further actions; [Switch to channel] will instantly tune to the related channel; [Show information] will display a detailed information with plot and further options; [Record] will create a recording timer for the selected item."
+msgstr "เลือกการกระทำเมื่อรายการ EPG ถูกเลือก: [แสดงเมนูเนื้อหา] จะเปิดเมนูเนื้อหาจากการกระทำที่คุณสามารถเลือกใช้ต่อไป; [เปลียนไปยังช่องรายการ] จะปรับไปยังช่องรายการนั้นทันที; [แสดงข้อมูล] จะแสดงรายละเอียด ที่ประกอบด้วยเนื้อเรื่องย่อและตัวเลือกเพิ่มเติม; [บันทึก] จะสร้างตัวตั้งเวลาบันทึก สำหรับรายการที่เลือก."
 
-msgctxt "#36501"
-msgid "Stereoscopic mode"
-msgstr "โหมดภาพสามมิติ"
+msgctxt "#36425"
+msgid "Show context menu"
+msgstr "แสดงเมนูเนื้อหา"
+
+msgctxt "#36426"
+msgid "Switch to channel"
+msgstr "เปลี่ยนช่อง"
+
+msgctxt "#36427"
+msgid "Show information"
+msgstr "แสดงข้อมูล"
+
+msgctxt "#36428"
+msgid "Record"
+msgstr "บันทึก"
+
+msgctxt "#36429"
+msgid "Select this if the audio out connection only supports multichannel audio as Dolby Digital 5.1, such as an SPDIF connection.  If your system supports LPCM multichannel sound via HDMI, leave this disabled."
+msgstr "เลือกตรงนี้ ถ้าการเชื่อมต่อสัญญาณเสียงออก รองรับเพียงหลายช่องเสียงในแบบ Dolby Digital 5.1, อย่างเช่น การเชื่อมต่อแบบ SPDIF.  ถ้าระบบของคุณรองรับหลายช่องเสียงแบบ LPCM ผ่าน HDMI, ปล่อยตรงนี้ ให้ปิดใช้งาน."
+
+msgctxt "#36430"
+msgid "Configure how video processing will be accelerated. This includes things like decoding and scaling."
+msgstr "กำหนดวิธีการประมวลผลวิดีโอ ที่จะถูกเร่งความเร็ว. ซึ่งรวมถึงบางสิ่ง เช่น การถอดรหัสและปรับขนาด."
+
+msgctxt "#36431"
+msgid "Defines whether video decoding should be performed in software (requires more CPU) or with hardware acceleration where possible."
+msgstr "ปรับแต่ง ว่าการถอดรหัสวิดีโอจะถูกดำเนินการด้วยซอฟท์แวร์ (ใช้ ซีพียู มากขึ้น) หรือด้วยการเร่งความเร็วด้วยฮาร์ดแวร์ เมื่อเป็นไปได้."
 
 msgctxt "#36502"
-msgid "None"
-msgstr "ไม่ใช้"
+msgid "Disabled"
+msgstr "ปิดการใช้งาน"
 
 msgctxt "#36503"
 msgid "Over/Under"
@@ -11981,21 +12657,13 @@ msgctxt "#36508"
 msgid "Hardware Based"
 msgstr "ใช้ฮาร์ดแวร์"
 
-msgctxt "#36509"
-msgid "Monoscopic - 2D"
-msgstr "มุมมองเดียว - 2มิติ"
-
-msgctxt "#36520"
-msgid "Playback mode of stereoscopic videos"
-msgstr "โหมดการเล่น ของวิดีโอแบบสามมิติ"
-
 msgctxt "#36521"
 msgid "Ask me"
 msgstr "ถามฉัน"
 
-msgctxt "#36522"
-msgid "Use preferred mode"
-msgstr "ใช้โหมดที่กำหนดไว้"
+msgctxt "#36523"
+msgid "Maximum sampling rate for spdif or sampling rate for fixed output configuration."
+msgstr "อัตราสุ่มสูงสุดสำหรับ spdif หรือ อัตราสุ่มสำหรับการกำหนดค่าสัญญาณออกแบบ ค่าแน่นอน."
 
 msgctxt "#36524"
 msgid "Preferred mode"
@@ -12005,26 +12673,6 @@ msgctxt "#36525"
 msgid "Same as movie (autodetect)"
 msgstr "แบบเดียวกับภาพยนตร์ (ตรวจสอบอัตโนมัติ)"
 
-msgctxt "#36526"
-msgid "Disable stereoscopic mode when playback is stopped"
-msgstr "ปิดใช้งาน โหมดภาพสามมิติ เมื่อจบการเล่น"
-
-msgctxt "#36527"
-msgid "This video is stereoscopic. Select playback mode"
-msgstr "วิดีโอนี้เป็นแบบสามมิติ. จงเลือกโหมดการเล่น"
-
-msgctxt "#36528"
-msgid "Select stereoscopic mode"
-msgstr "เลือก โหมดภาพสามมิติ"
-
-msgctxt "#36529"
-msgid "Mono (2D)"
-msgstr "ภาพเดียว (2มิติ)"
-
-msgctxt "#36530"
-msgid "Preferred mode"
-msgstr "โหมดที่กำหนดไว้"
-
 msgctxt "#36531"
 msgid "Select alternate mode..."
 msgstr "เลือกโหมดอื่น..."
@@ -12033,29 +12681,9 @@ msgctxt "#36532"
 msgid "Same as movie"
 msgstr "แบบเดียวกับภาพยนตร์"
 
-msgctxt "#36535"
-msgid "Stereoscopic mode of video"
-msgstr "โหมดภาพสามมิติ ของวิดีโอ"
-
-msgctxt "#36536"
-msgid "Stereoscopic mode inverted"
-msgstr "โหมดภาพสามมิติ กลับด้าน"
-
-msgctxt "#36537"
-msgid "No info available yet."
-msgstr "ยังไม่มีข้อมูล."
-
-msgctxt "#36538"
-msgid "No info available yet."
-msgstr "ยังไม่มีข้อมูล."
-
 msgctxt "#36539"
-msgid "No info available yet."
-msgstr "ยังไม่มีข้อมูล."
-
-msgctxt "#36540"
-msgid "No info available yet."
-msgstr "ยังไม่มีข้อมูล."
+msgid "Changes the stereoscopic 3D mode of the user interface."
+msgstr "เปลี่ยนโหมดการแสดงผล 3 มิติ ของส่วนติดต่อผู้ใช้."
 
 msgctxt "#36541"
 msgid "Allows volume control from AirPlay clients."
@@ -12072,6 +12700,102 @@ msgstr "เปิดใช้ตัวเลือกนี้ จะทำใ�
 msgctxt "#36544"
 msgid "Enable hardware decoding of video files."
 msgstr "เปิดใช้งาน การถอดรหัสด้วยฮาร์ดแวร์สำหรับไฟล์วิดีโอ."
+
+msgctxt "#36546"
+msgid "Sets the visual depth of subtitles for stereoscopic 3D videos. The higher the value, the closer the subtitles will appear to the viewer."
+msgstr "กำหนดความลึกเสมือนของคำบรรยาย สำหรับวิดีโอแบบ 3 มิติ. ค่าที่สูงขึ้น, จะทำให้คำบรรยายปรากฎใกล้ขึ้นในมุมมอง."
+
+msgctxt "#36547"
+msgid "Use higher quality textures for covers and fanart (uses more memory)"
+msgstr "ใช้พื้นผิวคุณภาพสูงขึ้น สำหรับปกและแฟนอาร์ต (ใช้หน่วยความจำมากขึ้น)"
+
+msgctxt "#36600"
+msgid "Category containing the settings for how the music library is handled."
+msgstr "หมวดหมู่ที่ประกอบด้วยการตั้งค่า สำหรับวิธีจัดการ คลังข้อมูลเพลง."
+
+msgctxt "#36601"
+msgid "Category containing settings for how music file lists are handled."
+msgstr "หมวดหมู่ที่ประกอบด้วยการตั้งค่า สำหรับวิธีจัดการ รายการแฟ้มเพลง."
+
+msgctxt "#36602"
+msgid "Category containing settings for how the AirPlay service is handled."
+msgstr "หมวดหมู่ที่ประกอบด้วยการตั้งค่า สำหรับวิธีจัดการ บริการ AirPlay."
+
+msgctxt "#36603"
+msgid "Category containing settings for how video output is handled."
+msgstr "หมวดหมู่ที่ประกอบด้วยการตั้งค่า สำหรับวิธีจัดการ การส่งออกสัญญาณวิดีโอ."
+
+msgctxt "#36900"
+msgid "movie"
+msgstr "ภาพยนตร์"
+
+msgctxt "#36901"
+msgid "movies"
+msgstr "ภาพยนตร์"
+
+msgctxt "#36902"
+msgid "TV show"
+msgstr "รายการทีวี"
+
+msgctxt "#36903"
+msgid "TV shows"
+msgstr "รายการทีวี"
+
+msgctxt "#36906"
+msgid "episode"
+msgstr "ตอน"
+
+msgctxt "#36907"
+msgid "episodes"
+msgstr "ตอน"
+
+msgctxt "#36910"
+msgid "set"
+msgstr "ตั้งค่า"
+
+msgctxt "#36911"
+msgid "sets"
+msgstr "ตั้งค่า"
+
+msgctxt "#36912"
+msgid "video"
+msgstr "วิดีโอ"
+
+msgctxt "#36913"
+msgid "videos"
+msgstr "วิดีโอ"
+
+msgctxt "#36914"
+msgid "music"
+msgstr "เพลง"
+
+msgctxt "#36915"
+msgid "music"
+msgstr "เพลง"
+
+msgctxt "#36916"
+msgid "artist"
+msgstr "ศิลปิน"
+
+msgctxt "#36917"
+msgid "artists"
+msgstr "ศิลปิน"
+
+msgctxt "#36918"
+msgid "album"
+msgstr "อัลบั้ม"
+
+msgctxt "#36919"
+msgid "albums"
+msgstr "อัลบั้ม"
+
+msgctxt "#36920"
+msgid "song"
+msgstr "เพลง"
+
+msgctxt "#36921"
+msgid "songs"
+msgstr "เพลง"
 
 msgctxt "#37000"
 msgid "(Visually Impaired)"
@@ -12116,3 +12840,39 @@ msgstr "ส่งออกเสียง ทั้งคู่"
 msgctxt "#37018"
 msgid "Boost centre channel when downmixing"
 msgstr "เร่งเสียง ช่องสัญญาณเซ็นเตอร์ เมื่อรวมช่องสัญญาณ"
+
+msgctxt "#37020"
+msgid "Enable higher colour depth artwork"
+msgstr "เปิดใช้ ความลึกของระดับสีที่สูงขึ้น สำหรับงานศิลป์"
+
+msgctxt "#37021"
+msgid "Set GUI resolution limit"
+msgstr "กำหนด ความละเอียด GUI แบบจำกัด"
+
+msgctxt "#37022"
+msgid "UPnP Player"
+msgstr "ตัวเล่น UPnP"
+
+msgctxt "#37023"
+msgid "Do you wish to stop playback on the remote device?"
+msgstr "คุณต้องการที่จะหยุดการเล่น บนอุปกรณ์ระยะไกล ใช่หรือไม่?"
+
+msgctxt "#37024"
+msgid "Select this if the audio out connection only supports multichannel audio as Dolby Digital 5.1, this allows multichannel audio such as AAC5.1 or FLAC5.1 to be listened to in 5.1 surround sound. Note - Not recommended on Pi as this requires a lot of CPU."
+msgstr "เลือกส่วนนี้ ถ้าการเชื่อมต่อสัญญาณเสียงออก รองรับการเชื่อมต่อหลายช่องสัญญาณเสียงแบบ Dolby Digital 5.1 เท่านั้น, ซึ่งจะทำให้เสียงหลายช่องสัญญาณ เช่น AAC5.1 or FLAC5.1 สามารถรับฟังได้ในแบบ 5.1 รอบทิศทาง. ข้อควรจำ - ไม่แนะนำในการใช้งานบน Pi เพราะต้องใช้ซีพียูบางส่วน."
+
+msgctxt "#37026"
+msgid "Auto"
+msgstr "อัตโนมัติ"
+
+msgctxt "#37027"
+msgid "540"
+msgstr "540"
+
+msgctxt "#37028"
+msgid "720"
+msgstr "720"
+
+msgctxt "#37029"
+msgid "900"
+msgstr "900"

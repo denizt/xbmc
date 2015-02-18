@@ -36,7 +36,7 @@ static void libass_log(int level, const char *fmt, va_list args, void *data)
 {
   if(level >= 5)
     return;
-  CStdString log = StringUtils::FormatV(fmt, args);
+  std::string log = StringUtils::FormatV(fmt, args);
   CLog::Log(LOGDEBUG, "CDVDSubtitlesLibass: [ass] %s", log.c_str());
 }
 
@@ -55,7 +55,7 @@ CDVDSubtitlesLibass::CDVDSubtitlesLibass()
   }
 
   //Setting the font directory to the temp dir(where mkv fonts are extracted to)
-  CStdString strPath = "special://temp/fonts/";
+  std::string strPath = "special://temp/fonts/";
 
   CLog::Log(LOGINFO, "CDVDSubtitlesLibass: Creating ASS library structure");
   m_library  = m_dll.ass_library_init();
@@ -136,7 +136,7 @@ bool CDVDSubtitlesLibass::DecodeDemuxPkt(char* data, int size, double start, dou
   return true;
 }
 
-bool CDVDSubtitlesLibass::CreateTrack(char* buf, int size)
+bool CDVDSubtitlesLibass::CreateTrack(char* buf, size_t size)
 {
   CSingleLock lock(m_section);
   if(!m_library)

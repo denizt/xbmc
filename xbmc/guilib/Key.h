@@ -28,7 +28,8 @@
  *
  */
 
-#include "utils/StdString.h"
+#include <string>
+#include <stdint.h>
 
 // Reserved 0 - 255
 //  XBIRRemote.h
@@ -72,15 +73,31 @@
 #define KEY_BUTTON_LEFT_THUMB_STICK_LEFT    282
 #define KEY_BUTTON_LEFT_THUMB_STICK_RIGHT   283
 
-#define KEY_VMOUSE          0xEFFF
-
 // 0xF000 -> 0xF200 is reserved for the keyboard; a keyboard press is either
 #define KEY_VKEY            0xF000 // a virtual key/functional key e.g. cursor left
 #define KEY_ASCII           0xF100 // a printable character in the range of TRUE ASCII (from 0 to 127) // FIXME make it clean and pure unicode! remove the need for KEY_ASCII
 #define KEY_UNICODE         0xF200 // another printable character whose range is not included in this KEY code
 
-// 0xE000 -> 0xE0FF is reserved for mouse actions
-#define KEY_MOUSE           0xE000
+// 0xE000 -> 0xEFFF is reserved for mouse actions
+#define KEY_VMOUSE          0xEFFF
+
+#define KEY_MOUSE_START            0xE000
+#define KEY_MOUSE_CLICK            0xE000
+#define KEY_MOUSE_RIGHTCLICK       0xE001
+#define KEY_MOUSE_MIDDLECLICK      0xE002
+#define KEY_MOUSE_DOUBLE_CLICK     0xE010
+#define KEY_MOUSE_LONG_CLICK       0xE020
+#define KEY_MOUSE_WHEEL_UP         0xE101
+#define KEY_MOUSE_WHEEL_DOWN       0xE102
+#define KEY_MOUSE_MOVE             0xE103
+#define KEY_MOUSE_DRAG             0xE104
+#define KEY_MOUSE_DRAG_START       0xE105
+#define KEY_MOUSE_DRAG_END         0xE106
+#define KEY_MOUSE_RDRAG            0xE107
+#define KEY_MOUSE_RDRAG_START      0xE108
+#define KEY_MOUSE_RDRAG_END        0xE109
+#define KEY_MOUSE_NOOP             0xEFFF
+#define KEY_MOUSE_END              0xEFFF
 
 // 0xD000 -> 0xD0FF is reserved for WM_APPCOMMAND messages
 #define KEY_APPCOMMAND      0xD000
@@ -200,6 +217,8 @@
 #define ACTION_CHAPTER_OR_BIG_STEP_FORWARD       97 // Goto the next chapter, if not available perform a big step forward
 #define ACTION_CHAPTER_OR_BIG_STEP_BACK          98 // Goto the previous chapter, if not available perform a big step back
 
+#define ACTION_CYCLE_SUBTITLE         99 // switch to next subtitle of movie, but will not enable/disable the subtitles. Can be used in videoFullScreen.xml window id=2005
+
 #define ACTION_MOUSE_START            100
 #define ACTION_MOUSE_LEFT_CLICK       100
 #define ACTION_MOUSE_RIGHT_CLICK      101
@@ -209,6 +228,7 @@
 #define ACTION_MOUSE_WHEEL_DOWN       105
 #define ACTION_MOUSE_DRAG             106
 #define ACTION_MOUSE_MOVE             107
+#define ACTION_MOUSE_LONG_CLICK       108
 #define ACTION_MOUSE_END              109
 
 #define ACTION_BACKSPACE          110
@@ -235,7 +255,6 @@
 #define ACTION_ANALOG_SEEK_BACK     125 // seeks backward, and displays the seek bar.
 
 #define ACTION_VIS_PRESET_SHOW        126
-#define ACTION_VIS_PRESET_LIST        127
 #define ACTION_VIS_PRESET_NEXT        128
 #define ACTION_VIS_PRESET_PREV        129
 #define ACTION_VIS_PRESET_LOCK        130
@@ -332,6 +351,9 @@
 #define ACTION_SETTINGS_RESET         241
 #define ACTION_SETTINGS_LEVEL_CHANGE  242
 
+#define ACTION_TRIGGER_OSD            243 // show autoclosing OSD. Can b used in videoFullScreen.xml window id=2005
+#define ACTION_INPUT_TEXT             244
+
 // touch actions
 #define ACTION_TOUCH_TAP              401
 #define ACTION_TOUCH_TAP_TEN          410
@@ -380,10 +402,10 @@ class CKey;
 class CAction
 {
 public:
-  CAction(int actionID, float amount1 = 1.0f, float amount2 = 0.0f, const CStdString &name = "", unsigned int holdTime = 0);
+  CAction(int actionID, float amount1 = 1.0f, float amount2 = 0.0f, const std::string &name = "", unsigned int holdTime = 0);
   CAction(int actionID, wchar_t unicode);
-  CAction(int actionID, unsigned int state, float posX, float posY, float offsetX, float offsetY, const CStdString &name = "");
-  CAction(int actionID, const CStdString &name, const CKey &key);
+  CAction(int actionID, unsigned int state, float posX, float posY, float offsetX, float offsetY, const std::string &name = "");
+  CAction(int actionID, const std::string &name, const CKey &key);
   CAction(int actionID, const std::string &name);
 
   /*! \brief Identifier of the action
@@ -401,7 +423,17 @@ public:
   /*! \brief Human-readable name of the action
    \return name of the action
    */
-  const CStdString &GetName() const { return m_name; };
+  const std::string &GetName() const { return m_name; };
+  
+  /*! \brief Text of the action if any
+   \return text payload of this action.
+   */
+  const std::string &GetText() const { return m_text; };
+  
+  /*! \brief Set the text payload of the action
+   \param text to be set
+   */
+  void SetText(const std::string &text) { m_text = text; };
 
   /*! \brief Get an amount associated with this action
    \param zero-based index of amount to retrieve, defaults to 0
@@ -431,7 +463,7 @@ public:
 
 private:
   int          m_id;
-  CStdString   m_name;
+  std::string   m_name;
 
   static const unsigned int max_amounts = 4; // Must be at least 4.
   float        m_amount[max_amounts];
@@ -440,6 +472,7 @@ private:
   unsigned int m_holdTime;
   unsigned int m_buttonCode;
   wchar_t      m_unicode;
+  std::string  m_text;
 };
 
 /*!

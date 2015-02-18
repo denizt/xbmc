@@ -4,7 +4,7 @@
 */
 
 #ifndef GUI_CONTROL_FACTORY_H
-#define GIU_CONTROL_FACTORY_H
+#define GUI_CONTROL_FACTORY_H
 
 #pragma once
 
@@ -51,13 +51,13 @@ public:
    \param type name of the control
    \return type of control
    */
-  static CGUIControl::GUICONTROLTYPES TranslateControlType(const CStdString &type);
+  static CGUIControl::GUICONTROLTYPES TranslateControlType(const std::string &type);
 
   /*! \brief translate from control type to control name
    \param type type of the control
    \return name of control
    */
-  static CStdString TranslateControlType(CGUIControl::GUICONTROLTYPES type);
+  static std::string TranslateControlType(CGUIControl::GUICONTROLTYPES type);
 
   static bool GetAspectRatio(const TiXmlNode* pRootNode, const char* strTag, CAspectRatio &aspectRatio);
   static bool GetInfoTexture(const TiXmlNode* pRootNode, const char* strTag, CTextureInfo &image, CGUIInfoLabel &info, int parentID);
@@ -77,20 +77,20 @@ public:
    \return true if a valid info label was read, false otherwise
    */
   static bool GetInfoLabelFromElement(const TiXmlElement *element, CGUIInfoLabel &infoLabel, int parentID);
-  static void GetInfoLabel(const TiXmlNode *pControlNode, const CStdString &labelTag, CGUIInfoLabel &infoLabel, int parentID);
-  static void GetInfoLabels(const TiXmlNode *pControlNode, const CStdString &labelTag, std::vector<CGUIInfoLabel> &infoLabels, int parentID);
+  static void GetInfoLabel(const TiXmlNode *pControlNode, const std::string &labelTag, CGUIInfoLabel &infoLabel, int parentID);
+  static void GetInfoLabels(const TiXmlNode *pControlNode, const std::string &labelTag, std::vector<CGUIInfoLabel> &infoLabels, int parentID);
   static bool GetColor(const TiXmlNode* pRootNode, const char* strTag, color_t &value);
   static bool GetInfoColor(const TiXmlNode* pRootNode, const char* strTag, CGUIInfoColor &value, int parentID);
-  static CStdString FilterLabel(const CStdString &label);
-  static bool GetConditionalVisibility(const TiXmlNode* control, CStdString &condition);
+  static std::string FilterLabel(const std::string &label);
+  static bool GetConditionalVisibility(const TiXmlNode* control, std::string &condition);
   static bool GetActions(const TiXmlNode* pRootNode, const char* strTag, CGUIAction& actions);
-  static void GetRectFromString(const CStdString &string, CRect &rect);
+  static void GetRectFromString(const std::string &string, CRect &rect);
   static bool GetHitRect(const TiXmlNode* pRootNode, CRect &rect);
-  static bool GetScroller(const TiXmlNode *pControlNode, const CStdString &scrollerTag, CScroller& scroller);
+  static bool GetScroller(const TiXmlNode *pControlNode, const std::string &scrollerTag, CScroller& scroller);
 private:
-  static CStdString GetType(const TiXmlElement *pControlNode);
-  static bool GetConditionalVisibility(const TiXmlNode* control, CStdString &condition, CStdString &allowHiddenFocus);
-  bool GetString(const TiXmlNode* pRootNode, const char* strTag, CStdString& strString);
+  static std::string GetType(const TiXmlElement *pControlNode);
+  static bool GetConditionalVisibility(const TiXmlNode* control, std::string &condition, std::string &allowHiddenFocus);
+  bool GetString(const TiXmlNode* pRootNode, const char* strTag, std::string& strString);
   static bool GetFloatRange(const TiXmlNode* pRootNode, const char* strTag, float& iMinValue, float& iMaxValue, float& iIntervalValue);
   static bool GetIntRange(const TiXmlNode* pRootNode, const char* strTag, int& iMinValue, int& iMaxValue, int& iIntervalValue);
 
@@ -138,7 +138,8 @@ private:
    \param node the <control> node describing the control.
    \param leftTag the tag that holds the left field.
    \param rightTag the tag that holds the right field.
-   \param centerTag the tag that holds the right field.
+   \param centerLeftTag the tag that holds the center left field.
+   \param centerRightTag the tag that holds the center right field.
    \param widthTag the tag holding the width.
    \param parentSize the size of the parent, for relative sizing.
    \param pos [out] the discovered position.
@@ -147,7 +148,8 @@ private:
    \return true if we can successfully derive the position and size, false otherwise.
    \sa GetDimension, GetPosition, ParsePosition.
    */
-  static bool GetDimensions(const TiXmlNode *node, const char *leftTag, const char *rightTag, const char *centerTag,
-                            const char *widthTag, const float parentSize, float &pos, float &width, float &min_width);
+  static bool GetDimensions(const TiXmlNode *node, const char *leftTag, const char *rightTag, const char *centerLeftTag,
+                            const char *centerRightTag, const char *widthTag, const float parentSize, float &left,
+                            float &width, float &min_width);
 };
 #endif

@@ -1,14 +1,14 @@
-# XBMC Media Center language file
+# Kodi Media Center language file
 # Addon Name: OpenGL Spectrum
 # Addon id: visualization.glspectrum
-# Addon Provider: Team XBMC
+# Addon Provider: Team-Kodi
 msgid ""
 msgstr ""
 "Project-Id-Version: XBMC Main\n"
 "Report-Msgid-Bugs-To: http://trac.xbmc.org/\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: XBMC Translation Team\n"
+"Last-Translator: Kodi Translation Team\n"
 "Language-Team: Latvian (http://www.transifex.com/projects/p/xbmc-main/language/lv/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,11 +18,11 @@ msgstr ""
 
 msgctxt "#30000"
 msgid "Mode"
-msgstr "Veids"
+msgstr "Režīms"
 
 msgctxt "#30001"
 msgid "Filled"
-msgstr "Pildīts"
+msgstr "Aizpildīts"
 
 msgctxt "#30002"
 msgid "Wireframe"
@@ -42,7 +42,7 @@ msgstr "Mazs"
 
 msgctxt "#30006"
 msgid "Default"
-msgstr "Noklusētais"
+msgstr "Noklusējums"
 
 msgctxt "#30007"
 msgid "Big"
@@ -58,7 +58,7 @@ msgstr "Ātrums"
 
 msgctxt "#30010"
 msgid "Very Slow"
-msgstr "Ļoti mazs"
+msgstr "Ļoti lēns"
 
 msgctxt "#30011"
 msgid "Slow"
@@ -66,7 +66,7 @@ msgstr "Lēns"
 
 msgctxt "#30012"
 msgid "Default"
-msgstr "Noklusētais"
+msgstr "Noklusējums"
 
 msgctxt "#30013"
 msgid "Fast"

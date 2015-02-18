@@ -138,6 +138,9 @@ public:
 /* \brief copy database */
   virtual int copy(const char *new_name) { return -1; }
 
+/* \brief drop all extra analytics from database */
+  virtual int drop_analytics(void) { return -1; }
+
   virtual bool exists(void) { return false; }
 
 /* virtual methods for transaction */
@@ -306,7 +309,7 @@ public:
   virtual int  exec() = 0;
   virtual const void* getExecRes()=0;
 /* as open, but with our query exept Sql */
-  virtual bool query(const char *sql) = 0;
+  virtual bool query(const std::string &sql) = 0;
 /* Close SQL Query*/
   virtual void close();
 /* This function looks for field Field_name with value equal Field_value

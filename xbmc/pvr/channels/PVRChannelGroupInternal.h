@@ -21,6 +21,7 @@
  */
 
 #include "PVRChannelGroup.h"
+#include "utils/Observer.h"
 
 namespace PVR
 {
@@ -29,7 +30,7 @@ namespace PVR
 
   /** XBMC's internal group, the group containing all channels */
 
-  class CPVRChannelGroupInternal : public CPVRChannelGroup
+  class CPVRChannelGroupInternal : public CPVRChannelGroup, public Observer
   {
     friend class CPVRChannelGroups;
     friend class CPVRDatabase;
@@ -45,18 +46,13 @@ namespace PVR
 
     virtual ~CPVRChannelGroupInternal(void);
 
+    virtual void Notify(const Observable &obs, const ObservableMessage msg);
+
     /**
      * @brief The amount of channels in this container.
      * @return The amount of channels in this container.
      */
     int GetNumHiddenChannels() const { return m_iHiddenChannels; }
-
-    /*!
-     * @brief Add or update a channel in this table.
-     * @param channel The channel to update.
-     * @return True if the channel was updated and persisted.
-     */
-    bool UpdateChannel(const CPVRChannel &channel);
 
     /*!
      * @brief Add a channel to this internal group.

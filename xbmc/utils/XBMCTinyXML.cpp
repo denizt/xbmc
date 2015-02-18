@@ -23,6 +23,7 @@
 #include "utils/StringUtils.h"
 #include "utils/CharsetConverter.h"
 #include "utils/CharsetDetection.h"
+#include "utils/Utf8Utils.h"
 #include "LangInfo.h"
 #include "RegExp.h"
 #include "utils/log.h"
@@ -68,7 +69,7 @@ bool CXBMCTinyXML::LoadFile(const std::string& _filename, TiXmlEncoding encoding
   XFILE::CFile file;
   XFILE::auto_buffer buffer;
 
-  if (!file.LoadFile(value, buffer))
+  if (file.LoadFile(value, buffer) <= 0)
   {
     SetError(TIXML_ERROR_OPENING_FILE, NULL, NULL, TIXML_ENCODING_UNKNOWN);
     return false;
@@ -121,8 +122,7 @@ bool CXBMCTinyXML::SaveFile(const std::string& filename) const
   {
     TiXmlPrinter printer;
     Accept(&printer);
-    file.Write(printer.CStr(), printer.Size());
-    return true;
+    return file.Write(printer.CStr(), printer.Size()) == printer.Size();
   }
   return false;
 }
@@ -156,19 +156,52 @@ bool CXBMCTinyXML::Parse(const std::string& data, TiXmlEncoding encoding /*= TIX
 
   std::string detectedCharset;
   if (CCharsetDetection::DetectXmlEncoding(data, detectedCharset) && TryParse(data, detectedCharset))
+  {
+    if (!m_SuggestedCharset.empty())
+      CLog::Log(LOGWARNING, "%s: \"%s\" charset was used instead of suggested charset \"%s\" for %s", __FUNCTION__, m_UsedCharset.c_str(), m_SuggestedCharset.c_str(),
+                  (value.empty() ? "XML data" : ("file \"" + value + "\"").c_str()));
+
     return true;
+  }
 
   // check for valid UTF-8
-  if (m_SuggestedCharset != "UTF-8" && detectedCharset != "UTF-8" && g_charsetConverter.isValidUtf8(data) &&
+  if (m_SuggestedCharset != "UTF-8" && detectedCharset != "UTF-8" && CUtf8Utils::isValidUtf8(data) &&
       TryParse(data, "UTF-8"))
-      return true;
+  {
+    if (!m_SuggestedCharset.empty())
+      CLog::Log(LOGWARNING, "%s: \"%s\" charset was used instead of suggested charset \"%s\" for %s", __FUNCTION__, m_UsedCharset.c_str(), m_SuggestedCharset.c_str(),
+                  (value.empty() ? "XML data" : ("file \"" + value + "\"").c_str()));
+    else if (!detectedCharset.empty())
+      CLog::Log(LOGWARNING, "%s: \"%s\" charset was used instead of detected charset \"%s\" for %s", __FUNCTION__, m_UsedCharset.c_str(), detectedCharset.c_str(),
+                  (value.empty() ? "XML data" : ("file \"" + value + "\"").c_str()));
+    return true;
+  }
 
   // fallback: try user GUI charset
   if (TryParse(data, g_langInfo.GetGuiCharSet()))
+  {
+    if (!m_SuggestedCharset.empty())
+      CLog::Log(LOGWARNING, "%s: \"%s\" charset was used instead of suggested charset \"%s\" for %s", __FUNCTION__, m_UsedCharset.c_str(), m_SuggestedCharset.c_str(),
+                  (value.empty() ? "XML data" : ("file \"" + value + "\"").c_str()));
+    else if (!detectedCharset.empty())
+      CLog::Log(LOGWARNING, "%s: \"%s\" charset was used instead of detected charset \"%s\" for %s", __FUNCTION__, m_UsedCharset.c_str(), detectedCharset.c_str(),
+                  (value.empty() ? "XML data" : ("file \"" + value + "\"").c_str()));
     return true;
+  }
 
   // can't detect correct data charset, try to process data as is
-  return InternalParse(data, TIXML_ENCODING_UNKNOWN);
+  if (InternalParse(data, TIXML_ENCODING_UNKNOWN))
+  {
+    if (!m_SuggestedCharset.empty())
+      CLog::Log(LOGWARNING, "%s: Processed %s as unknown encoding instead of suggested \"%s\"", __FUNCTION__, 
+                  (value.empty() ? "XML data" : ("file \"" + value + "\"").c_str()), m_SuggestedCharset.c_str());
+    else if (!detectedCharset.empty())
+      CLog::Log(LOGWARNING, "%s: Processed %s as unknown encoding instead of detected \"%s\"", __FUNCTION__,
+                  (value.empty() ? "XML data" : ("file \"" + value + "\"").c_str()), detectedCharset.c_str());
+    return true;
+  }
+
+  return false;
 }
 
 bool CXBMCTinyXML::TryParse(const std::string& data, const std::string& tryDataCharset)
@@ -178,7 +211,9 @@ bool CXBMCTinyXML::TryParse(const std::string& data, const std::string& tryDataC
   else if (!tryDataCharset.empty())
   {
     std::string converted;
-    if (!g_charsetConverter.ToUtf8(tryDataCharset, data, converted) || converted.empty())
+    /* some wrong conversions can leave US-ASCII XML header and structure untouched but break non-English data
+     * so conversion must fail on wrong character and then other encodings will be tried */
+    if (!g_charsetConverter.ToUtf8(tryDataCharset, data, converted, true) || converted.empty())
       return false; // can't convert data
 
     InternalParse(converted, TIXML_ENCODING_UTF8);
@@ -196,10 +231,6 @@ bool CXBMCTinyXML::TryParse(const std::string& data, const std::string& tryDataC
   }
 
   m_UsedCharset = tryDataCharset;
-  if (!m_SuggestedCharset.empty() && m_UsedCharset != m_SuggestedCharset)
-    CLog::Log(LOGWARNING, "%s: Using \"%s\" charset instead of \"%s\" charset%s", __FUNCTION__, m_UsedCharset.c_str(), m_SuggestedCharset.c_str(),
-                (value.empty() ? "" : (" for file " + value).c_str()));
-
   return true;
 }
 
@@ -211,7 +242,7 @@ bool CXBMCTinyXML::InternalParse(const std::string& rawdata, TiXmlEncoding encod
     return (TiXmlDocument::Parse(rawdata.c_str(), NULL, encoding) != NULL); // nothing to fix, process data directly
 
   std::string data(rawdata);
-  CRegExp re(false, false, "^&(amp|lt|gt|quot|apos|#x[a-fA-F0-9]{1,4}|#[0-9]{1,5});.*");
+  CRegExp re(false, CRegExp::asciiOnly, "^&(amp|lt|gt|quot|apos|#x[a-fA-F0-9]{1,4}|#[0-9]{1,5});.*");
   do
   {
     if (re.RegFind(data, pos, MAX_ENTITY_LENGTH) < 0)

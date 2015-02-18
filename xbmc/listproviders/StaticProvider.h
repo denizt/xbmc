@@ -1,6 +1,6 @@
 /*
  *      Copyright (C) 2013 Team XBMC
- *      http://www.xbmc.org
+ *      http://xbmc.org
  *
  *  This Program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -30,7 +30,7 @@ public:
   CStaticListProvider(const std::vector<CGUIStaticItemPtr> &items); // for python
   virtual ~CStaticListProvider();
 
-  virtual bool Update(bool refresh);
+  virtual bool Update(bool forceRefresh);
   virtual void Fetch(std::vector<CGUIListItemPtr> &items) const;
   virtual bool OnClick(const CGUIListItemPtr &item);
   virtual void SetDefaultItem(int item, bool always);
